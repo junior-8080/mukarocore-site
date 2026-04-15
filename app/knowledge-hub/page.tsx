@@ -40,7 +40,7 @@ const publications = [
     title: "Cybersecurity Best Practices for Growing Businesses",
     category: "Tech",
     type: "Whitepaper",
-    author: "MukoraCore Security Team",
+    author: "MukaroCore Security Team",
     date: "January 2026",
     verified: true,
     downloads: 2103,
@@ -71,7 +71,7 @@ const news = [
     category: "Agriculture",
     date: "April 10, 2026",
     readTime: "3 min read",
-    excerpt: "MukoraCore Enterprise partners with leading agricultural institutions to deliver data-driven farming solutions.",
+    excerpt: "MukaroCore Enterprise partners with leading agricultural institutions to deliver data-driven farming solutions.",
   },
   {
     title: "Cloud Infrastructure Trends for 2026",
@@ -92,7 +92,7 @@ const news = [
 const events = [
   { title: "Digital Commerce Summit 2026", date: "May 15–17, 2026", location: "Nairobi Convention Center", type: "Conference", attendees: 500, status: "Upcoming" },
   { title: "AgriTech Innovation Workshop", date: "May 22, 2026", location: "Virtual Event", type: "Workshop", attendees: 150, status: "Upcoming" },
-  { title: "Small Business Tech Meetup", date: "April 28, 2026", location: "MukoraCore Office", type: "Meetup", attendees: 50, status: "Registration Open" },
+  { title: "Small Business Tech Meetup", date: "April 28, 2026", location: "MukaroCore Office", type: "Meetup", attendees: 50, status: "Registration Open" },
   { title: "Cybersecurity for Enterprises", date: "June 5, 2026", location: "Virtual Event", type: "Webinar", attendees: 200, status: "Upcoming" },
 ];
 
@@ -110,9 +110,9 @@ export default function KnowledgeHubPage() {
       {/* Hero */}
       <section className="relative bg-[#030712] border-b border-gray-800 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-orange-950/10" />
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-orange-500/6 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-green-500/8 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-amber-950/10" />
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-amber-500/6 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-emerald-500/8 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <motion.div
             initial={{ opacity: 0, y: 22 }}
@@ -120,7 +120,7 @@ export default function KnowledgeHubPage() {
             transition={{ duration: 0.65, ease }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center border border-orange-500/20 bg-orange-500/10 text-orange-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center border border-amber-500/20 bg-amber-500/10 text-amber-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
               Knowledge Hub
             </div>
             <h1 className="text-5xl font-bold mb-4 tracking-tight">The Authority</h1>
@@ -175,12 +175,12 @@ export default function KnowledgeHubPage() {
               <StaggerGrid className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {publications.map((pub, i) => (
                   <StaggerItem key={i}>
-                    <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-orange-500/30 transition-colors duration-200 group h-full flex flex-col">
+                    <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors duration-200 group h-full flex flex-col">
                       <div className="flex items-center gap-2 mb-3">
                         <Badge variant={categoryVariant[pub.category] ?? "secondary"}>{pub.category}</Badge>
                         <Badge variant="secondary">{pub.type}</Badge>
                         {pub.verified && (
-                          <div className="flex items-center gap-1 text-green-400 text-xs ml-auto">
+                          <div className="flex items-center gap-1 text-emerald-400 text-xs ml-auto">
                             <CheckCircle size={13} />
                             Verified
                           </div>
@@ -199,7 +199,7 @@ export default function KnowledgeHubPage() {
                           <Download size={13} />
                           {pub.downloads.toLocaleString()} downloads
                         </div>
-                        <button className="flex items-center gap-1.5 text-orange-400 hover:text-orange-300 text-xs font-medium transition-colors">
+                        <button className="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 text-xs font-medium transition-colors">
                           Read More <ExternalLink size={13} />
                         </button>
                       </div>
@@ -252,9 +252,9 @@ export default function KnowledgeHubPage() {
               <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {events.map((event, i) => (
                   <StaggerItem key={i}>
-                    <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-green-500/30 transition-colors duration-200 h-full flex flex-col">
+                    <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-emerald-500/30 transition-colors duration-200 h-full flex flex-col">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="inline-flex items-center border border-green-500/20 bg-green-500/10 text-green-400 text-xs font-semibold px-3 py-1 rounded-full">
+                        <span className="inline-flex items-center border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full">
                           {event.status}
                         </span>
                         <Badge variant="secondary">{event.type}</Badge>
@@ -282,14 +282,14 @@ export default function KnowledgeHubPage() {
       <FadeUp>
         <section className="bg-gray-900/30 border-y border-gray-800 py-16">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mx-auto mb-5">
-              <FileText className="text-orange-400" size={24} />
+            <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-5">
+              <FileText className="text-amber-400" size={24} />
             </div>
             <h2 className="text-2xl font-bold mb-3 tracking-tight">Contribute to the Knowledge Hub</h2>
             <p className="text-gray-400 mb-7">
               Share your research, publications, or host events through our verified submission portal.
             </p>
-            <Button className="bg-orange-600 hover:bg-orange-500">Submit Your Content</Button>
+            <Button className="bg-amber-600 hover:bg-amber-500">Submit Your Content</Button>
           </div>
         </section>
       </FadeUp>

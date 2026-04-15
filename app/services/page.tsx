@@ -11,7 +11,22 @@ import { FadeUp, StaggerGrid, StaggerItem } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Comprehensive Tech, Commerce, and Agri-Tech solutions for modern businesses.",
+  description: "Comprehensive Tech, Commerce, and Agri-Tech solutions for modern businesses in Africa. Managed IT, e-commerce platforms, precision farming, and more.",
+  keywords: [
+    "managed IT services Kenya",
+    "e-commerce solutions Africa",
+    "agri-tech solutions",
+    "cloud infrastructure Kenya",
+    "business technology Nairobi",
+    "digital commerce Africa",
+    "precision agriculture technology",
+    "MukaroCore services",
+  ],
+  openGraph: {
+    title: "Services | MukaroCore Enterprise",
+    description: "Comprehensive Tech, Commerce, and Agri-Tech solutions for modern businesses in Africa.",
+    url: "https://www.mukarocore.com/services",
+  },
 };
 
 const techServices = [
@@ -107,18 +122,18 @@ function ServiceCard({
   const Icon = service.icon;
   const iconStyles: Record<AccentColor, string> = {
     blue: "bg-blue-500/10 text-blue-400",
-    purple: "bg-purple-500/10 text-purple-400",
-    green: "bg-green-500/10 text-green-400",
+    purple: "bg-cyan-500/10 text-cyan-400",
+    green: "bg-emerald-500/10 text-emerald-400",
   };
   const checkStyles: Record<AccentColor, string> = {
     blue: "text-blue-400",
-    purple: "text-purple-400",
-    green: "text-green-400",
+    purple: "text-cyan-400",
+    green: "text-emerald-400",
   };
   const hoverBorder: Record<AccentColor, string> = {
     blue: "hover:border-blue-500/30",
-    purple: "hover:border-purple-500/30",
-    green: "hover:border-green-500/30",
+    purple: "hover:border-cyan-500/30",
+    green: "hover:border-emerald-500/30",
   };
   return (
     <div className={`bg-gray-900 border border-gray-800 ${hoverBorder[accentColor]} rounded-xl p-6 transition-colors duration-300 h-full`}>
@@ -156,8 +171,8 @@ function SectionHeader({
 }) {
   const styles: Record<AccentColor, string> = {
     blue: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    purple: "bg-purple-500/10 border-purple-500/20 text-purple-400",
-    green: "bg-green-500/10 border-green-500/20 text-green-400",
+    purple: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400",
+    green: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
   };
   return (
     <FadeUp className="mb-12">
@@ -178,10 +193,10 @@ export default function ServicesPage() {
         <div className="absolute inset-0 hero-pattern opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-blue-950/10" />
         <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-blue-500/8 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-green-500/8 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-emerald-500/8 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <FadeUp>
-            <p className="text-green-400 text-xs font-semibold uppercase tracking-widest mb-4">
+            <p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">
               What We Offer
             </p>
             <h1 className="text-5xl font-bold mb-5 tracking-tight">Our Services</h1>
@@ -260,7 +275,7 @@ export default function ServicesPage() {
             <p className="text-gray-400 mb-8">
               Get started with our flagship Revenue Recovery Package and watch your enterprise grow.
             </p>
-            <Button asChild size="lg" className="shadow-lg shadow-green-500/20">
+            <Button asChild size="lg" className="shadow-lg shadow-emerald-500/20">
               <Link href="/contact">
                 Schedule a Free Consultation
                 <ArrowRight size={18} />

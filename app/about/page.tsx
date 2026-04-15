@@ -3,8 +3,21 @@ import { Target, Eye, Award, TrendingUp, Shield, Lightbulb } from "lucide-react"
 import { FadeUp, StaggerGrid, StaggerItem } from "@/components/ui/motion";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "Learn about MukoraCore Enterprise — bridging technology and essential industry.",
+  title: "About Us",
+  description: "Learn about MukaroCore Enterprise — bridging technology, commerce, and agriculture for businesses across Africa. Our mission, values, and team.",
+  keywords: [
+    "about MukaroCore",
+    "MukaroCore team",
+    "enterprise solutions company Kenya",
+    "technology company Nairobi",
+    "Africa business consulting",
+    "MukaroCore mission",
+  ],
+  openGraph: {
+    title: "About Us | MukaroCore Enterprise",
+    description: "Learn about MukaroCore Enterprise — bridging technology, commerce, and agriculture for businesses across Africa.",
+    url: "https://www.mukarocore.com/about",
+  },
 };
 
 const values = [
@@ -33,7 +46,7 @@ const stats = [
 ];
 
 const team = [
-  { name: "Dr. Michael Mukora", role: "Founder & CEO", bio: "15+ years of experience bridging technology and essential industries.", initials: "MM" },
+  { name: "Dr. Michael Mukaro", role: "Founder & CEO", bio: "15+ years of experience bridging technology and essential industries.", initials: "MM" },
   { name: "Sarah Chen", role: "Chief Technology Officer", bio: "Expert in enterprise IT infrastructure and digital transformation.", initials: "SC" },
   { name: "James Okoye", role: "Head of AgriTech", bio: "Agricultural technologist specialising in precision farming solutions.", initials: "JO" },
   { name: "Emily Wanjiru", role: "Commerce Solutions Lead", bio: "Digital payment integration specialist with proven track record.", initials: "EW" },
@@ -50,27 +63,27 @@ const pillars = [
   },
   {
     badge: "COMMERCE: THE ENGINE",
-    badgeColor: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+    badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
     title: "Streamlined Digital Flows",
     body: "Specialising in digital payment migration, inventory management systems, and business insights. Our goal is to convert manual services into streamlined digital payment flows.",
     items: ["Digital payment integration (Mobile Money / Card)", "Automated invoicing and digital ledgers", "Inventory-to-WhatsApp tooling"],
-    iconColor: "text-purple-400",
+    iconColor: "text-cyan-400",
   },
   {
     badge: "AGRICULTURE: THE GROWTH",
-    badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
+    badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
     title: "Data-Driven Agriculture",
     body: "Developing data-driven solutions for the agricultural sector. We focus on high-impact products such as precision agriculture information services and digital market links for farmers.",
     items: ["Precision agriculture information services", "Digital market links for farmers", "Farm analytics and IoT solutions"],
-    iconColor: "text-green-400",
+    iconColor: "text-emerald-400",
   },
   {
     badge: "KNOWLEDGE HUB: THE AUTHORITY",
-    badgeColor: "text-orange-400 bg-orange-500/10 border-orange-500/20",
+    badgeColor: "text-amber-400 bg-amber-500/10 border-amber-500/20",
     title: "Verified Information Source",
-    body: "A central platform for publications, research, news, and events. This division establishes MukoraCore as a reliable destination for information and a verified source of industry truth.",
+    body: "A central platform for publications, research, news, and events. This division establishes MukaroCore as a reliable destination for information and a verified source of industry truth.",
     items: ["Publications and research library", "Real-time industry news and insights", "Event calendar and submission portal"],
-    iconColor: "text-orange-400",
+    iconColor: "text-amber-400",
   },
 ];
 
@@ -80,15 +93,15 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative bg-[#030712] border-b border-gray-800 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-green-950/10" />
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-green-500/8 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-emerald-950/10" />
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-emerald-500/8 rounded-full blur-3xl -translate-y-1/2" />
         <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-blue-500/8 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <FadeUp>
-            <p className="text-green-400 text-xs font-semibold uppercase tracking-widest mb-4">
+            <p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">
               Who We Are
             </p>
-            <h1 className="text-5xl font-bold mb-5 tracking-tight">About MukoraCore</h1>
+            <h1 className="text-5xl font-bold mb-5 tracking-tight">About MukaroCore</h1>
             <p className="text-gray-400 max-w-2xl mx-auto">
               A multi-disciplinary enterprise designed to bridge the gap between
               advanced technology and essential industry.
@@ -117,8 +130,8 @@ export default function AboutPage() {
             </StaggerItem>
             <StaggerItem>
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 h-full">
-                <div className="w-11 h-11 bg-green-500/10 rounded-lg flex items-center justify-center mb-6">
-                  <Eye className="text-green-400" size={22} />
+                <div className="w-11 h-11 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-6">
+                  <Eye className="text-emerald-400" size={22} />
                 </div>
                 <h2 className="text-2xl font-bold mb-3">Our Vision</h2>
                 <p className="text-gray-400 leading-relaxed">
@@ -138,7 +151,7 @@ export default function AboutPage() {
           <StaggerGrid className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <StaggerItem key={i} className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-1.5">{stat.value}</div>
+                <div className="text-4xl font-bold text-emerald-400 mb-1.5">{stat.value}</div>
                 <div className="text-sm text-gray-500">{stat.label}</div>
               </StaggerItem>
             ))}
@@ -152,7 +165,7 @@ export default function AboutPage() {
           <FadeUp className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-3 tracking-tight">Our Core Values</h2>
             <p className="text-gray-400 max-w-xl mx-auto">
-              The principles that guide everything we do at MukoraCore Enterprise.
+              The principles that guide everything we do at MukaroCore Enterprise.
             </p>
           </FadeUp>
           <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -160,8 +173,8 @@ export default function AboutPage() {
               const Icon = v.icon;
               return (
                 <StaggerItem key={i}>
-                  <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center hover:border-green-500/30 transition-colors h-full">
-                    <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-blue-500 rounded-xl mx-auto mb-5 flex items-center justify-center shadow-lg shadow-green-500/10">
+                  <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center hover:border-emerald-500/30 transition-colors h-full">
+                    <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-blue-500 rounded-xl mx-auto mb-5 flex items-center justify-center shadow-lg shadow-emerald-500/10">
                       <Icon className="text-white" size={24} />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{v.title}</h3>
@@ -219,12 +232,12 @@ export default function AboutPage() {
           <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((m, i) => (
               <StaggerItem key={i}>
-                <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center hover:border-green-500/30 transition-colors h-full">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg shadow-green-500/20">
+                <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 text-center hover:border-emerald-500/30 transition-colors h-full">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg shadow-emerald-500/20">
                     <span className="text-white font-bold text-lg">{m.initials}</span>
                   </div>
                   <h3 className="font-semibold mb-0.5">{m.name}</h3>
-                  <p className="text-green-400 text-sm mb-3">{m.role}</p>
+                  <p className="text-emerald-400 text-sm mb-3">{m.role}</p>
                   <p className="text-xs text-gray-500 leading-relaxed">{m.bio}</p>
                 </div>
               </StaggerItem>

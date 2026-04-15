@@ -9,12 +9,12 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <Link href="/" className="flex items-center gap-2.5 mb-4 w-fit">
-              <div className="w-9 h-9 bg-gradient-to-br from-blue-500 via-green-500 to-green-400 rounded-lg flex items-center justify-center shadow-lg shadow-green-500/20">
+              <div className="w-9 h-9 bg-gradient-to-br from-blue-500 via-emerald-500 to-emerald-400 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/20">
                 <Cpu className="text-white" size={18} />
               </div>
               <span className="text-lg font-bold">
-                <span className="text-white">Mukora</span>
-                <span className="text-green-400">Core</span>
+                <span className="text-white">Mukaro</span>
+                <span className="text-emerald-400">Core</span>
                 <span className="text-gray-500 font-normal ml-1.5">Enterprise</span>
               </span>
             </Link>
@@ -25,14 +25,14 @@ export function Footer() {
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-9 h-9 bg-gray-800 rounded-md flex items-center justify-center text-gray-500 hover:text-green-400 hover:bg-gray-700 transition-colors"
+                className="w-9 h-9 bg-gray-800 rounded-md flex items-center justify-center text-gray-500 hover:text-emerald-400 hover:bg-gray-700 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 bg-gray-800 rounded-md flex items-center justify-center text-gray-500 hover:text-green-400 hover:bg-gray-700 transition-colors"
+                className="w-9 h-9 bg-gray-800 rounded-md flex items-center justify-center text-gray-500 hover:text-emerald-400 hover:bg-gray-700 transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter size={16} />
@@ -55,7 +55,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-green-400 transition-colors"
+                    className="text-sm text-gray-500 hover:text-emerald-400 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -72,17 +72,17 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:info@mukoracore.com"
-                  className="flex items-center gap-2.5 text-sm text-gray-500 hover:text-green-400 transition-colors"
+                  href="mailto:info@mukarocore.com"
+                  className="flex items-center gap-2.5 text-sm text-gray-500 hover:text-emerald-400 transition-colors"
                 >
                   <Mail size={15} className="flex-shrink-0" />
-                  info@mukoracore.com
+                  info@mukarocore.com
                 </a>
               </li>
               <li>
                 <a
                   href="tel:+15551234567"
-                  className="flex items-center gap-2.5 text-sm text-gray-500 hover:text-green-400 transition-colors"
+                  className="flex items-center gap-2.5 text-sm text-gray-500 hover:text-emerald-400 transition-colors"
                 >
                   <Phone size={15} className="flex-shrink-0" />
                   +1 (555) 123-4567
@@ -98,7 +98,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-xs text-gray-600">
-            &copy; {new Date().getFullYear()} MukoraCore Enterprise. All rights reserved.
+            &copy; {new Date().getFullYear()} MukaroCore Enterprise. All rights reserved.
           </p>
           <p className="text-xs text-gray-600">
             Build the Core. Verify the Truth. Scale the Growth.

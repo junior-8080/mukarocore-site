@@ -15,7 +15,7 @@ import { FadeUp } from "@/components/ui/motion";
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const contactInfo = [
-  { icon: Mail, title: "Email", content: "info@mukoracore.com", link: "mailto:info@mukoracore.com" },
+  { icon: Mail, title: "Email", content: "info@mukarocore.com", link: "mailto:info@mukarocore.com" },
   { icon: Phone, title: "Phone", content: "+1 (555) 123-4567", link: "tel:+15551234567" },
   { icon: MapPin, title: "Office", content: "Innovation Hub, Nairobi, Kenya", link: "#" },
 ];
@@ -55,8 +55,8 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative bg-[#030712] border-b border-gray-800 overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-green-950/10" />
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-green-500/8 rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-emerald-950/10" />
+        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-emerald-500/8 rounded-full blur-3xl -translate-y-1/2" />
         <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-blue-500/8 rounded-full blur-3xl" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
           <motion.div
@@ -64,13 +64,13 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease }}
           >
-            <p className="text-green-400 text-xs font-semibold uppercase tracking-widest mb-4">
+            <p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">
               Let&apos;s Talk
             </p>
             <h1 className="text-5xl font-bold mb-5 tracking-tight">Get in Touch</h1>
             <p className="text-gray-400 max-w-xl mx-auto">
               Ready to build the core of your business? Schedule a free consultation and
-              discover how MukoraCore Enterprise can transform your operations.
+              discover how MukaroCore Enterprise can transform your operations.
             </p>
           </motion.div>
         </div>
@@ -96,10 +96,10 @@ export default function ContactPage() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.35, ease }}
-                  className="bg-green-900/20 border border-green-500/30 rounded-xl p-10 text-center"
+                  className="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-10 text-center"
                 >
-                  <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="text-green-400" size={28} />
+                  <div className="w-14 h-14 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="text-emerald-400" size={28} />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
                   <p className="text-gray-500 text-sm">
@@ -146,7 +146,7 @@ export default function ContactPage() {
                     <Label htmlFor="message">Message *</Label>
                     <Textarea id="message" required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your business needs…" className="min-h-[130px]" />
                   </div>
-                  <Button type="submit" size="lg" className="w-full shadow-lg shadow-green-500/20">
+                  <Button type="submit" size="lg" className="w-full shadow-lg shadow-emerald-500/20">
                     Send Message <Send size={18} />
                   </Button>
                 </form>
@@ -172,12 +172,12 @@ export default function ContactPage() {
                       const Icon = info.icon;
                       return (
                         <a key={i} href={info.link} className="flex items-center gap-3 group">
-                          <div className="w-9 h-9 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
-                            <Icon className="text-green-400" size={16} />
+                          <div className="w-9 h-9 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
+                            <Icon className="text-emerald-400" size={16} />
                           </div>
                           <div>
                             <p className="text-xs text-gray-600 mb-0.5">{info.title}</p>
-                            <p className="text-sm text-gray-300 group-hover:text-green-400 transition-colors">
+                            <p className="text-sm text-gray-300 group-hover:text-emerald-400 transition-colors">
                               {info.content}
                             </p>
                           </div>
@@ -195,7 +195,7 @@ export default function ContactPage() {
                   <ul className="space-y-2.5">
                     {benefits.map((b, i) => (
                       <li key={i} className="flex items-center gap-2.5 text-sm text-gray-400">
-                        <CheckCircle className="text-green-400 flex-shrink-0" size={14} />
+                        <CheckCircle className="text-emerald-400 flex-shrink-0" size={14} />
                         {b}
                       </li>
                     ))}
@@ -206,7 +206,7 @@ export default function ContactPage() {
                 <div className="pt-6">
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
                     <span className="inline-flex items-center gap-1.5">
-                      <Clock size={13} className="text-green-400" />
+                      <Clock size={13} className="text-emerald-400" />
                       Business Hours
                     </span>
                   </h3>
@@ -214,7 +214,7 @@ export default function ContactPage() {
                     {hours.map((h, i) => (
                       <div key={i} className="flex justify-between text-sm">
                         <span className="text-gray-400">{h.day}</span>
-                        <span className={h.open ? "text-green-400" : "text-gray-600"}>{h.time}</span>
+                        <span className={h.open ? "text-emerald-400" : "text-gray-600"}>{h.time}</span>
                       </div>
                     ))}
                   </div>

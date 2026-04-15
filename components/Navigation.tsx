@@ -48,12 +48,12 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-blue-500 via-green-500 to-green-400 rounded-lg flex items-center justify-center shadow-lg shadow-green-500/20 group-hover:shadow-green-500/40 transition-shadow">
+            <div className="w-9 h-9 bg-gradient-to-br from-blue-500 via-emerald-500 to-emerald-400 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow">
               <Cpu className="text-white" size={18} />
             </div>
             <span className="text-lg font-bold tracking-tight">
-              <span className="text-white">Mukora</span>
-              <span className="text-green-400">Core</span>
+              <span className="text-white">Mukaro</span>
+              <span className="text-emerald-400">Core</span>
             </span>
           </Link>
 
@@ -66,7 +66,7 @@ export function Navigation() {
                 className={cn(
                   "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                   isActive(link.path)
-                    ? "text-green-400 bg-green-500/10"
+                    ? "text-emerald-400 bg-emerald-500/10"
                     : "text-gray-400 hover:text-white hover:bg-gray-800"
                 )}
               >
@@ -103,7 +103,7 @@ export function Navigation() {
                   className={cn(
                     "block px-3 py-2.5 rounded-md text-sm font-medium transition-colors",
                     isActive(link.path)
-                      ? "text-green-400 bg-green-500/10"
+                      ? "text-emerald-400 bg-emerald-500/10"
                       : "text-gray-300 hover:text-white hover:bg-gray-800"
                   )}
                 >
