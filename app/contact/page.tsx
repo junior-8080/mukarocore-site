@@ -15,9 +15,9 @@ import { FadeUp } from "@/components/ui/motion";
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const contactInfo = [
-  { icon: Mail, title: "Email", content: "info@mukarocore.com", link: "mailto:info@mukarocore.com" },
-  { icon: Phone, title: "Phone", content: "+1 (555) 123-4567", link: "tel:+15551234567" },
-  { icon: MapPin, title: "Office", content: "Innovation Hub, Nairobi, Kenya", link: "#" },
+  { icon: Mail, title: "Email", content: "info@mukarocore.com", link: "mailto:aabdulmukhsin@gmail.com" },
+  { icon: Phone, title: "Phone", content: "(+233) 54554335", link: "tel:+233545543359" },
+  { icon: MapPin, title: "Office", content: "Innovation Hub, Accra, Ghana", link: "#" },
 ];
 
 const benefits = [
