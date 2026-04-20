@@ -1,252 +1,317 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle, Clock } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Clock3, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import {
-  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
-import { FadeUp } from "@/components/ui/motion";
+import { Textarea } from "@/components/ui/textarea";
+import { PageHero, SectionBlock, SiteSection } from "@/components/site/PageFrame";
 
-const ease = [0.21, 0.47, 0.32, 0.98] as const;
-
-const contactInfo = [
-  { icon: Mail, title: "Email", content: "info@mukarocore.com", link: "mailto:aabdulmukhsin@gmail.com" },
-  { icon: Phone, title: "Phone", content: "(+233) 54554335", link: "tel:+233545543359" },
-  { icon: MapPin, title: "Office", content: "Innovation Hub, Accra, Ghana", link: "#" },
+const contactChannels = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "info@mukarocore.com",
+    href: "mailto:info@mukarocore.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "(+233) 54554335",
+    href: "tel:+233545543359",
+  },
+  {
+    icon: MapPin,
+    label: "Office",
+    value: "Innovation Hub, Accra, Ghana",
+  },
 ];
 
 const benefits = [
-  "Free business tech audit",
-  "Custom solution proposal",
-  "Transparent pricing",
-  "No long-term commitments",
-  "Expert consultation",
-  "Rapid implementation",
+  "A free business systems audit",
+  "A scoped recommendation for the next move",
+  "Clear pricing and sequencing",
+  "No long-term commitment baked into the first call",
 ];
 
 const hours = [
-  { day: "Monday – Friday", time: "8:00 AM – 6:00 PM", open: true },
-  { day: "Saturday", time: "9:00 AM – 2:00 PM", open: true },
-  { day: "Sunday", time: "Closed", open: false },
+  { day: "Monday - Friday", time: "8:00 AM - 6:00 PM" },
+  { day: "Saturday", time: "9:00 AM - 2:00 PM" },
+  { day: "Sunday", time: "Closed" },
 ];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "", email: "", phone: "", company: "", service: "", message: "",
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    service: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setSubmitted(true);
-    setTimeout(() => {
+
+    window.setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", company: "", service: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: "",
+        message: "",
+      });
     }, 3000);
   };
 
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative bg-[#030712] border-b border-gray-800 overflow-hidden">
-        <div className="absolute inset-0 hero-pattern opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-emerald-950/10" />
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-emerald-500/8 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-blue-500/8 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease }}
-          >
-            <p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">
-              Let&apos;s Talk
-            </p>
-            <h1 className="text-5xl font-bold mb-5 tracking-tight">Get in Touch</h1>
-            <p className="text-gray-400 max-w-xl mx-auto">
-              Ready to build the core of your business? Schedule a free consultation and
-              discover how MukaroCore Enterprise can transform your operations.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <>
+      <PageHero
+        eyebrow="Contact"
+        title={<>Bring the problem in plain language. We'll map the system behind it.</>}
+        description={
+          <>
+            If the issue sits in infrastructure, payments, reporting, or field
+            operations, we can help identify the breakpoints and sequence the fix.
+          </>
+        }
+        actions={
+          <Button asChild size="lg">
+            <a href="mailto:info@mukarocore.com">
+              Email the team <ArrowUpRight size={16} />
+            </a>
+          </Button>
+        }
+        aside={
+          <>
+            <div className="route-list">
+              {contactChannels.map((channel) => {
+                const Icon = channel.icon;
 
-      {/* Main Content */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+                return channel.href ? (
+                  <a key={channel.label} href={channel.href} className="group">
+                    <div className="flex items-start gap-4">
+                      <Icon size={18} className="mt-1 shrink-0 text-primary" />
+                      <div>
+                        <p className="eyebrow">{channel.label}</p>
+                        <p className="mt-2 text-lg text-foreground group-hover:text-primary">
+                          {channel.value}
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  <div key={channel.label} className="flex items-start gap-4">
+                    <Icon size={18} className="mt-1 shrink-0 text-primary" />
+                    <div>
+                      <p className="eyebrow">{channel.label}</p>
+                      <p className="mt-2 text-lg text-foreground">{channel.value}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
-            {/* Form */}
-            <motion.div
-              className="lg:col-span-3"
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease }}
-            >
-              <h2 className="text-2xl font-bold mb-2 tracking-tight">Request a Consultation</h2>
-              <p className="text-sm text-gray-500 mb-8">Our team will get back to you within 24 hours.</p>
+            <article className="surface-card p-6">
+              <p className="eyebrow">Response time</p>
+              <p className="mt-4 text-base leading-8 text-foreground">
+                Most initial replies go out within 24 hours. Existing clients can also
+                reach the emergency support line outside business hours.
+              </p>
+            </article>
+          </>
+        }
+      />
 
+      <SiteSection tone="muted">
+        <SectionBlock
+          eyebrow="Inquiry form"
+          title={<>Start with the context we need to be useful.</>}
+          description={
+            <>
+              Tell us what the team is trying to achieve, where the friction currently
+              sits, and which lane the issue likely belongs to.
+            </>
+          }
+        >
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_21rem]">
+            <article className="surface-card p-6 lg:p-8">
               {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.35, ease }}
-                  className="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-10 text-center"
+                <div
+                  className="flex min-h-[24rem] flex-col items-center justify-center text-center"
+                  aria-live="polite"
                 >
-                  <div className="w-14 h-14 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="text-emerald-400" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
-                  <p className="text-gray-500 text-sm">
-                    We&apos;ve received your inquiry and will be in touch shortly.
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-500/25 dark:bg-emerald-500/15 dark:text-emerald-300">
+                    <CheckCircle2 size={30} />
+                  </span>
+                  <h2 className="mt-6 text-4xl">Message received.</h2>
+                  <p className="mt-3 max-w-md text-sm leading-7 text-muted-foreground">
+                    We've captured the inquiry and will reply with next steps shortly.
                   </p>
-                </motion.div>
+                </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <form onSubmit={handleSubmit} className="grid gap-5">
+                  <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input id="name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="John Doe" />
+                      <Label htmlFor="name">Full name</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(event) =>
+                          setFormData((current) => ({ ...current, name: event.target.value }))
+                        }
+                        placeholder="John Doe"
+                        required
+                      />
                     </div>
                     <div>
-                      <Label htmlFor="email">Email *</Label>
-                      <Input id="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@company.com" />
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(event) =>
+                          setFormData((current) => ({ ...current, email: event.target.value }))
+                        }
+                        placeholder="john@company.com"
+                        required
+                      />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                  <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <Label htmlFor="phone">Phone</Label>
-                      <Input id="phone" type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="+1 (555) 000-0000" />
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(event) =>
+                          setFormData((current) => ({ ...current, phone: event.target.value }))
+                        }
+                        placeholder="+233 54 000 0000"
+                      />
                     </div>
                     <div>
                       <Label htmlFor="company">Company</Label>
-                      <Input id="company" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} placeholder="Your Company" />
+                      <Input
+                        id="company"
+                        value={formData.company}
+                        onChange={(event) =>
+                          setFormData((current) => ({ ...current, company: event.target.value }))
+                        }
+                        placeholder="Your company"
+                      />
                     </div>
                   </div>
+
                   <div>
-                    <Label htmlFor="service">Service Interest *</Label>
-                    <Select value={formData.service} onValueChange={(v) => setFormData({ ...formData, service: v })}>
-                      <SelectTrigger><SelectValue placeholder="Select a service" /></SelectTrigger>
+                    <Label htmlFor="service">Service lane</Label>
+                    <Select
+                      value={formData.service}
+                      onValueChange={(value) =>
+                        setFormData((current) => ({ ...current, service: value }))
+                      }
+                    >
+                      <SelectTrigger id="service">
+                        <SelectValue placeholder="Choose the closest lane" />
+                      </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="revenue-recovery">Revenue Recovery Package</SelectItem>
-                        <SelectItem value="tech">Tech Solutions</SelectItem>
-                        <SelectItem value="commerce">Commerce Tools</SelectItem>
-                        <SelectItem value="agritech">Agri-Tech</SelectItem>
-                        <SelectItem value="knowledge">Knowledge Hub Partnership</SelectItem>
+                        <SelectItem value="revenue-recovery">Revenue recovery package</SelectItem>
+                        <SelectItem value="tech">Technology systems</SelectItem>
+                        <SelectItem value="commerce">Commerce operations</SelectItem>
+                        <SelectItem value="agritech">Agriculture intelligence</SelectItem>
+                        <SelectItem value="knowledge">Knowledge hub partnership</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
+
                   <div>
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea id="message" required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="Tell us about your business needs…" className="min-h-[130px]" />
+                    <Label htmlFor="message">Project context</Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={(event) =>
+                        setFormData((current) => ({ ...current, message: event.target.value }))
+                      }
+                      placeholder="Describe the problem, current tools, and what a better outcome would look like."
+                      required
+                    />
                   </div>
-                  <Button type="submit" size="lg" className="w-full shadow-lg shadow-emerald-500/20">
-                    Send Message <Send size={18} />
+
+                  <Button type="submit" size="lg">
+                    Send inquiry <Send size={16} />
                   </Button>
                 </form>
               )}
-            </motion.div>
+            </article>
 
-            {/* Sidebar — unified panel */}
-            <motion.div
-              className="lg:col-span-2"
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease }}
-            >
-              <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 divide-y divide-gray-800">
+            <aside className="grid gap-4">
+              <article className="surface-card p-6">
+                <p className="eyebrow">What you get</p>
+                <ul className="ledger-list mt-6">
+                  {benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-3 text-sm leading-7 text-foreground">
+                      <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
 
-                {/* Contact Info */}
-                <div className="pb-6">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
-                    Contact
-                  </h3>
-                  <div className="space-y-3">
-                    {contactInfo.map((info, i) => {
-                      const Icon = info.icon;
-                      return (
-                        <a key={i} href={info.link} className="flex items-center gap-3 group">
-                          <div className="w-9 h-9 bg-emerald-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500/20 transition-colors">
-                            <Icon className="text-emerald-400" size={16} />
-                          </div>
-                          <div>
-                            <p className="text-xs text-gray-600 mb-0.5">{info.title}</p>
-                            <p className="text-sm text-gray-300 group-hover:text-emerald-400 transition-colors">
-                              {info.content}
-                            </p>
-                          </div>
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* What You Get */}
-                <div className="py-6">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
-                    What You Get
-                  </h3>
-                  <ul className="space-y-2.5">
-                    {benefits.map((b, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-sm text-gray-400">
-                        <CheckCircle className="text-emerald-400 flex-shrink-0" size={14} />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Business Hours */}
-                <div className="pt-6">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Clock size={13} className="text-emerald-400" />
-                      Business Hours
-                    </span>
-                  </h3>
-                  <div className="space-y-2">
-                    {hours.map((h, i) => (
-                      <div key={i} className="flex justify-between text-sm">
-                        <span className="text-gray-400">{h.day}</span>
-                        <span className={h.open ? "text-emerald-400" : "text-gray-600"}>{h.time}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-gray-600 mt-4 pt-4 border-t border-gray-800">
-                    24/7 emergency support for existing clients
-                  </p>
-                </div>
-
-              </div>
-            </motion.div>
-
+              <article className="surface-card p-6">
+                <p className="eyebrow flex items-center gap-2">
+                  <Clock3 size={14} className="text-primary" />
+                  Business hours
+                </p>
+                <dl className="ledger-list mt-5 text-sm">
+                  {hours.map((entry) => (
+                    <div key={entry.day} className="flex items-start justify-between gap-4">
+                      <dt className="text-muted-foreground">{entry.day}</dt>
+                      <dd className="text-right text-foreground">{entry.time}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            </aside>
           </div>
-        </div>
-      </section>
+        </SectionBlock>
+      </SiteSection>
 
-      {/* Newsletter */}
-      <FadeUp>
-        <section className="py-16 bg-gray-900/30 border-t border-gray-800">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-7">
-              <h2 className="text-2xl font-bold mb-2 tracking-tight">Stay Updated</h2>
-              <p className="text-gray-500 text-sm">
-                Subscribe to The Daily Pulse for curated insights in Tech, Commerce, and Agriculture.
+      <SiteSection className="pt-0">
+        <article className="surface-card p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end">
+            <div>
+              <p className="eyebrow">Daily pulse</p>
+              <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
+                Subscribe for operating insight across tech, commerce, and agriculture.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+                A short dispatch with field notes, research highlights, and system
+                lessons from the work.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Input type="email" placeholder="Enter your email address" className="flex-1 h-11" />
-              <Button className="h-11 px-6">Subscribe</Button>
+
+            <div className="grid gap-3">
+              <Input type="email" placeholder="Enter your email" />
+              <Button size="lg">Join the list</Button>
             </div>
           </div>
-        </section>
-      </FadeUp>
-    </div>
+        </article>
+      </SiteSection>
+    </>
   );
 }

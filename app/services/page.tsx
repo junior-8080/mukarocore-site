@@ -1,30 +1,42 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Server, Shield, Cloud, Database,
-  ShoppingCart, CreditCard, Package, TrendingUp,
-  Sprout, Wifi, MapPin, BarChart3,
-  ArrowRight, CheckCircle,
+  ArrowRight,
+  ArrowUpRight,
+  BarChart3,
+  CheckCircle2,
+  Cloud,
+  CreditCard,
+  Database,
+  MapPin,
+  Package,
+  Server,
+  Shield,
+  ShoppingCart,
+  Sprout,
+  TrendingUp,
+  Wifi,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FadeUp, StaggerGrid, StaggerItem } from "@/components/ui/motion";
+import { PageHero, SectionBlock, SiteSection } from "@/components/site/PageFrame";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Comprehensive Tech, Commerce, and Agri-Tech solutions for modern businesses in Africa. Managed IT, e-commerce platforms, precision farming, and more.",
+  description:
+    "MukaroCore Enterprise provides structured services across technology, commerce, and agri-intelligence for businesses building across Africa.",
   keywords: [
-    "managed IT services Kenya",
-    "e-commerce solutions Africa",
-    "agri-tech solutions",
-    "cloud infrastructure Kenya",
-    "business technology Nairobi",
-    "digital commerce Africa",
-    "precision agriculture technology",
+    "managed IT services Ghana",
+    "digital commerce systems Africa",
+    "agri-tech services Africa",
+    "cloud infrastructure Ghana",
+    "payment operations consulting",
     "MukaroCore services",
   ],
   openGraph: {
     title: "Services | MukaroCore Enterprise",
-    description: "Comprehensive Tech, Commerce, and Agri-Tech solutions for modern businesses in Africa.",
+    description:
+      "Technology, commerce, and agriculture services built as clear operating lanes rather than disconnected one-off projects.",
     url: "https://www.mukarocore.com/services",
   },
 };
@@ -33,26 +45,30 @@ const techServices = [
   {
     icon: Server,
     title: "Managed IT Services",
-    description: "Complete IT infrastructure management without the overhead of a full-time department.",
-    features: ["24/7 System Monitoring", "Network Management", "Hardware Support", "Software Updates"],
+    description:
+      "Infrastructure management without the cost and coordination burden of a full internal IT department.",
+    features: ["24/7 system monitoring", "Network administration", "Device and hardware support", "Patch management"],
   },
   {
     icon: Shield,
     title: "Digital Security",
-    description: "Comprehensive cybersecurity solutions to protect your business assets.",
-    features: ["Threat Detection", "Data Encryption", "Security Audits", "Compliance Support"],
+    description:
+      "Operational security controls designed to reduce risk without making routine work harder.",
+    features: ["Threat detection", "Access control", "Security audits", "Compliance support"],
   },
   {
     icon: Cloud,
     title: "Cloud Infrastructure",
-    description: "Scalable cloud solutions designed for growing businesses.",
-    features: ["Cloud Migration", "Data Backup", "Disaster Recovery", "Resource Optimization"],
+    description:
+      "Scalable cloud architecture for teams moving away from fragile local setups.",
+    features: ["Cloud migration", "Backup strategy", "Disaster recovery", "Cost optimisation"],
   },
   {
     icon: Database,
     title: "Data Management",
-    description: "Organize and leverage your business data for better decision-making.",
-    features: ["Database Design", "Data Analytics", "Report Generation", "Data Integration"],
+    description:
+      "Data flows and reporting structures that make operational decisions easier to defend.",
+    features: ["Database design", "Analytics pipelines", "Report generation", "System integration"],
   },
 ];
 
@@ -60,26 +76,30 @@ const commerceServices = [
   {
     icon: CreditCard,
     title: "Digital Payment Integration",
-    description: "Seamless integration of mobile money and card payment systems.",
-    features: ["Mobile Money API", "Card Processing", "Payment Gateway", "Transaction Tracking"],
+    description:
+      "Payment rails that reduce reconciliation headaches and improve collection speed.",
+    features: ["Mobile money APIs", "Card processing", "Payment gateways", "Transaction tracking"],
   },
   {
     icon: ShoppingCart,
     title: "Inventory Management",
-    description: "Real-time inventory tracking and automated stock management.",
-    features: ["Stock Tracking", "Automated Alerts", "Multi-location Support", "Supplier Management"],
+    description:
+      "Stock operations tied more closely to actual sales activity and fulfilment movement.",
+    features: ["Live stock tracking", "Automated alerts", "Multi-location visibility", "Supplier management"],
   },
   {
     icon: Package,
     title: "Automated Invoicing",
-    description: "Digital ledgers and automated invoicing for streamlined operations.",
-    features: ["Invoice Generation", "Digital Receipts", "Payment Reminders", "Financial Reports"],
+    description:
+      "Cleaner invoice creation, follow-up, and ledger updates without spreadsheet drift.",
+    features: ["Invoice generation", "Digital receipts", "Reminder flows", "Financial records"],
   },
   {
     icon: TrendingUp,
     title: "Business Insights",
-    description: "Data-driven analytics to optimize your business performance.",
-    features: ["Sales Analytics", "Customer Insights", "Performance Metrics", "Trend Analysis"],
+    description:
+      "Performance reporting that operators can use, not just admire in a dashboard screenshot.",
+    features: ["Sales analytics", "Customer patterns", "Performance KPIs", "Trend review"],
   },
 ];
 
@@ -87,203 +107,219 @@ const agriServices = [
   {
     icon: Sprout,
     title: "Precision Agriculture",
-    description: "Data-driven farming solutions for improved yields and efficiency.",
-    features: ["Crop Monitoring", "Weather Integration", "Soil Analysis", "Yield Prediction"],
+    description:
+      "Field data and agronomic signals that help operators plan with more confidence.",
+    features: ["Crop monitoring", "Weather integrations", "Soil intelligence", "Yield forecasting"],
   },
   {
     icon: MapPin,
     title: "Digital Market Links",
-    description: "Connect farmers directly with markets and buyers.",
-    features: ["Market Pricing", "Buyer Network", "Order Management", "Logistics Support"],
+    description:
+      "Stronger connections between producers, buyers, and pricing signals in the market.",
+    features: ["Market pricing", "Buyer networks", "Order management", "Logistics coordination"],
   },
   {
     icon: BarChart3,
     title: "Farm Analytics",
-    description: "Comprehensive analytics for better farm management decisions.",
-    features: ["Production Tracking", "Cost Analysis", "ROI Calculation", "Season Planning"],
+    description:
+      "Production, cost, and season planning data packaged for real operational use.",
+    features: ["Production tracking", "Cost analysis", "ROI review", "Season planning"],
   },
   {
     icon: Wifi,
     title: "IoT Farm Solutions",
-    description: "Smart farming with connected sensors and automation.",
-    features: ["Sensor Networks", "Automated Irrigation", "Remote Monitoring", "Alert Systems"],
+    description:
+      "Connected monitoring and automation for farms that need better visibility between visits.",
+    features: ["Sensor networks", "Automated irrigation", "Remote alerts", "Monitoring dashboards"],
   },
 ];
 
-type AccentColor = "blue" | "purple" | "green";
+const deliveryPhases = [
+  "Diagnostic and process mapping",
+  "System design and rollout",
+  "Team enablement and support",
+];
 
-function ServiceCard({
+const laneLinks = [
+  { label: "Tech", href: "#tech" },
+  { label: "Commerce", href: "#commerce" },
+  { label: "Agri", href: "#agri" },
+];
+
+function ServiceEntry({
   service,
-  accentColor,
+  tone,
 }: {
-  service: (typeof techServices)[0];
-  accentColor: AccentColor;
+  service: (typeof techServices)[number];
+  tone: "tech" | "commerce" | "agri";
 }) {
   const Icon = service.icon;
-  const iconStyles: Record<AccentColor, string> = {
-    blue: "bg-blue-500/10 text-blue-400",
-    purple: "bg-cyan-500/10 text-cyan-400",
-    green: "bg-emerald-500/10 text-emerald-400",
-  };
-  const checkStyles: Record<AccentColor, string> = {
-    blue: "text-blue-400",
-    purple: "text-cyan-400",
-    green: "text-emerald-400",
-  };
-  const hoverBorder: Record<AccentColor, string> = {
-    blue: "hover:border-blue-500/30",
-    purple: "hover:border-cyan-500/30",
-    green: "hover:border-emerald-500/30",
-  };
-  return (
-    <div className={`bg-gray-900 border border-gray-800 ${hoverBorder[accentColor]} rounded-xl p-6 transition-colors duration-300 h-full`}>
-      <div className="flex items-start gap-4">
-        <div className={`flex-shrink-0 w-11 h-11 ${iconStyles[accentColor]} rounded-lg flex items-center justify-center`}>
-          <Icon size={22} />
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-semibold mb-2">{service.title}</h3>
-          <p className="text-sm text-gray-500 mb-4 leading-relaxed">{service.description}</p>
-          <ul className="space-y-1.5">
-            {service.features.map((f, i) => (
-              <li key={i} className="flex items-center gap-2 text-sm text-gray-400">
-                <CheckCircle className={`${checkStyles[accentColor]} flex-shrink-0`} size={14} />
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-}
 
-function SectionHeader({
-  badge,
-  badgeColor,
-  title,
-  description,
-}: {
-  badge: string;
-  badgeColor: AccentColor;
-  title: string;
-  description: string;
-}) {
-  const styles: Record<AccentColor, string> = {
-    blue: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    purple: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400",
-    green: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
-  };
+  const theme = {
+    tech: "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-500/15 dark:text-sky-300 dark:border-sky-500/25",
+    commerce:
+      "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/25",
+    agri: "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-300 dark:border-emerald-500/25",
+  }[tone];
+
   return (
-    <FadeUp className="mb-12">
-      <div className={`inline-flex items-center border ${styles[badgeColor]} px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4`}>
-        {badge}
+    <article className="surface-card p-6">
+      <div className="flex items-start justify-between gap-4">
+        <span className={cn("flex h-12 w-12 items-center justify-center rounded-2xl border", theme)}>
+          <Icon size={20} />
+        </span>
+        <span className="tag-pill">{tone}</span>
       </div>
-      <h2 className="text-4xl font-bold mb-3 tracking-tight">{title}</h2>
-      <p className="text-gray-400 max-w-2xl">{description}</p>
-    </FadeUp>
+      <h3 className="mt-6 text-3xl">{service.title}</h3>
+      <p className="mt-3 text-sm leading-7 text-muted-foreground">{service.description}</p>
+      <ul className="ledger-list mt-6">
+        {service.features.map((feature) => (
+          <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-foreground">
+            <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
   );
 }
 
 export default function ServicesPage() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative bg-[#030712] border-b border-gray-800 overflow-hidden">
-        <div className="absolute inset-0 hero-pattern opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-blue-950/10" />
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-blue-500/8 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-emerald-500/8 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-          <FadeUp>
-            <p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">
-              What We Offer
-            </p>
-            <h1 className="text-5xl font-bold mb-5 tracking-tight">Our Services</h1>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Comprehensive solutions across Tech, Commerce, and Agriculture designed
-              to build the core of your business.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* Tech Solutions */}
-      <section id="tech" className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Tech Solutions"
-            badgeColor="blue"
-            title="The Foundation"
-            description="Your dedicated tech partner providing essential IT infrastructure and managed services for modern businesses."
-          />
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {techServices.map((s, i) => (
-              <StaggerItem key={i}>
-                <ServiceCard service={s} accentColor="blue" />
-              </StaggerItem>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* Commerce Tools */}
-      <section id="commerce" className="py-24 bg-gray-900/30 border-y border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Commerce Tools"
-            badgeColor="purple"
-            title="The Engine"
-            description="Convert manual services into streamlined digital payment flows with our comprehensive commerce solutions."
-          />
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {commerceServices.map((s, i) => (
-              <StaggerItem key={i}>
-                <ServiceCard service={s} accentColor="purple" />
-              </StaggerItem>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* Agri-Tech */}
-      <section id="agri" className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Agri-Tech"
-            badgeColor="green"
-            title="The Growth"
-            description="Data-driven agricultural solutions focusing on precision farming and digital market connections."
-          />
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {agriServices.map((s, i) => (
-              <StaggerItem key={i}>
-                <ServiceCard service={s} accentColor="green" />
-              </StaggerItem>
-            ))}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 bg-gray-900/30 border-t border-gray-800">
-        <FadeUp>
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-4 tracking-tight">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-gray-400 mb-8">
-              Get started with our flagship Revenue Recovery Package and watch your enterprise grow.
-            </p>
-            <Button asChild size="lg" className="shadow-lg shadow-emerald-500/20">
+    <>
+      <PageHero
+        eyebrow="Services"
+        title={<>Clear lanes for complex operational work.</>}
+        description={
+          <>
+            We organise the work into three service lanes so you can see exactly where
+            the operational problem sits and which systems need to change first.
+          </>
+        }
+        actions={
+          <>
+            <Button asChild size="lg">
               <Link href="/contact">
-                Schedule a Free Consultation
-                <ArrowRight size={18} />
+                Book a consultation <ArrowUpRight size={16} />
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/about">
+                See how we work <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </>
+        }
+        aside={
+          <>
+            <div className="route-list">
+              {laneLinks.map((lane, index) => (
+                <Link key={lane.href} href={lane.href} className="flex items-center justify-between gap-4">
+                  <span className="text-sm font-semibold text-primary">0{index + 1}</span>
+                  <span className="ml-auto text-xl">{lane.label}</span>
+                </Link>
+              ))}
+            </div>
+            <article className="surface-card p-6">
+              <p className="eyebrow">Delivery rhythm</p>
+              <ol className="ledger-list mt-5 text-sm text-muted-foreground">
+                {deliveryPhases.map((phase, index) => (
+                  <li key={phase} className="flex items-start justify-between gap-4">
+                    <span>{phase}</span>
+                    <span className="text-primary">0{index + 1}</span>
+                  </li>
+                ))}
+              </ol>
+            </article>
+          </>
+        }
+      />
+
+      <SiteSection tone="muted">
+        <div id="tech">
+          <SectionBlock
+            eyebrow="Tech lane"
+            title={<>The systems that hold the business together.</>}
+            description={
+              <>
+                This lane covers the infrastructure, security, and data foundations
+                teams usually postpone until the cracks start affecting revenue.
+              </>
+            }
+          >
+            <div className="grid gap-4 lg:grid-cols-2">
+              {techServices.map((service) => (
+                <ServiceEntry key={service.title} service={service} tone="tech" />
+              ))}
+            </div>
+          </SectionBlock>
+        </div>
+      </SiteSection>
+
+      <SiteSection>
+        <div id="commerce">
+          <SectionBlock
+            eyebrow="Commerce lane"
+            title={<>Payment operations built to collect what the team delivers.</>}
+            description={
+              <>
+                For businesses losing time or money between orders, service delivery,
+                invoicing, and actual cash collection.
+              </>
+            }
+          >
+            <div className="grid gap-4 lg:grid-cols-2">
+              {commerceServices.map((service) => (
+                <ServiceEntry key={service.title} service={service} tone="commerce" />
+              ))}
+            </div>
+          </SectionBlock>
+        </div>
+      </SiteSection>
+
+      <SiteSection tone="muted">
+        <div id="agri">
+          <SectionBlock
+            eyebrow="Agri lane"
+            title={<>Field intelligence that travels back into business decisions.</>}
+            description={
+              <>
+                This lane supports agricultural operators who need stronger links
+                between field data, market access, and planning decisions.
+              </>
+            }
+          >
+            <div className="grid gap-4 lg:grid-cols-2">
+              {agriServices.map((service) => (
+                <ServiceEntry key={service.title} service={service} tone="agri" />
+              ))}
+            </div>
+          </SectionBlock>
+        </div>
+      </SiteSection>
+
+      <SiteSection className="pt-0">
+        <article className="surface-card p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
+              <p className="eyebrow">Fit check</p>
+              <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
+                If the business is growing, one of these lanes is already under strain.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+                We can tell you where to start, what to postpone, and how to sequence
+                the fixes so the work compounds instead of colliding.
+              </p>
+            </div>
+
+            <Button asChild size="lg">
+              <Link href="/contact">
+                Request a service review <ArrowUpRight size={16} />
               </Link>
             </Button>
           </div>
-        </FadeUp>
-      </section>
-    </div>
+        </article>
+      </SiteSection>
+    </>
   );
 }

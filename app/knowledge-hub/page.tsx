@@ -1,19 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
-  BookOpen, FileText, Calendar, TrendingUp,
-  Search, CheckCircle, Download,
-  ExternalLink, Clock, Users, MapPin,
+  ArrowUpRight,
+  Calendar,
+  CheckCircle2,
+  Clock3,
+  Download,
+  ExternalLink,
+  FileText,
+  MapPin,
+  Search,
+  Users,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FadeUp, StaggerGrid, StaggerItem } from "@/components/ui/motion";
-
-const ease = [0.21, 0.47, 0.32, 0.98] as const;
+import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site/PageFrame";
 
 const publications = [
   {
@@ -24,7 +28,8 @@ const publications = [
     date: "March 2026",
     verified: true,
     downloads: 1247,
-    summary: "Comprehensive analysis of digital payment systems and their impact on small to medium enterprises.",
+    summary:
+      "Comprehensive analysis of digital payment systems and their impact on small to medium enterprises.",
   },
   {
     title: "Precision Agriculture in East Africa: Data-Driven Approaches",
@@ -34,7 +39,8 @@ const publications = [
     date: "February 2026",
     verified: true,
     downloads: 892,
-    summary: "Exploring the implementation and benefits of precision agriculture technologies in East African farming.",
+    summary:
+      "Exploring the implementation and benefits of precision agriculture technologies in East African farming.",
   },
   {
     title: "Cybersecurity Best Practices for Growing Businesses",
@@ -44,7 +50,8 @@ const publications = [
     date: "January 2026",
     verified: true,
     downloads: 2103,
-    summary: "Essential security strategies for businesses transitioning to digital operations.",
+    summary:
+      "Essential security strategies for businesses transitioning to digital operations.",
   },
   {
     title: "Revenue Recovery Through Digital Transformation",
@@ -54,7 +61,8 @@ const publications = [
     date: "April 2026",
     verified: true,
     downloads: 1567,
-    summary: "Real-world case studies demonstrating revenue improvements through digital integration.",
+    summary:
+      "Real-world case studies demonstrating revenue improvements through digital integration.",
   },
 ];
 
@@ -64,36 +72,68 @@ const news = [
     category: "Commerce",
     date: "April 12, 2026",
     readTime: "5 min read",
-    excerpt: "Latest statistics show unprecedented growth in mobile money usage across East Africa, creating new opportunities for digital commerce.",
+    excerpt:
+      "Latest statistics show unprecedented growth in mobile money usage across regional markets, creating new opportunities for digital commerce.",
   },
   {
     title: "New AgriTech Partnerships Announced",
     category: "Agriculture",
     date: "April 10, 2026",
     readTime: "3 min read",
-    excerpt: "MukaroCore Enterprise partners with leading agricultural institutions to deliver data-driven farming solutions.",
+    excerpt:
+      "MukaroCore Enterprise partners with agricultural institutions to deliver data-driven farming solutions.",
   },
   {
     title: "Cloud Infrastructure Trends for 2026",
     category: "Tech",
     date: "April 8, 2026",
     readTime: "7 min read",
-    excerpt: "Analysis of emerging cloud technologies and their implications for small business IT infrastructure.",
+    excerpt:
+      "Analysis of emerging cloud technologies and their implications for small business IT infrastructure.",
   },
   {
     title: "The Future of Digital Payment Security",
     category: "Tech",
     date: "April 5, 2026",
     readTime: "6 min read",
-    excerpt: "Exploring advanced security measures protecting digital transactions in emerging markets.",
+    excerpt:
+      "Exploring advanced security measures protecting digital transactions in emerging markets.",
   },
 ];
 
 const events = [
-  { title: "Digital Commerce Summit 2026", date: "May 15–17, 2026", location: "Nairobi Convention Center", type: "Conference", attendees: 500, status: "Upcoming" },
-  { title: "AgriTech Innovation Workshop", date: "May 22, 2026", location: "Virtual Event", type: "Workshop", attendees: 150, status: "Upcoming" },
-  { title: "Small Business Tech Meetup", date: "April 28, 2026", location: "MukaroCore Office", type: "Meetup", attendees: 50, status: "Registration Open" },
-  { title: "Cybersecurity for Enterprises", date: "June 5, 2026", location: "Virtual Event", type: "Webinar", attendees: 200, status: "Upcoming" },
+  {
+    title: "Digital Commerce Summit 2026",
+    date: "May 15-17, 2026",
+    location: "Nairobi Convention Center",
+    type: "Conference",
+    attendees: 500,
+    status: "Upcoming",
+  },
+  {
+    title: "AgriTech Innovation Workshop",
+    date: "May 22, 2026",
+    location: "Virtual Event",
+    type: "Workshop",
+    attendees: 150,
+    status: "Upcoming",
+  },
+  {
+    title: "Small Business Tech Meetup",
+    date: "April 28, 2026",
+    location: "MukaroCore Office",
+    type: "Meetup",
+    attendees: 50,
+    status: "Registration Open",
+  },
+  {
+    title: "Cybersecurity for Enterprises",
+    date: "June 5, 2026",
+    location: "Virtual Event",
+    type: "Webinar",
+    attendees: 200,
+    status: "Upcoming",
+  },
 ];
 
 const categoryVariant: Record<string, "blue" | "default" | "orange"> = {
@@ -102,215 +142,275 @@ const categoryVariant: Record<string, "blue" | "default" | "orange"> = {
   Agriculture: "default",
 };
 
+function EmptyState({ label }: { label: string }) {
+  return (
+    <article className="surface-card p-6">
+      <p className="eyebrow">No results</p>
+      <p className="mt-4 text-base leading-8 text-muted-foreground">
+        No {label} matched that search. Try a broader term or clear the query.
+      </p>
+    </article>
+  );
+}
+
 export default function KnowledgeHubPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const query = searchQuery.trim().toLowerCase();
+
+  const filteredPublications = publications.filter((item) =>
+    [item.title, item.category, item.type, item.author, item.summary]
+      .join(" ")
+      .toLowerCase()
+      .includes(query)
+  );
+
+  const filteredNews = news.filter((item) =>
+    [item.title, item.category, item.date, item.excerpt]
+      .join(" ")
+      .toLowerCase()
+      .includes(query)
+  );
+
+  const filteredEvents = events.filter((item) =>
+    [item.title, item.date, item.location, item.type, item.status]
+      .join(" ")
+      .toLowerCase()
+      .includes(query)
+  );
 
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative bg-[#030712] border-b border-gray-800 overflow-hidden">
-        <div className="absolute inset-0 hero-pattern opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/95 to-amber-950/10" />
-        <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-amber-500/6 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="absolute top-1/3 left-1/4 w-48 h-48 bg-emerald-500/8 rounded-full blur-3xl" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease }}
-            className="max-w-2xl"
-          >
-            <div className="inline-flex items-center border border-amber-500/20 bg-amber-500/10 text-amber-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
-              Knowledge Hub
-            </div>
-            <h1 className="text-5xl font-bold mb-4 tracking-tight">The Authority</h1>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              Your reliable destination for verified industry insights, research publications,
-              and authoritative information across Tech, Commerce, and Agriculture.
+    <>
+      <PageHero
+        eyebrow="Knowledge Hub"
+        title={<>Verified research, reporting, and live market signals.</>}
+        description={
+          <div className="space-y-6">
+            <p>
+              The hub is where MukaroCore turns working insight into usable public
+              material. Every entry is designed to be cited, shared, and acted on.
             </p>
-            <div className="relative">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500" size={18} />
-              <Input
-                type="text"
-                placeholder="Search publications, news, and events…"
-                className="pl-11 h-12"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
+
+            <div className="max-w-xl space-y-3">
+              <label htmlFor="knowledge-search" className="eyebrow block">
+                Search the archive
+              </label>
+              <div className="relative">
+                <Search
+                  size={16}
+                  className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
+                />
+                <Input
+                  id="knowledge-search"
+                  type="text"
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  placeholder="Search publications, news, or events"
+                  className="pl-11"
+                />
+              </div>
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        }
+        aside={
+          <>
+            <StatRack
+              items={[
+                { value: "50+", label: "Published pieces" },
+                { value: "3", label: "Coverage domains" },
+                { value: "4", label: "Live events listed" },
+                { value: "100%", label: "Verified editorial pass" },
+              ]}
+              columns={2}
+            />
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <article className="surface-card p-6">
+              <p className="eyebrow">Editorial rule</p>
+              <p className="mt-4 text-base leading-8 text-foreground">
+                Every item should answer three questions quickly: what changed, why it
+                matters, and what the reader should do next.
+              </p>
+            </article>
+          </>
+        }
+      />
+
+      <SiteSection tone="muted">
+        <SectionBlock
+          eyebrow="Archive"
+          title={<>Browse the hub by format.</>}
+          description={
+            <>
+              Publications go deeper, news items track movement, and events pull the
+              audience into the conversation around the work.
+            </>
+          }
+        >
           <Tabs defaultValue="publications">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease }}
-            >
-              <TabsList>
-                <TabsTrigger value="publications">
-                  <BookOpen size={15} className="mr-1.5" />
-                  Publications
-                </TabsTrigger>
-                <TabsTrigger value="news">
-                  <TrendingUp size={15} className="mr-1.5" />
-                  News
-                </TabsTrigger>
-                <TabsTrigger value="events">
-                  <Calendar size={15} className="mr-1.5" />
-                  Events
-                </TabsTrigger>
-              </TabsList>
-            </motion.div>
+            <TabsList>
+              <TabsTrigger value="publications">Publications</TabsTrigger>
+              <TabsTrigger value="news">News</TabsTrigger>
+              <TabsTrigger value="events">Events</TabsTrigger>
+            </TabsList>
 
-            {/* Publications */}
             <TabsContent value="publications">
-              <FadeUp className="mb-8">
-                <h2 className="text-2xl font-bold tracking-tight">Publications & Research</h2>
-              </FadeUp>
-              <StaggerGrid className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                {publications.map((pub, i) => (
-                  <StaggerItem key={i}>
-                    <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-amber-500/30 transition-colors duration-200 group h-full flex flex-col">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge variant={categoryVariant[pub.category] ?? "secondary"}>{pub.category}</Badge>
-                        <Badge variant="secondary">{pub.type}</Badge>
-                        {pub.verified && (
-                          <div className="flex items-center gap-1 text-emerald-400 text-xs ml-auto">
-                            <CheckCircle size={13} />
-                            Verified
-                          </div>
-                        )}
-                      </div>
-                      <h3 className="font-semibold mb-2 leading-snug group-hover:text-white transition-colors flex-1">
-                        {pub.title}
-                      </h3>
-                      <p className="text-sm text-gray-500 mb-4 leading-relaxed">{pub.summary}</p>
-                      <div className="flex items-center justify-between text-xs text-gray-600 pt-3 border-t border-gray-800">
-                        <span>{pub.author}</span>
-                        <span>{pub.date}</span>
-                      </div>
-                      <div className="flex items-center justify-between mt-3">
-                        <div className="flex items-center gap-1.5 text-gray-500 text-xs">
-                          <Download size={13} />
-                          {pub.downloads.toLocaleString()} downloads
+              <div className="grid gap-4">
+                {filteredPublications.length === 0 ? (
+                  <EmptyState label="publications" />
+                ) : (
+                  filteredPublications.map((publication) => (
+                    <article
+                      key={publication.title}
+                      className="surface-card p-6 lg:grid lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-8"
+                    >
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <Badge variant={categoryVariant[publication.category] ?? "secondary"}>
+                            {publication.category}
+                          </Badge>
+                          <Badge variant="secondary">{publication.type}</Badge>
+                          {publication.verified ? (
+                            <span className="tag-pill">
+                              <CheckCircle2 size={14} />
+                              Verified
+                            </span>
+                          ) : null}
                         </div>
-                        <button className="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 text-xs font-medium transition-colors">
-                          Read More <ExternalLink size={13} />
+
+                        <h2 className="mt-5 text-3xl">{publication.title}</h2>
+                        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground">
+                          {publication.summary}
+                        </p>
+                      </div>
+
+                      <div className="mt-6 grid gap-3 text-sm text-muted-foreground lg:mt-0">
+                        <div>
+                          <p className="eyebrow">Author</p>
+                          <p className="mt-2 text-foreground">{publication.author}</p>
+                        </div>
+                        <div>
+                          <p className="eyebrow">Published</p>
+                          <p className="mt-2 text-foreground">{publication.date}</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Download size={15} className="text-primary" />
+                          <span>{publication.downloads.toLocaleString()} downloads</span>
+                        </div>
+                        <button className="link-line text-left">
+                          Open document <ExternalLink size={15} />
                         </button>
                       </div>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </StaggerGrid>
-              <FadeUp delay={0.2} className="mt-10 text-center">
-                <Button variant="outline">Load More Publications</Button>
-              </FadeUp>
+                    </article>
+                  ))
+                )}
+              </div>
             </TabsContent>
 
-            {/* News */}
             <TabsContent value="news">
-              <FadeUp className="mb-8">
-                <h2 className="text-2xl font-bold tracking-tight mb-1">Industry News & Updates</h2>
-                <p className="text-sm text-gray-500">Real-time feed of verified industry news and insights.</p>
-              </FadeUp>
-              <StaggerGrid className="space-y-4">
-                {news.map((article, i) => (
-                  <StaggerItem key={i}>
-                    <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-blue-500/30 transition-colors duration-200 group">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Badge variant={categoryVariant[article.category] ?? "secondary"}>{article.category}</Badge>
-                        <span className="text-xs text-gray-600">{article.date}</span>
-                        <div className="flex items-center gap-1 text-gray-600 text-xs">
-                          <Clock size={12} />{article.readTime}
-                        </div>
+              <div className="route-list">
+                {filteredNews.length === 0 ? (
+                  <EmptyState label="news items" />
+                ) : (
+                  filteredNews.map((article) => (
+                    <article key={article.title} className="lg:grid lg:grid-cols-[10rem_minmax(0,1fr)_9rem] lg:gap-6">
+                      <div className="text-sm text-muted-foreground">
+                        <p>{article.date}</p>
+                        <p className="mt-2 flex items-center gap-2">
+                          <Clock3 size={14} className="text-primary" />
+                          {article.readTime}
+                        </p>
                       </div>
-                      <h3 className="font-semibold mb-2 group-hover:text-white transition-colors">{article.title}</h3>
-                      <p className="text-sm text-gray-500 leading-relaxed mb-3">{article.excerpt}</p>
-                      <button className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 text-xs font-medium transition-colors">
-                        Read Full Article <ExternalLink size={13} />
-                      </button>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </StaggerGrid>
-              <FadeUp delay={0.2} className="mt-10 text-center">
-                <Button variant="outline">View All News</Button>
-              </FadeUp>
+                      <div>
+                        <Badge variant={categoryVariant[article.category] ?? "secondary"}>
+                          {article.category}
+                        </Badge>
+                        <h2 className="mt-4 text-3xl">{article.title}</h2>
+                        <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
+                          {article.excerpt}
+                        </p>
+                      </div>
+                      <div className="mt-5 lg:mt-0 lg:text-right">
+                        <button className="link-line">
+                          Read brief <ExternalLink size={15} />
+                        </button>
+                      </div>
+                    </article>
+                  ))
+                )}
+              </div>
             </TabsContent>
 
-            {/* Events */}
             <TabsContent value="events">
-              <FadeUp className="mb-8">
-                <h2 className="text-2xl font-bold tracking-tight mb-1">Upcoming Events</h2>
-                <p className="text-sm text-gray-500">Join us at industry events, workshops, and meetups.</p>
-              </FadeUp>
-              <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {events.map((event, i) => (
-                  <StaggerItem key={i}>
-                    <div className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-emerald-500/30 transition-colors duration-200 h-full flex flex-col">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="inline-flex items-center border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full">
-                          {event.status}
-                        </span>
+              <div className="grid gap-4 lg:grid-cols-2">
+                {filteredEvents.length === 0 ? (
+                  <EmptyState label="events" />
+                ) : (
+                  filteredEvents.map((event) => (
+                    <article key={event.title} className="surface-card p-6">
+                      <div className="flex items-center justify-between gap-3">
                         <Badge variant="secondary">{event.type}</Badge>
+                        <span className="tag-pill">{event.status}</span>
                       </div>
-                      <h3 className="font-semibold mb-4 leading-snug flex-1">{event.title}</h3>
-                      <div className="space-y-2 text-sm text-gray-500 mb-5">
-                        <div className="flex items-center gap-2"><Calendar size={14} className="flex-shrink-0" />{event.date}</div>
-                        <div className="flex items-center gap-2"><MapPin size={14} className="flex-shrink-0" />{event.location}</div>
-                        <div className="flex items-center gap-2"><Users size={14} className="flex-shrink-0" />{event.attendees} expected attendees</div>
-                      </div>
-                      <Button className="w-full" size="sm">Register Now</Button>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </StaggerGrid>
-              <FadeUp delay={0.2} className="mt-10 text-center">
-                <Button variant="outline">View Event Calendar</Button>
-              </FadeUp>
+
+                      <h2 className="mt-6 text-3xl">{event.title}</h2>
+
+                      <dl className="ledger-list mt-6 text-sm text-muted-foreground">
+                        <div className="flex items-start gap-3">
+                          <Calendar size={16} className="mt-1 shrink-0 text-primary" />
+                          <div>
+                            <dt className="eyebrow">Date</dt>
+                            <dd className="mt-2 text-foreground">{event.date}</dd>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <MapPin size={16} className="mt-1 shrink-0 text-primary" />
+                          <div>
+                            <dt className="eyebrow">Location</dt>
+                            <dd className="mt-2 text-foreground">{event.location}</dd>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Users size={16} className="mt-1 shrink-0 text-primary" />
+                          <div>
+                            <dt className="eyebrow">Attendance</dt>
+                            <dd className="mt-2 text-foreground">
+                              {event.attendees} expected attendees
+                            </dd>
+                          </div>
+                        </div>
+                      </dl>
+
+                      <Button className="mt-8 w-full" size="lg">
+                        Register now <ArrowUpRight size={16} />
+                      </Button>
+                    </article>
+                  ))
+                )}
+              </div>
             </TabsContent>
           </Tabs>
-        </div>
-      </section>
+        </SectionBlock>
+      </SiteSection>
 
-      {/* Submission Portal CTA */}
-      <FadeUp>
-        <section className="bg-gray-900/30 border-y border-gray-800 py-16">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center mx-auto mb-5">
-              <FileText className="text-amber-400" size={24} />
-            </div>
-            <h2 className="text-2xl font-bold mb-3 tracking-tight">Contribute to the Knowledge Hub</h2>
-            <p className="text-gray-400 mb-7">
-              Share your research, publications, or host events through our verified submission portal.
-            </p>
-            <Button className="bg-amber-600 hover:bg-amber-500">Submit Your Content</Button>
-          </div>
-        </section>
-      </FadeUp>
-
-      {/* Newsletter */}
-      <FadeUp>
-        <section className="py-16">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-7">
-              <h2 className="text-2xl font-bold mb-2 tracking-tight">Subscribe to The Daily Pulse</h2>
-              <p className="text-gray-500 text-sm">
-                Curated daily insights in Tech, Commerce, and Agriculture delivered to your inbox.
+      <SiteSection className="pt-0">
+        <article className="surface-card p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
+              <p className="eyebrow">Submission desk</p>
+              <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
+                Contribute research, reporting, or events to the hub.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+                If you have material that adds real value to operators in tech,
+                commerce, or agriculture, we can review it for the verified pipeline.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Input type="email" placeholder="Enter your email address" className="flex-1 h-11" />
-              <Button className="h-11 px-6">Subscribe</Button>
-            </div>
+
+            <Button size="lg">
+              Submit material <FileText size={16} />
+            </Button>
           </div>
-        </section>
-      </FadeUp>
-    </div>
+        </article>
+      </SiteSection>
+    </>
   );
 }

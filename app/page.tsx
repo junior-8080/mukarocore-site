@@ -1,339 +1,334 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BookOpenText,
+  CheckCircle2,
+  Coins,
+  Cpu,
+  Sprout,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site/PageFrame";
 
 export const metadata: Metadata = {
   title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
   description:
-    "MukaroCore Enterprise delivers integrated Technology, Commerce, and Agriculture solutions for modern businesses across Africa. Build the Core. Verify the Truth. Scale the Growth.",
-  keywords: [
-    "MukaroCore",
-    "Mukaro Core",
-    "enterprise solutions Africa",
-    "tech solutions Kenya",
-    "commerce solutions Nairobi",
-    "agri-tech Africa",
-    "business growth solutions",
-    "digital transformation Kenya",
-  ],
+    "MukaroCore Enterprise designs the operating layer behind technology, commerce, and agriculture for businesses building across Africa.",
   openGraph: {
     title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
     description:
-      "Integrated Technology, Commerce, and Agriculture solutions for modern businesses across Africa.",
+      "Technology, commerce, and agriculture systems for businesses that need clear operations, verified insight, and durable growth.",
     url: "https://www.mukarocore.com",
   },
 };
-import {
-  ArrowRight,
-  Server,
-  ShoppingCart,
-  Sprout,
-  BookOpen,
-  CheckCircle,
-  TrendingUp,
-  Zap,
-  Shield,
-  Globe,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  HeroText,
-  FadeUp,
-  FadeIn,
-  StaggerGrid,
-  StaggerItem,
-} from "@/components/ui/motion";
 
-const pillars = [
+const routes = [
   {
-    icon: Server,
-    title: "Tech Solutions",
-    description: "Essential IT infrastructure and managed services for modern businesses.",
-    color: "from-blue-500 to-blue-600",
+    id: "01",
+    title: "Tech systems",
+    summary: "Managed infrastructure, cloud, security, and day-to-day support.",
     href: "/services#tech",
   },
   {
-    icon: ShoppingCart,
-    title: "Commerce Tools",
-    description: "Digital payment integration, inventory management, and automated invoicing.",
-    color: "from-cyan-500 to-cyan-600",
+    id: "02",
+    title: "Commerce flows",
+    summary: "Payments, inventory, invoicing, and operational reporting.",
     href: "/services#commerce",
   },
   {
-    icon: Sprout,
-    title: "Agri-Tech",
-    description: "Data-driven solutions for precision agriculture and market connectivity.",
-    color: "from-emerald-500 to-emerald-600",
+    id: "03",
+    title: "Agri intelligence",
+    summary: "Precision farming data, market links, and field analytics.",
     href: "/services#agri",
   },
   {
-    icon: BookOpen,
-    title: "Knowledge Hub",
-    description: "Authoritative publications, research, news, and industry insights.",
-    color: "from-amber-500 to-amber-600",
+    id: "04",
+    title: "Knowledge hub",
+    summary: "Research, verified briefs, events, and public authority-building.",
     href: "/knowledge-hub",
   },
 ];
 
-const features = [
-  "Digital Payment Migration",
-  "Automated Invoicing & Ledgers",
-  "Inventory Management Systems",
-  "WhatsApp Business Integration",
-  "Data Security & Infrastructure",
-  "Real-time Business Insights",
+const operatingModel = [
+  {
+    step: "01",
+    title: "Audit the friction",
+    body: "We map the points where money, data, or execution get stuck and quantify what the delays cost.",
+  },
+  {
+    step: "02",
+    title: "Rebuild the path",
+    body: "Then we connect the tools, people, and reporting lines into one working sequence your team can keep.",
+  },
+  {
+    step: "03",
+    title: "Prove the gain",
+    body: "Every rollout ends with measurable movement: fewer errors, faster cash collection, and cleaner visibility.",
+  },
 ];
 
-const kpis = [
-  { value: "+85%", label: "Revenue Efficiency", color: "text-emerald-400" },
-  { value: "−62%", label: "Manual Errors", color: "text-blue-400" },
-  { value: "3×", label: "Faster Reconciliation", color: "text-emerald-400" },
-  { value: "<2wk", label: "Implementation", color: "text-blue-400" },
+const pillars = [
+  {
+    icon: Cpu,
+    title: "Technology",
+    summary: "Infrastructure, uptime, security, and systems support for businesses that cannot afford duct tape operations.",
+    points: ["Managed IT", "Cloud migrations", "Security hardening"],
+    href: "/services#tech",
+    span: "lg:col-span-3",
+  },
+  {
+    icon: Coins,
+    title: "Commerce",
+    summary: "Payment and inventory operations designed to close the gap between service delivery and collected revenue.",
+    points: ["Digital payments", "Inventory control", "Automated invoicing"],
+    href: "/services#commerce",
+    span: "lg:col-span-3",
+  },
+  {
+    icon: Sprout,
+    title: "Agriculture",
+    summary: "Operational intelligence for growers, cooperatives, and market-facing agri businesses.",
+    points: ["Precision data", "Market links", "Farm analytics"],
+    href: "/services#agri",
+    span: "lg:col-span-2",
+  },
+  {
+    icon: BookOpenText,
+    title: "Knowledge Hub",
+    summary: "A publishing arm that turns internal insight into verified public material your market can reference.",
+    points: ["Research briefs", "Industry news", "Events and submissions"],
+    href: "/knowledge-hub",
+    span: "lg:col-span-4",
+  },
 ];
 
-const stats = [
-  { value: "500+", label: "Businesses Served" },
-  { value: "98%", label: "Client Satisfaction" },
-  { value: "50+", label: "Publications" },
-  { value: "24/7", label: "Support" },
+const revenueStats = [
+  { value: "+85%", label: "Revenue efficiency" },
+  { value: "-62%", label: "Manual errors" },
+  { value: "3x", label: "Faster reconciliation" },
+  { value: "<2 wks", label: "Implementation window" },
+];
+
+const revenuePlays = [
+  "Digital payment migration for service businesses",
+  "Automated ledgers and invoice follow-up",
+  "Inventory control tied to order movement",
+  "WhatsApp-ready workflows for the frontline team",
+  "Revenue reporting your operators can actually read",
+  "Security and access rules for every handoff",
 ];
 
 export default function HomePage() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-[#030712]">
-        <div className="absolute inset-0 hero-pattern opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712] via-[#030712]/90 to-emerald-950/20" />
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2" />
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
-          <div className="max-w-3xl">
-            <HeroText delay={0}>
-              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-6">
-                <Zap size={12} />
-                Enterprise Technology Solutions
-              </div>
-            </HeroText>
-
-            <HeroText delay={0.1}>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
-                Building the{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
-                  Core
-                </span>{" "}
-                of Your Business
-              </h1>
-            </HeroText>
-
-            <HeroText delay={0.2}>
-              <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl">
-                Providing the technical foundation, commerce tools, and agricultural
-                insights your business needs to thrive in the digital age.
-              </p>
-            </HeroText>
-
-            <HeroText delay={0.3}>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild size="lg" className="shadow-lg shadow-emerald-500/20">
-                  <Link href="/contact">
-                    Get a Free Business Audit
-                    <ArrowRight size={18} />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <Link href="/knowledge-hub">Explore Knowledge Hub</Link>
-                </Button>
-              </div>
-            </HeroText>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <FadeIn>
-        <section className="border-y border-gray-800 bg-gray-900/40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <StaggerGrid className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, i) => (
-                <StaggerItem key={i} className="text-center">
-                  <div className="text-3xl font-bold text-emerald-400 mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-500">{stat.label}</div>
-                </StaggerItem>
-              ))}
-            </StaggerGrid>
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* Value Props */}
-      <section className="py-24 bg-[#030712]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: CheckCircle,
-                color: "text-emerald-400",
-                bg: "bg-emerald-500/10",
-                title: "Excellence",
-                desc: "Delivering top-tier solutions with unwavering commitment to quality in everything we do.",
-              },
-              {
-                icon: Shield,
-                color: "text-blue-400",
-                bg: "bg-blue-500/10",
-                title: "Stability",
-                desc: "Building robust infrastructure that your business can depend on every single day.",
-              },
-              {
-                icon: Globe,
-                color: "text-amber-400",
-                bg: "bg-amber-500/10",
-                title: "Truth",
-                desc: "Verified information and authoritative industry insights you can trust and act on.",
-              },
-            ].map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <StaggerItem key={i}>
-                  <div className="flex items-start gap-4 bg-gray-900 border border-gray-800 rounded-xl p-6 h-full hover:border-gray-700 transition-colors">
-                    <div className={`flex-shrink-0 w-11 h-11 ${item.bg} rounded-lg flex items-center justify-center`}>
-                      <Icon className={item.color} size={22} />
-                    </div>
-                    <div>
-                      <h3 className="text-white font-semibold mb-1.5">{item.title}</h3>
-                      <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </StaggerGrid>
-        </div>
-      </section>
-
-      {/* Core Pillars */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeUp className="text-center mb-14">
-            <p className="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">
-              What We Do
-            </p>
-            <h2 className="text-4xl font-bold mb-4 tracking-tight">Our Core Pillars</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Multi-disciplinary expertise bridging technology, commerce, and agriculture
-              for comprehensive business growth.
-            </p>
-          </FadeUp>
-
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {pillars.map((pillar, i) => {
-              const Icon = pillar.icon;
-              return (
-                <StaggerItem key={i}>
-                  <Link
-                    href={pillar.href}
-                    className="group block bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 hover:-translate-y-1 transition-all duration-300 h-full"
-                  >
-                    <div className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${pillar.color} rounded-lg mb-5 group-hover:scale-110 transition-transform duration-200`}>
-                      <Icon className="text-white" size={24} />
-                    </div>
-                    <h3 className="text-white font-semibold mb-2">{pillar.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{pillar.description}</p>
-                  </Link>
-                </StaggerItem>
-              );
-            })}
-          </StaggerGrid>
-
-          <FadeUp delay={0.2} className="text-center mt-10">
-            <Button asChild variant="outline">
-              <Link href="/services">
-                View All Services
-                <ArrowRight size={16} />
+    <>
+      <PageHero
+        eyebrow="MukaroCore Enterprise"
+        title={<>Build the core that keeps business moving.</>}
+        description={
+          <>
+            MukaroCore works on the unglamorous layer that matters most: the systems,
+            payment rails, and operating logic underneath growing businesses. We build
+            for teams that need clarity, not decorative dashboards.
+          </>
+        }
+        actions={
+          <>
+            <Button asChild size="lg">
+              <Link href="/contact">
+                Start a Project <ArrowUpRight size={16} />
               </Link>
             </Button>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* Revenue Recovery Package */}
-      <section className="py-24 bg-gray-900/40 border-y border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-            <FadeUp>
-              <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
-                <Zap size={12} />
-                Flagship Service
-              </div>
-              <h2 className="text-4xl font-bold mb-5 tracking-tight">
-                The Revenue Recovery Package
-              </h2>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                Transform your manual service delivery into streamlined digital payment flows.
-                Our comprehensive solution converts operational inefficiencies into measurable
-                revenue opportunities.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                {features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-2.5">
-                    <CheckCircle className="text-emerald-400 flex-shrink-0" size={15} />
-                    <span className="text-sm text-gray-300">{feature}</span>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/services">
+                Explore Services <ArrowRight size={16} />
+              </Link>
+            </Button>
+          </>
+        }
+        aside={
+          <>
+            <div className="route-list">
+              {routes.map((route) => (
+                <Link key={route.id} href={route.href} className="group">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="text-sm font-semibold text-primary">{route.id}</span>
+                    <ArrowRight
+                      size={16}
+                      className="shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground"
+                    />
                   </div>
+                  <h2 className="mt-3 text-2xl">{route.title}</h2>
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">{route.summary}</p>
+                </Link>
+              ))}
+            </div>
+
+            <article className="surface-card p-6">
+              <p className="eyebrow">Current brief</p>
+              <p className="mt-4 text-lg leading-relaxed text-foreground">
+                Best suited for operators, service businesses, cooperatives, and
+                founders who have already outgrown manual coordination.
+              </p>
+            </article>
+          </>
+        }
+      />
+
+      <SiteSection className="pt-0">
+        <StatRack
+          items={[
+            { value: "500+", label: "Businesses served" },
+            { value: "98%", label: "Client satisfaction" },
+            { value: "50+", label: "Publications shipped" },
+            { value: "24/7", label: "Support cadence" },
+          ]}
+        />
+      </SiteSection>
+
+      <SiteSection tone="muted">
+        <SectionBlock
+          eyebrow="Operating model"
+          title={<>A practical method, not a moodboard.</>}
+          description={
+            <>
+              The work starts with friction mapping and ends with measurable operating
+              gains. We keep the process visible so teams know what changed, why it
+              changed, and how to maintain it after launch.
+            </>
+          }
+        >
+          <ol className="grid gap-4 md:grid-cols-3">
+            {operatingModel.map((item) => (
+              <li key={item.step} className="surface-card p-6">
+                <p className="eyebrow text-primary">{item.step}</p>
+                <h3 className="mt-4 text-3xl">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p>
+              </li>
+            ))}
+          </ol>
+        </SectionBlock>
+      </SiteSection>
+
+      <SiteSection>
+        <SectionBlock
+          eyebrow="Capabilities map"
+          title={<>Four lanes. One operating layer.</>}
+          description={
+            <>
+              Each MukaroCore lane solves a different part of the same problem:
+              helping businesses move from improvised processes to dependable systems.
+            </>
+          }
+        >
+          <div className="grid gap-4 lg:grid-cols-6">
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon;
+
+              return (
+                <article key={pillar.title} className={`surface-card p-6 ${pillar.span}`}>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background/70 text-primary">
+                      <Icon size={20} />
+                    </span>
+                    <Link href={pillar.href} className="link-line text-sm">
+                      View lane <ArrowRight size={15} />
+                    </Link>
+                  </div>
+                  <h3 className="mt-6 text-4xl">{pillar.title}</h3>
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
+                    {pillar.summary}
+                  </p>
+                  <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+                    {pillar.points.map((point) => (
+                      <li key={point} className="tag-pill justify-center sm:justify-start">
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              );
+            })}
+          </div>
+        </SectionBlock>
+      </SiteSection>
+
+      <SiteSection tone="muted">
+        <SectionBlock
+          eyebrow="Revenue recovery"
+          title={<>Recover money from the gaps between delivery and payment.</>}
+          description={
+            <>
+              Our flagship package focuses on the most common leak in small and
+              mid-sized teams: work gets done, but the revenue trail is messy,
+              delayed, or invisible.
+            </>
+          }
+        >
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_22rem]">
+            <article className="surface-card surface-card-strong p-8 lg:p-10">
+              <p className="eyebrow !text-background/70">Flagship package</p>
+              <h3 className="mt-5 max-w-[11ch] text-5xl leading-none">
+                Revenue recovery with operational proof.
+              </h3>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-background/78">
+                We redesign how payments, inventory, invoicing, and frontline follow-up
+                work together so cash stops stalling between departments.
+              </p>
+
+              <StatRack items={revenueStats} columns={4} inverted className="mt-8" />
+            </article>
+
+            <aside className="surface-card p-6">
+              <p className="eyebrow">What ships inside</p>
+              <ul className="ledger-list mt-6">
+                {revenuePlays.map((play) => (
+                  <li key={play} className="flex items-start gap-3 text-sm leading-7 text-foreground">
+                    <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />
+                    <span>{play}</span>
+                  </li>
                 ))}
-              </div>
-              <Button asChild size="lg" className="shadow-lg shadow-emerald-500/20">
+              </ul>
+              <Button asChild size="lg" className="mt-8 w-full">
                 <Link href="/contact">
-                  Start Your Recovery
-                  <TrendingUp size={18} />
+                  Request the audit <ArrowUpRight size={16} />
                 </Link>
               </Button>
-            </FadeUp>
-
-            <FadeUp delay={0.15}>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-2xl blur-xl" />
-                <div className="relative bg-gray-900 border border-gray-800 rounded-xl p-8">
-                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-6 font-medium">
-                    Average client outcomes
-                  </p>
-                  <div className="grid grid-cols-2 gap-4">
-                    {kpis.map((kpi, i) => (
-                      <div key={i} className="bg-gray-800/60 rounded-lg p-5 border border-gray-700/50">
-                        <div className={`text-3xl font-bold mb-1 ${kpi.color}`}>{kpi.value}</div>
-                        <div className="text-xs text-gray-500 leading-snug">{kpi.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </FadeUp>
+            </aside>
           </div>
-        </div>
-      </section>
+        </SectionBlock>
+      </SiteSection>
 
-      {/* CTA */}
-      <section className="py-24">
-        <FadeUp>
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold mb-5 tracking-tight">
-              Ready to Build Your Core?
-            </h2>
-            <p className="text-gray-400 mb-8 text-lg max-w-xl mx-auto">
-              Join forward-thinking businesses that have transformed their operations
-              with MukaroCore Enterprise.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button asChild size="lg" className="shadow-lg shadow-emerald-500/20">
-                <Link href="/contact">Schedule a Consultation</Link>
+      <SiteSection className="pt-0">
+        <article className="surface-card p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
+              <p className="eyebrow">Next move</p>
+              <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
+                If the business has traction, the systems need to catch up.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+                We can review the current stack, map the breakpoints, and tell you what
+                needs to change first.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Book a consultation <ArrowUpRight size={16} />
+                </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/knowledge-hub">Read Our Research</Link>
+                <Link href="/knowledge-hub">
+                  Read the research <ArrowRight size={16} />
+                </Link>
               </Button>
             </div>
           </div>
-        </FadeUp>
-      </section>
-    </div>
+        </article>
+      </SiteSection>
+    </>
   );
 }

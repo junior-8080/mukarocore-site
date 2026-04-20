@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Cpu } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Menu, X, Sun, Moon, ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, SlideDown } from "@/components/ui/motion";
+import { useTheme } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -20,14 +22,14 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 18);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => setIsOpen(false), [pathname]);
 
   const isActive = (path: string) => {
@@ -38,83 +40,90 @@ export function Navigation() {
   return (
     <nav
       className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-gray-950/95 backdrop-blur-md border-b border-gray-800 shadow-lg"
-          : "bg-gray-950 border-b border-gray-800/50"
+        "sticky top-0 z-50 border-b border-border transition-colors duration-200",
+        scrolled ? "glass-nav" : "bg-background/78 backdrop-blur-xl"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-blue-500 via-emerald-500 to-emerald-400 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-shadow">
-              <Cpu className="text-white" size={18} />
-            </div>
-            <span className="text-lg font-bold tracking-tight">
-              <span className="text-white">Mukaro</span>
-              <span className="text-emerald-400">Core</span>
-            </span>
-          </Link>
+      <div className="site-shell flex min-h-[4.75rem] items-center gap-5">
+        <Link href="/" className="shrink-0" aria-label="MukaroCore home">
+          <BrandLogo size="nav" priority />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                href={link.path}
+        <div className="hidden lg:flex flex-1 items-center justify-center gap-1">
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              className={cn(
+                "group inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm transition-colors",
+                isActive(link.path)
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              <span
                 className={cn(
-                  "px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                  isActive(link.path)
-                    ? "text-emerald-400 bg-emerald-500/10"
-                    : "text-gray-400 hover:text-white hover:bg-gray-800"
+                  "text-[0.68rem] font-semibold tracking-[0.22em]",
+                  isActive(link.path) ? "text-primary" : "text-muted-foreground"
                 )}
               >
+                0{index + 1}
+              </span>
+              <span className="border-b border-transparent pb-0.5 group-hover:border-foreground/30">
                 {link.label}
-              </Link>
-            ))}
-          </div>
+              </span>
+            </Link>
+          ))}
+        </div>
 
-          {/* CTA + Mobile toggle */}
-          <div className="flex items-center gap-3">
-            <Button asChild className="hidden md:flex">
-              <Link href="/contact">Get Started</Link>
-            </Button>
-            <button
-              className="md:hidden p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
+        <div className="ml-auto flex items-center gap-2">
+          <button
+            onClick={toggle}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground transition-colors hover:text-foreground"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+          </button>
+
+          <Button asChild className="hidden md:inline-flex">
+            <Link href="/contact">
+              Start a Project <ArrowUpRight size={16} />
+            </Link>
+          </Button>
+
+          <button
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground transition-colors hover:text-foreground lg:hidden"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Navigation — animated */}
       <AnimatePresence>
         {isOpen && (
-          <SlideDown className="md:hidden border-t border-gray-800 bg-gray-950">
-            <div className="px-4 py-3 space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  href={link.path}
-                  className={cn(
-                    "block px-3 py-2.5 rounded-md text-sm font-medium transition-colors",
-                    isActive(link.path)
-                      ? "text-emerald-400 bg-emerald-500/10"
-                      : "text-gray-300 hover:text-white hover:bg-gray-800"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="pt-2 pb-1">
-                <Button asChild className="w-full">
-                  <Link href="/contact">Get Started</Link>
-                </Button>
+          <SlideDown className="lg:hidden border-t border-border bg-background/92 backdrop-blur-xl">
+            <div className="site-shell py-4">
+              <div className="route-list">
+                {navLinks.map((link, index) => (
+                  <Link
+                    key={link.path}
+                    href={link.path}
+                    className="flex items-center justify-between gap-4 text-sm"
+                  >
+                    <span className="text-muted-foreground">0{index + 1}</span>
+                    <span className={cn("ml-auto", isActive(link.path) ? "text-primary" : "text-foreground")}>
+                      {link.label}
+                    </span>
+                  </Link>
+                ))}
               </div>
+              <Button asChild className="mt-4 w-full">
+                <Link href="/contact">
+                  Start a Project <ArrowUpRight size={16} />
+                </Link>
+              </Button>
             </div>
           </SlideDown>
         )}

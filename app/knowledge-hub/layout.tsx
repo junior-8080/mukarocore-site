@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Knowledge Hub",
   description:
-    "Insights, publications, and industry news on Technology, Commerce, and Agriculture from MukaroCore Enterprise. Stay informed on Africa's business landscape.",
+    "Verified publications, industry news, and events across technology, commerce, and agriculture from MukaroCore Enterprise.",
   keywords: [
     "MukaroCore knowledge hub",
     "Africa business insights",
-    "tech publications Kenya",
+    "tech publications Africa",
     "agri-tech news Africa",
-    "commerce trends Nairobi",
-    "business intelligence Kenya",
+    "commerce trends Africa",
+    "business intelligence Ghana",
     "MukaroCore blog",
   ],
   openGraph: {

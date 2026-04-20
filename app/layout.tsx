@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const siteUrl = "https://www.mukarocore.com";
 
@@ -15,18 +13,16 @@ export const metadata: Metadata = {
     template: "%s | MukaroCore Enterprise",
   },
   description:
-    "MukaroCore Enterprise delivers integrated Technology, Commerce, and Agriculture solutions for modern businesses across Africa. Build the Core. Verify the Truth. Scale the Growth.",
+    "MukaroCore Enterprise designs the operating layer behind technology, commerce, and agriculture for businesses building across Africa.",
   keywords: [
     "MukaroCore",
     "Mukaro Core",
-    "mukarocore",
-    "enterprise solutions Africa",
-    "tech consulting Nairobi",
-    "e-commerce solutions Kenya",
-    "agri-tech Africa",
-    "business technology Kenya",
-    "digital transformation Africa",
-    "revenue recovery",
+    "enterprise systems Africa",
+    "technology operations Ghana",
+    "digital commerce infrastructure",
+    "agri-tech solutions Africa",
+    "business transformation Africa",
+    "knowledge hub Africa",
   ],
   authors: [{ name: "MukaroCore Enterprise", url: siteUrl }],
   creator: "MukaroCore Enterprise",
@@ -49,13 +45,13 @@ export const metadata: Metadata = {
     siteName: "MukaroCore Enterprise",
     title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
     description:
-      "Integrated Technology, Commerce, and Agriculture solutions for modern businesses across Africa. Build the Core. Verify the Truth. Scale the Growth.",
+      "Technology, commerce, and agriculture systems for businesses that need clear operations, verified insight, and durable growth.",
     images: [
       {
-        url: `${siteUrl}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: "MukaroCore Enterprise",
+        url: `${siteUrl}/brand-logo.png`,
+        width: 677,
+        height: 369,
+        alt: "MukaroCore brand logo",
       },
     ],
   },
@@ -63,8 +59,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
     description:
-      "Integrated Technology, Commerce, and Agriculture solutions for modern businesses across Africa.",
-    images: [`${siteUrl}/og-image.png`],
+      "Technology, commerce, and agriculture systems for businesses building across Africa.",
+    images: [`${siteUrl}/brand-logo.png`],
     creator: "@mukarocore",
   },
   alternates: {
@@ -79,13 +75,13 @@ const jsonLd = {
   name: "MukaroCore Enterprise",
   alternateName: ["MukaroCore", "Mukaro Core"],
   url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
+  logo: `${siteUrl}/brand-logo.png`,
   description:
-    "MukaroCore Enterprise delivers integrated Technology, Commerce, and Agriculture solutions for modern businesses across Africa.",
+    "MukaroCore Enterprise designs the operating layer behind technology, commerce, and agriculture for businesses building across Africa.",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Nairobi",
-    addressCountry: "KE",
+    addressLocality: "Accra",
+    addressCountry: "GH",
   },
   contactPoint: {
     "@type": "ContactPoint",
@@ -95,34 +91,41 @@ const jsonLd = {
   sameAs: [],
   foundingLocation: {
     "@type": "Place",
-    name: "Nairobi, Kenya",
+    name: "Accra, Ghana",
   },
   areaServed: "Africa",
   serviceType: [
-    "Technology Solutions",
-    "E-Commerce Solutions",
-    "Agriculture Technology",
+    "Technology Systems",
+    "Commerce Operations",
+    "Agriculture Intelligence",
     "Business Consulting",
   ],
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('mukaro-theme')||((window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.classList.toggle('dark',t==='dark')})()`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} min-h-screen bg-[#030712] text-white`}>
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
+      <body className="min-h-screen">
+        <ThemeProvider>
+          <Navigation />
+          <main className="overflow-x-clip">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
