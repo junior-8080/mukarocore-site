@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { path: "/", label: "Home" },
   { path: "/services", label: "Services" },
-  { path: "/knowledge-hub", label: "Knowledge Hub" },
+  // { path: "/knowledge-hub", label: "Agro Hub" },
   { path: "/about", label: "About" },
   { path: "/contact", label: "Contact" },
 ];
@@ -61,14 +61,14 @@ export function Navigation() {
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
-              <span
-                className={cn(
-                  "text-[0.68rem] font-semibold tracking-[0.22em]",
-                  isActive(link.path) ? "text-primary" : "text-muted-foreground"
-                )}
-              >
-                0{index + 1}
-              </span>
+              {/*<span*/}
+              {/*  className={cn(*/}
+              {/*    "text-[0.68rem] font-semibold tracking-[0.22em]",*/}
+              {/*    isActive(link.path) ? "text-primary" : "text-muted-foreground"*/}
+              {/*  )}*/}
+              {/*>*/}
+              {/*  0{index + 1}*/}
+              {/*</span>*/}
               <span className="border-b border-transparent pb-0.5 group-hover:border-foreground/30">
                 {link.label}
               </span>

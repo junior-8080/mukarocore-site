@@ -18,19 +18,19 @@ export function BrandLogo({
     <span
       className={cn(
         "inline-flex items-center rounded-[1.35rem] border border-border bg-[rgba(244,237,222,0.92)] shadow-[0_12px_30px_rgba(28,42,51,0.08)] dark:bg-[rgba(244,237,222,0.96)]",
-        size === "nav" ? "px-3 py-2" : "px-4 py-3 sm:px-5 sm:py-4 rounded-[1.6rem]",
+        size === "nav" ? "p-2" : "p-2 rounded-[1.6rem]",
         className
       )}
     >
       <Image
         src="/brand-logo.png"
         alt="MukaroCore"
-        width={677}
-        height={369}
+        width={600}
+        height={300}
         priority={priority}
         className={cn(
           "w-auto",
-          size === "nav" ? "h-11 sm:h-12" : "h-20 sm:h-24",
+          size === "nav" ? "h-6 sm:h-12" : "h-16 sm:h-16",
           imageClassName
         )}
       />

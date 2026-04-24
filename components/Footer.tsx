@@ -21,7 +21,7 @@ export function Footer() {
 
             <div>
               <p className="eyebrow">MukaroCore Enterprise</p>
-              <p className="mt-3 text-4xl leading-none" style={{ fontFamily: "var(--font-display)" }}>
+              <p className="font-display mt-3 text-4xl leading-none">
                 Build the core.
               </p>
             </div>

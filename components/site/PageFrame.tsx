@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 type SiteSectionProps = {
   children: React.ReactNode;
   className?: string;
-  tone?: "default" | "muted" | "contrast";
+  tone?: "default" | "muted";
 };
 
 export function SiteSection({
@@ -16,7 +16,6 @@ export function SiteSection({
       className={cn(
         "page-section",
         tone === "muted" && "bg-secondary/60",
-        tone === "contrast" && "bg-foreground text-background",
         className
       )}
     >

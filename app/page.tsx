@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -37,15 +38,15 @@ const routes = [
     summary: "Payments, inventory, invoicing, and operational reporting.",
     href: "/services#commerce",
   },
+  // {
+  //   id: "03",
+  //   title: "Agri intelligence",
+  //   summary: "Precision farming data, market links, and field analytics.",
+  //   href: "/services#agri",
+  // },
   {
     id: "03",
-    title: "Agri intelligence",
-    summary: "Precision farming data, market links, and field analytics.",
-    href: "/services#agri",
-  },
-  {
-    id: "04",
-    title: "Knowledge hub",
+    title: "Agro hub",
     summary: "Research, verified briefs, events, and public authority-building.",
     href: "/knowledge-hub",
   },
@@ -73,6 +74,9 @@ const pillars = [
   {
     icon: Cpu,
     title: "Technology",
+    // Replace with a real photo — server room, cloud infrastructure, or IT operations
+    image: "/tech.jpg",
+    imageAlt: "Technology infrastructure and systems",
     summary: "Infrastructure, uptime, security, and systems support for businesses that cannot afford duct tape operations.",
     points: ["Managed IT", "Cloud migrations", "Security hardening"],
     href: "/services#tech",
@@ -81,24 +85,22 @@ const pillars = [
   {
     icon: Coins,
     title: "Commerce",
+    // Replace with a real photo — payments, digital commerce, or business operations
+    image: "/commerce.jpg",
+    imageAlt: "Commerce and payment operations",
     summary: "Payment and inventory operations designed to close the gap between service delivery and collected revenue.",
     points: ["Digital payments", "Inventory control", "Automated invoicing"],
     href: "/services#commerce",
     span: "lg:col-span-3",
   },
   {
-    icon: Sprout,
-    title: "Agriculture",
-    summary: "Operational intelligence for growers, cooperatives, and market-facing agri businesses.",
-    points: ["Precision data", "Market links", "Farm analytics"],
-    href: "/services#agri",
-    span: "lg:col-span-2",
-  },
-  {
     icon: BookOpenText,
-    title: "Knowledge Hub",
+    title: "Agro Hub",
+    // Replace with a real photo — research, library, or professional reading
+    image: "/agro.jpg",
+    imageAlt: "Research and knowledge publishing",
     summary: "A publishing arm that turns internal insight into verified public material your market can reference.",
-    points: ["Research briefs", "Industry news", "Events and submissions"],
+    points: ["Research briefs", "Industry news", "Events and submissions","Fund Raising For Agric Project"],
     href: "/knowledge-hub",
     span: "lg:col-span-4",
   },
@@ -165,13 +167,16 @@ export default function HomePage() {
               ))}
             </div>
 
-            <article className="surface-card p-6">
-              <p className="eyebrow">Current brief</p>
-              <p className="mt-4 text-lg leading-relaxed text-foreground">
-                Best suited for operators, service businesses, cooperatives, and
-                founders who have already outgrown manual coordination.
-              </p>
-            </article>
+            {/* Replace src with a real hero photo — team, office, or operations */}
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
+              <Image
+                src="/banner.jpg"
+                alt="MukaroCore Enterprise — business operations"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </>
         }
       />
@@ -187,31 +192,31 @@ export default function HomePage() {
         />
       </SiteSection>
 
-      <SiteSection tone="muted">
-        <SectionBlock
-          eyebrow="Operating model"
-          title={<>A practical method, not a moodboard.</>}
-          description={
-            <>
-              The work starts with friction mapping and ends with measurable operating
-              gains. We keep the process visible so teams know what changed, why it
-              changed, and how to maintain it after launch.
-            </>
-          }
-        >
-          <ol className="grid gap-4 md:grid-cols-3">
-            {operatingModel.map((item) => (
-              <li key={item.step} className="surface-card p-6">
-                <p className="eyebrow text-primary">{item.step}</p>
-                <h3 className="mt-4 text-3xl">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p>
-              </li>
-            ))}
-          </ol>
-        </SectionBlock>
-      </SiteSection>
+      {/*<SiteSection tone="muted">*/}
+      {/*  <SectionBlock*/}
+      {/*    eyebrow="Operating model"*/}
+      {/*    title={<>A practical method, not a moodboard.</>}*/}
+      {/*    description={*/}
+      {/*      <>*/}
+      {/*        The work starts with friction mapping and ends with measurable operating*/}
+      {/*        gains. We keep the process visible so teams know what changed, why it*/}
+      {/*        changed, and how to maintain it after launch.*/}
+      {/*      </>*/}
+      {/*    }*/}
+      {/*  >*/}
+      {/*    <ol className="grid gap-4 md:grid-cols-2">*/}
+      {/*      {operatingModel.map((item) => (*/}
+      {/*        <li key={item.step} className="surface-card p-6">*/}
+      {/*          <p className="eyebrow text-primary">{item.step}</p>*/}
+      {/*          <h3 className="mt-4 text-3xl">{item.title}</h3>*/}
+      {/*          <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p>*/}
+      {/*        </li>*/}
+      {/*      ))}*/}
+      {/*    </ol>*/}
+      {/*  </SectionBlock>*/}
+      {/*</SiteSection>*/}
 
-      <SiteSection>
+      <SiteSection tone="muted">
         <SectionBlock
           eyebrow="Capabilities map"
           title={<>Four lanes. One operating layer.</>}
@@ -227,26 +232,36 @@ export default function HomePage() {
               const Icon = pillar.icon;
 
               return (
-                <article key={pillar.title} className={`surface-card p-6 ${pillar.span}`}>
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background/70 text-primary">
-                      <Icon size={20} />
-                    </span>
-                    <Link href={pillar.href} className="link-line text-sm">
-                      View lane <ArrowRight size={15} />
-                    </Link>
+                <article key={pillar.title} className={`surface-card overflow-hidden ${pillar.span}`}>
+                  <div className="relative h-44 w-full">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.imageAlt}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <h3 className="mt-6 text-4xl">{pillar.title}</h3>
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
-                    {pillar.summary}
-                  </p>
-                  <ul className="mt-6 grid gap-3 sm:grid-cols-3">
-                    {pillar.points.map((point) => (
-                      <li key={point} className="tag-pill justify-center sm:justify-start">
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-background/70 text-primary">
+                        <Icon size={20} />
+                      </span>
+                      <Link href={pillar.href} className="link-line text-sm">
+                        View lane <ArrowRight size={15} />
+                      </Link>
+                    </div>
+                    <h3 className="mt-6 text-4xl">{pillar.title}</h3>
+                    <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
+                      {pillar.summary}
+                    </p>
+                    <ul className="mt-6 grid gap-3">
+                      {pillar.points.map((point) => (
+                        <li key={point} className="tag-pill justify-center sm:justify-start">
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </article>
               );
             })}
@@ -276,8 +291,7 @@ export default function HomePage() {
                 We redesign how payments, inventory, invoicing, and frontline follow-up
                 work together so cash stops stalling between departments.
               </p>
-
-              <StatRack items={revenueStats} columns={4} inverted className="mt-8" />
+              {/*<StatRack items={revenueStats} columns={4} inverted className="mt-8" />*/}
             </article>
 
             <aside className="surface-card p-6">
@@ -301,9 +315,9 @@ export default function HomePage() {
       </SiteSection>
 
       <SiteSection className="pt-0">
-        <article className="surface-card p-8 lg:p-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-            <div>
+        <article className="surface-card overflow-hidden">
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_20rem] xl:grid-cols-[minmax(0,1fr)_26rem]">
+            <div className="p-8 lg:p-10">
               <p className="eyebrow">Next move</p>
               <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
                 If the business has traction, the systems need to catch up.
@@ -312,19 +326,27 @@ export default function HomePage() {
                 We can review the current stack, map the breakpoints, and tell you what
                 needs to change first.
               </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button asChild size="lg">
+                  <Link href="/contact">
+                    Book a consultation <ArrowUpRight size={16} />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/knowledge-hub">
+                    Read the research <ArrowRight size={16} />
+                  </Link>
+                </Button>
+              </div>
             </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <Button asChild size="lg">
-                <Link href="/contact">
-                  Book a consultation <ArrowUpRight size={16} />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/knowledge-hub">
-                  Read the research <ArrowRight size={16} />
-                </Link>
-              </Button>
+            {/* Replace src with a real photo — team meeting, workspace, or consultation */}
+            <div className="relative hidden min-h-64 lg:block">
+              <Image
+                src="/business.jpg"
+                alt="MukaroCore consultation and working session"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </article>

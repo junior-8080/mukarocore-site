@@ -267,7 +267,7 @@ export default function AboutPage() {
                     {member.initials}
                   </div>
                   <div>
-                    <p className="eyebrow">0{index + 1}</p>
+                    {/*<p className="eyebrow">0{index + 1}</p>*/}
                     <h3 className="mt-2 text-3xl">{member.name}</h3>
                     <p className="mt-1 text-sm text-primary">{member.role}</p>
                     <p className="mt-4 text-sm leading-7 text-muted-foreground">{member.bio}</p>
