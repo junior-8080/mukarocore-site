@@ -184,10 +184,10 @@ export default function HomePage() {
       <SiteSection className="pt-0">
         <StatRack
           items={[
-            { value: "500+", label: "Businesses served" },
-            { value: "98%", label: "Client satisfaction" },
-            { value: "50+", label: "Publications shipped" },
+            { value: "3", label: "Service lanes" },
+            { value: "<2 wks", label: "Onboarding window" },
             { value: "24/7", label: "Support cadence" },
+            { value: "100%", label: "Delivery commitment" },
           ]}
         />
       </SiteSection>
@@ -304,11 +304,11 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" className="mt-8 w-full">
-                <Link href="/contact">
-                  Request the audit <ArrowUpRight size={16} />
-                </Link>
-              </Button>
+              {/*<Button asChild size="lg" className="mt-8 w-full">*/}
+              {/*  <Link href="/contact">*/}
+              {/*    Request the audit <ArrowUpRight size={16} />*/}
+              {/*  </Link>*/}
+              {/*</Button>*/}
             </aside>
           </div>
         </SectionBlock>

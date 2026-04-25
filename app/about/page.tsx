@@ -135,10 +135,10 @@ export default function AboutPage() {
         aside={
           <StatRack
             items={[
-              { value: "500+", label: "Businesses served" },
-              { value: "98%", label: "Client satisfaction" },
-              { value: "50+", label: "Research pieces" },
+              { value: "4", label: "Operating domains" },
+              { value: "3", label: "Service lanes" },
               { value: "24/7", label: "Support window" },
+              { value: "Ghana", label: "Headquartered" },
             ]}
             columns={2}
           />
