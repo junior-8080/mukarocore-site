@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   Coins,
   Cpu,
-  Sprout,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site/PageFrame";
@@ -38,35 +37,11 @@ const routes = [
     summary: "Payments, inventory, invoicing, and operational reporting.",
     href: "/services#commerce",
   },
-  // {
-  //   id: "03",
-  //   title: "Agri intelligence",
-  //   summary: "Precision farming data, market links, and field analytics.",
-  //   href: "/services#agri",
-  // },
   {
     id: "03",
-    title: "Agro hub",
+    title: "Knowledge Hub",
     summary: "Research, verified briefs, events, and public authority-building.",
     href: "/knowledge-hub",
-  },
-];
-
-const operatingModel = [
-  {
-    step: "01",
-    title: "Audit the friction",
-    body: "We map the points where money, data, or execution get stuck and quantify what the delays cost.",
-  },
-  {
-    step: "02",
-    title: "Rebuild the path",
-    body: "Then we connect the tools, people, and reporting lines into one working sequence your team can keep.",
-  },
-  {
-    step: "03",
-    title: "Prove the gain",
-    body: "Every rollout ends with measurable movement: fewer errors, faster cash collection, and cleaner visibility.",
   },
 ];
 
@@ -74,7 +49,6 @@ const pillars = [
   {
     icon: Cpu,
     title: "Technology",
-    // Replace with a real photo — server room, cloud infrastructure, or IT operations
     image: "/tech.jpg",
     imageAlt: "Technology infrastructure and systems",
     summary: "Infrastructure, uptime, security, and systems support for businesses that cannot afford duct tape operations.",
@@ -85,7 +59,6 @@ const pillars = [
   {
     icon: Coins,
     title: "Commerce",
-    // Replace with a real photo — payments, digital commerce, or business operations
     image: "/commerce.jpg",
     imageAlt: "Commerce and payment operations",
     summary: "Payment and inventory operations designed to close the gap between service delivery and collected revenue.",
@@ -96,21 +69,13 @@ const pillars = [
   {
     icon: BookOpenText,
     title: "Agro Hub",
-    // Replace with a real photo — research, library, or professional reading
     image: "/agro.jpg",
     imageAlt: "Research and knowledge publishing",
     summary: "A publishing arm that turns internal insight into verified public material your market can reference.",
-    points: ["Research briefs", "Industry news", "Events and submissions","Fund Raising For Agric Project"],
+    points: ["Research briefs", "Industry news", "Events and submissions", "Agri fund raising"],
     href: "/knowledge-hub",
     span: "lg:col-span-4",
   },
-];
-
-const revenueStats = [
-  { value: "+85%", label: "Revenue efficiency" },
-  { value: "-62%", label: "Manual errors" },
-  { value: "3x", label: "Faster reconciliation" },
-  { value: "<2 wks", label: "Implementation window" },
 ];
 
 const revenuePlays = [
@@ -167,7 +132,6 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Replace src with a real hero photo — team, office, or operations */}
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
               <Image
                 src="/banner.jpg"
@@ -191,30 +155,6 @@ export default function HomePage() {
           ]}
         />
       </SiteSection>
-
-      {/*<SiteSection tone="muted">*/}
-      {/*  <SectionBlock*/}
-      {/*    eyebrow="Operating model"*/}
-      {/*    title={<>A practical method, not a moodboard.</>}*/}
-      {/*    description={*/}
-      {/*      <>*/}
-      {/*        The work starts with friction mapping and ends with measurable operating*/}
-      {/*        gains. We keep the process visible so teams know what changed, why it*/}
-      {/*        changed, and how to maintain it after launch.*/}
-      {/*      </>*/}
-      {/*    }*/}
-      {/*  >*/}
-      {/*    <ol className="grid gap-4 md:grid-cols-2">*/}
-      {/*      {operatingModel.map((item) => (*/}
-      {/*        <li key={item.step} className="surface-card p-6">*/}
-      {/*          <p className="eyebrow text-primary">{item.step}</p>*/}
-      {/*          <h3 className="mt-4 text-3xl">{item.title}</h3>*/}
-      {/*          <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.body}</p>*/}
-      {/*        </li>*/}
-      {/*      ))}*/}
-      {/*    </ol>*/}
-      {/*  </SectionBlock>*/}
-      {/*</SiteSection>*/}
 
       <SiteSection tone="muted">
         <SectionBlock
@@ -291,7 +231,6 @@ export default function HomePage() {
                 We redesign how payments, inventory, invoicing, and frontline follow-up
                 work together so cash stops stalling between departments.
               </p>
-              {/*<StatRack items={revenueStats} columns={4} inverted className="mt-8" />*/}
             </article>
 
             <aside className="surface-card p-6">
@@ -304,11 +243,11 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              {/*<Button asChild size="lg" className="mt-8 w-full">*/}
-              {/*  <Link href="/contact">*/}
-              {/*    Request the audit <ArrowUpRight size={16} />*/}
-              {/*  </Link>*/}
-              {/*</Button>*/}
+              <Button asChild size="lg" className="mt-8 w-full">
+                <Link href="/contact">
+                  Request the audit <ArrowUpRight size={16} />
+                </Link>
+              </Button>
             </aside>
           </div>
         </SectionBlock>
@@ -339,7 +278,6 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            {/* Replace src with a real photo — team meeting, workspace, or consultation */}
             <div className="relative hidden min-h-64 lg:block">
               <Image
                 src="/business.jpg"
