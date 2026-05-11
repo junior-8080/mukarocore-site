@@ -39,7 +39,7 @@ const routes = [
   },
   {
     id: "03",
-    title: "Knowledge Hub",
+    title: "Agro Hub",
     summary: "Research, verified briefs, events, and public authority-building.",
     href: "/knowledge-hub",
   },
