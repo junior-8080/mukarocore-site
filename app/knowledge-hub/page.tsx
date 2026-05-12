@@ -21,48 +21,48 @@ import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site
 
 const publications = [
   {
-    title: "Digital Payment Integration: A Complete Guide for SMEs",
-    category: "Commerce",
-    type: "Whitepaper",
-    author: "Dr. Sarah Mitchell",
-    date: "March 2026",
-    verified: true,
-    downloads: 1247,
-    summary:
-      "Comprehensive analysis of digital payment systems and their impact on small to medium enterprises.",
-  },
-  {
-    title: "Precision Agriculture in East Africa: Data-Driven Approaches",
-    category: "Agriculture",
-    type: "Research Paper",
-    author: "Prof. James Okoye",
-    date: "February 2026",
-    verified: true,
-    downloads: 892,
-    summary:
-      "Exploring the implementation and benefits of precision agriculture technologies in East African farming.",
-  },
-  {
-    title: "Cybersecurity Best Practices for Growing Businesses",
+    title: "From Paper to Platform: Digitising Operations in African SMEs",
     category: "Tech",
     type: "Whitepaper",
-    author: "MukaroCore Security Team",
-    date: "January 2026",
+    author: "MukaroCore Research Team",
+    date: "April 2026",
+    verified: true,
+    downloads: 1847,
+    summary:
+      "A practical guide to replacing manual, paper-based workflows with digital systems — covering process mapping, tool selection, and team enablement.",
+  },
+  {
+    title: "Agricultural Funding Landscape in West Africa: 2026 Brief",
+    category: "Agriculture",
+    type: "Research Brief",
+    author: "Prof. James Okoye",
+    date: "March 2026",
+    verified: true,
+    downloads: 1103,
+    summary:
+      "A verified overview of available grants, impact funds, and investor appetite for agricultural operators across West Africa.",
+  },
+  {
+    title: "Closing the Revenue Gap: Automating Invoicing and Payment Follow-Up",
+    category: "Commerce",
+    type: "Case Study",
+    author: "MukaroCore Commerce Team",
+    date: "February 2026",
     verified: true,
     downloads: 2103,
     summary:
-      "Essential security strategies for businesses transitioning to digital operations.",
+      "Real-world examples of businesses that reduced payment delays and manual reconciliation by automating their invoicing and follow-up workflows.",
   },
   {
-    title: "Revenue Recovery Through Digital Transformation",
-    category: "Commerce",
-    type: "Case Study",
-    author: "Emily Chen",
-    date: "April 2026",
+    title: "Workflow Automation for Frontline Teams: What Works and What Doesn't",
+    category: "Tech",
+    type: "Research Paper",
+    author: "MukaroCore Research Team",
+    date: "January 2026",
     verified: true,
     downloads: 1567,
     summary:
-      "Real-world case studies demonstrating revenue improvements through digital integration.",
+      "Analysis of automation implementations across service businesses in Africa — with honest assessments of adoption challenges and what drives successful rollouts.",
   },
 ];
 
@@ -76,28 +76,28 @@ const news = [
       "Latest statistics show unprecedented growth in mobile money usage across regional markets, creating new opportunities for digital commerce.",
   },
   {
-    title: "New AgriTech Partnerships Announced",
+    title: "Agri Fundraising Round-Up: Q1 2026",
     category: "Agriculture",
     date: "April 10, 2026",
-    readTime: "3 min read",
+    readTime: "4 min read",
     excerpt:
-      "MukaroCore Enterprise partners with agricultural institutions to deliver data-driven farming solutions.",
+      "A review of agricultural funding activity in Q1 2026 — which sectors attracted investment, what operators are asking for, and what funders are prioritising.",
   },
   {
-    title: "Cloud Infrastructure Trends for 2026",
+    title: "Why Manual Processes Break Down at Scale",
     category: "Tech",
     date: "April 8, 2026",
-    readTime: "7 min read",
-    excerpt:
-      "Analysis of emerging cloud technologies and their implications for small business IT infrastructure.",
-  },
-  {
-    title: "The Future of Digital Payment Security",
-    category: "Tech",
-    date: "April 5, 2026",
     readTime: "6 min read",
     excerpt:
-      "Exploring advanced security measures protecting digital transactions in emerging markets.",
+      "An analysis of the most common failure points in manual business operations — and the signals that tell you a process needs to be digitised before it costs you.",
+  },
+  {
+    title: "Automating the Invoice-to-Cash Cycle for Service Businesses",
+    category: "Commerce",
+    date: "April 5, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "How service businesses across Africa are reducing collection delays by automating the steps between service delivery and confirmed payment.",
   },
 ];
 
@@ -111,7 +111,7 @@ const events = [
     status: "Upcoming",
   },
   {
-    title: "AgriTech Innovation Workshop",
+    title: "Agri Fundraising Readiness Workshop",
     date: "May 22, 2026",
     location: "Virtual Event",
     type: "Workshop",
@@ -119,7 +119,7 @@ const events = [
     status: "Upcoming",
   },
   {
-    title: "Small Business Tech Meetup",
+    title: "Process Digitisation Clinic",
     date: "April 28, 2026",
     location: "MukaroCore Office",
     type: "Meetup",
@@ -127,10 +127,10 @@ const events = [
     status: "Registration Open",
   },
   {
-    title: "Cybersecurity for Enterprises",
+    title: "Agriculture Sector Research Submissions — Call Open",
     date: "June 5, 2026",
     location: "Virtual Event",
-    type: "Webinar",
+    type: "Submission",
     attendees: 200,
     status: "Upcoming",
   },

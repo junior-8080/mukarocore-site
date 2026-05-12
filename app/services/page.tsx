@@ -24,19 +24,19 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "MukaroCore Enterprise provides structured services across technology, commerce, and agri-intelligence for businesses building across Africa.",
+    "MukaroCore Enterprise digitises manual processes, optimises commerce flows, and builds agricultural insight for businesses operating across Africa.",
   keywords: [
-    "managed IT services Ghana",
+    "process digitisation Africa",
+    "workflow automation Ghana",
     "digital commerce systems Africa",
-    "agri-tech services Africa",
-    "cloud infrastructure Ghana",
-    "payment operations consulting",
+    "agri research publishing Africa",
+    "business systems consulting Ghana",
     "MukaroCore services",
   ],
   openGraph: {
     title: "Services | MukaroCore Enterprise",
     description:
-      "Technology, commerce, and agriculture services built as clear operating lanes rather than disconnected one-off projects.",
+      "Three service lanes — technology, commerce, and agri — built to replace manual operations with clean digital systems that scale.",
     url: "https://www.mukarocore.com/services",
   },
 };
@@ -106,31 +106,31 @@ const commerceServices = [
 const agriServices = [
   {
     icon: Sprout,
-    title: "Precision Agriculture",
+    title: "Research & Industry Briefs",
     description:
-      "Field data and agronomic signals that help operators plan with more confidence.",
-    features: ["Crop monitoring", "Weather integrations", "Soil intelligence", "Yield forecasting"],
+      "Verified, structured research turned into briefs the agricultural market can reference and act on.",
+    features: ["Market research", "Sector analysis", "Verified data briefs", "Policy summaries"],
   },
   {
     icon: MapPin,
-    title: "Digital Market Links",
+    title: "Events & Submissions",
     description:
-      "Stronger connections between producers, buyers, and pricing signals in the market.",
-    features: ["Market pricing", "Buyer networks", "Order management", "Logistics coordination"],
+      "Industry events, panels, and submission programmes that connect operators, buyers, and decision-makers.",
+    features: ["Event production", "Speaker programming", "Call for submissions", "Stakeholder coordination"],
   },
   {
     icon: BarChart3,
-    title: "Farm Analytics",
+    title: "Agri Fundraising Support",
     description:
-      "Production, cost, and season planning data packaged for real operational use.",
-    features: ["Production tracking", "Cost analysis", "ROI review", "Season planning"],
+      "Structured support for agricultural operators seeking funding — from pitch preparation to investor-ready documentation.",
+    features: ["Funding opportunity mapping", "Pitch deck support", "Grant writing", "Investor readiness"],
   },
   {
     icon: Wifi,
-    title: "IoT Farm Solutions",
+    title: "Knowledge Publishing",
     description:
-      "Connected monitoring and automation for farms that need better visibility between visits.",
-    features: ["Sensor networks", "Automated irrigation", "Remote alerts", "Monitoring dashboards"],
+      "A public-facing publishing arm that turns internal insight into authoritative material your market trusts.",
+    features: ["Industry news", "Thought leadership", "Report publishing", "Public authority-building"],
   },
 ];
 
@@ -189,11 +189,13 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title={<>Clear lanes for complex operational work.</>}
+        title={<>Three lanes. One operating layer.</>}
         description={
           <>
-            We organise the work into three service lanes so you can see exactly where
-            the operational problem sits and which systems need to change first.
+            Whether the problem is manual processes slowing the team down, revenue
+            leaking between delivery and payment, or agricultural insight that never
+            reaches the right audience — each lane is built to fix a specific part
+            of how the business operates.
           </>
         }
         actions={
@@ -261,11 +263,12 @@ export default function ServicesPage() {
         <div id="commerce">
           <SectionBlock
             eyebrow="Commerce lane"
-            title={<>Payment operations built to collect what the team delivers.</>}
+            title={<>Close the gap between delivery and collected revenue.</>}
             description={
               <>
-                For businesses losing time or money between orders, service delivery,
-                invoicing, and actual cash collection.
+                For businesses where orders go out, work gets done, but the money
+                trail is slow, messy, or invisible — we digitise the payment,
+                invoicing, and inventory flows so cash stops stalling.
               </>
             }
           >
@@ -282,11 +285,12 @@ export default function ServicesPage() {
         <div id="agri">
           <SectionBlock
             eyebrow="Agri lane"
-            title={<>Field intelligence that travels back into business decisions.</>}
+            title={<>Verified insight the agricultural market can reference.</>}
             description={
               <>
-                This lane supports agricultural operators who need stronger links
-                between field data, market access, and planning decisions.
+                The Agro Hub is a research and publishing arm for the agricultural
+                sector — producing briefs, running events, supporting fundraising,
+                and building the kind of public authority that opens doors.
               </>
             }
           >
@@ -305,11 +309,11 @@ export default function ServicesPage() {
             <div>
               <p className="eyebrow">Fit check</p>
               <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
-                If the business is growing, one of these lanes is already under strain.
+                If the business has traction, the manual processes are already a bottleneck.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-                We can tell you where to start, what to postpone, and how to sequence
-                the fixes so the work compounds instead of colliding.
+                We map where the friction is, identify which processes to digitise first,
+                and sequence the work so each fix builds on the last.
               </p>
             </div>
 

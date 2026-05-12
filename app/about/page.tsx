@@ -61,7 +61,7 @@ const team = [
   {
     name: "Sarah Chen",
     role: "Chief Technology Officer",
-    bio: "Focuses on infrastructure design, modernisation, and the day-to-day reliability of client systems.",
+    bio: "Leads process digitisation engagements — mapping manual workflows, designing digital replacements, and integrating systems so client operations run without the usual bottlenecks.",
     initials: "SC",
   },
   {
@@ -81,9 +81,9 @@ const team = [
 const pillars = [
   {
     code: "TECH",
-    title: "Infrastructure and system reliability",
-    body: "We act as an external systems partner for teams that need dependable infrastructure, support, and security without carrying a large internal IT function.",
-    points: ["Managed support", "Cloud architecture", "Security controls"],
+    title: "Process digitisation and workflow optimisation",
+    body: "We take manual, paper-based, and improvised workflows and rebuild them as clean digital systems — automating repetitive tasks and connecting tools so teams stop losing time to processes that don't scale.",
+    points: ["Process digitisation", "Workflow automation", "Systems integration"],
   },
   {
     code: "COMM",
@@ -110,12 +110,13 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About MukaroCore"
-        title={<>We build order into messy business systems.</>}
+        title={<>We digitise the way businesses actually work.</>}
         description={
           <>
-            MukaroCore is a multidisciplinary enterprise for teams operating across
-            technology, commerce, and agriculture. The company exists to make serious
-            operating work feel clearer, tighter, and easier to sustain.
+            MukaroCore is a multidisciplinary enterprise that helps teams across
+            technology, commerce, and agriculture replace manual processes with
+            clean digital systems — so operations run faster, leaner, and without
+            the usual workarounds.
           </>
         }
         actions={
@@ -151,8 +152,9 @@ export default function AboutPage() {
           title={<>Why the company exists.</>}
           description={
             <>
-              We focus on the middle ground most firms neglect: translating strategy
-              into real operating systems that can survive contact with everyday work.
+              We focus on the gap most firms neglect: taking how work actually happens
+              and turning it into a digital system that runs reliably without constant
+              manual effort.
             </>
           }
         >
@@ -163,9 +165,9 @@ export default function AboutPage() {
               </span>
               <h3 className="mt-6 text-4xl">Mission</h3>
               <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                Give growing businesses access to the systems, commercial discipline,
-                and information quality they need to compete without building bloated
-                internal machinery too early.
+                Give growing businesses the digital systems, process discipline,
+                and operational clarity they need to scale — without the overhead
+                of building everything in-house too early.
               </p>
             </article>
 
@@ -175,8 +177,9 @@ export default function AboutPage() {
               </span>
               <h3 className="mt-6 text-4xl">Vision</h3>
               <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                Become the operating partner businesses trust when they need more than
-                advice: they need systems that stay useful after the launch deck is gone.
+                Become the partner businesses turn to when manual processes stop being
+                enough — building digital systems that outlast the project and keep
+                working as the business grows.
               </p>
             </article>
           </div>

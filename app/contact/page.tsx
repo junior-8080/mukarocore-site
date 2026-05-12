@@ -36,17 +36,12 @@ const contactChannels = [
 ];
 
 const benefits = [
-  "A free business systems audit",
-  "A scoped recommendation for the next move",
-  "Clear pricing and sequencing",
+  "A free process audit to identify where manual work is costing you",
+  "A scoped recommendation for which systems to digitise first",
+  "Clear pricing and delivery sequencing",
   "No long-term commitment baked into the first call",
 ];
 
-const hours = [
-  { day: "Monday - Friday", time: "8:00 AM - 6:00 PM" },
-  { day: "Saturday", time: "9:00 AM - 2:00 PM" },
-  { day: "Sunday", time: "Closed" },
-];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -58,22 +53,34 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
 
-    window.setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        message: "",
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      const data = await response.json();
+
+      if (data.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", company: "", service: "", message: "" });
+      } else {
+        setError("Something went wrong. Please try emailing us directly at info@mukarocore.com");
+      }
+    } catch {
+      setError("Something went wrong. Please try emailing us directly at info@mukarocore.com");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -83,8 +90,9 @@ export default function ContactPage() {
         title={<>Bring the problem in plain language. We'll map the system behind it.</>}
         description={
           <>
-            If the issue sits in infrastructure, payments, reporting, or field
-            operations, we can help identify the breakpoints and sequence the fix.
+            If the team is still running on manual processes, losing revenue between
+            delivery and payment, or needs agricultural insight that reaches the right
+            audience — we can identify where to start and sequence the work from there.
           </>
         }
         actions={
@@ -141,8 +149,8 @@ export default function ContactPage() {
           title={<>Start with the context we need to be useful.</>}
           description={
             <>
-              Tell us what the team is trying to achieve, where the friction currently
-              sits, and which lane the issue likely belongs to.
+              Tell us what the team is trying to achieve, which manual processes are
+              slowing things down, and where the biggest friction sits right now.
             </>
           }
         >
@@ -229,11 +237,11 @@ export default function ContactPage() {
                         <SelectValue placeholder="Choose the closest lane" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="revenue-recovery">Revenue recovery package</SelectItem>
-                        <SelectItem value="tech">Technology systems</SelectItem>
-                        <SelectItem value="commerce">Commerce operations</SelectItem>
-                        <SelectItem value="agritech">Agriculture intelligence</SelectItem>
-                        <SelectItem value="knowledge">Knowledge hub partnership</SelectItem>
+                        <SelectItem value="process-digitisation">Process digitisation</SelectItem>
+                        <SelectItem value="workflow-automation">Workflow automation</SelectItem>
+                        <SelectItem value="commerce">Commerce & payment operations</SelectItem>
+                        <SelectItem value="agri-research">Agri research & publishing</SelectItem>
+                        <SelectItem value="agri-fundraising">Agri fundraising support</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
@@ -252,8 +260,12 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <Button type="submit" size="lg">
-                    Send inquiry <Send size={16} />
+                  {error && (
+                    <p className="text-sm text-red-500">{error}</p>
+                  )}
+
+                  <Button type="submit" size="lg" disabled={sending}>
+                    {sending ? "Sending…" : "Send inquiry"} <Send size={16} />
                   </Button>
                 </form>
               )}
@@ -275,16 +287,11 @@ export default function ContactPage() {
               <article className="surface-card p-6">
                 <p className="eyebrow flex items-center gap-2">
                   <Clock3 size={14} className="text-primary" />
-                  Business hours
+                  Availability
                 </p>
-                <dl className="ledger-list mt-5 text-sm">
-                  {hours.map((entry) => (
-                    <div key={entry.day} className="flex items-start justify-between gap-4">
-                      <dt className="text-muted-foreground">{entry.day}</dt>
-                      <dd className="text-right text-foreground">{entry.time}</dd>
-                    </div>
-                  ))}
-                </dl>
+                <p className="mt-4 text-base leading-8 text-foreground">
+                  We're available 24/7. Reach out any time and we'll get back to you as soon as possible.
+                </p>
               </article>
             </aside>
           </div>
@@ -297,11 +304,11 @@ export default function ContactPage() {
             <div>
               <p className="eyebrow">Daily pulse</p>
               <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
-                Subscribe for operating insight across tech, commerce, and agriculture.
+                Stay current on process, commerce, and agri insight.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-                A short dispatch with field notes, research highlights, and system
-                lessons from the work.
+                A short dispatch covering digitisation trends, agri research briefs,
+                and practical lessons from the work we're doing on the ground.
               </p>
             </div>
 

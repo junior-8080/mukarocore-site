@@ -28,7 +28,7 @@ const routes = [
   {
     id: "01",
     title: "Tech systems",
-    summary: "Managed infrastructure, cloud, security, and day-to-day support.",
+    summary: "Digitise manual processes, automate repetitive work, and connect your tools into one operating layer.",
     href: "/services#tech",
   },
   {
@@ -79,12 +79,12 @@ const pillars = [
 ];
 
 const revenuePlays = [
-  "Digital payment migration for service businesses",
-  "Automated ledgers and invoice follow-up",
-  "Inventory control tied to order movement",
-  "WhatsApp-ready workflows for the frontline team",
-  "Revenue reporting your operators can actually read",
-  "Security and access rules for every handoff",
+  "Manual workflow mapped and replaced with a digital system",
+  "Repetitive tasks automated so the team stops doing them by hand",
+  "Disconnected tools integrated into one operating layer",
+  "WhatsApp chains replaced with structured, trackable workflows",
+  "Live dashboards your operators can read without a data team",
+  "Access rules and handoffs built into every process",
 ];
 
 export default function HomePage() {
@@ -211,13 +211,13 @@ export default function HomePage() {
 
       <SiteSection tone="muted">
         <SectionBlock
-          eyebrow="Revenue recovery"
-          title={<>Recover money from the gaps between delivery and payment.</>}
+          eyebrow="Process transformation"
+          title={<>Stop running the business on workarounds.</>}
           description={
             <>
-              Our flagship package focuses on the most common leak in small and
-              mid-sized teams: work gets done, but the revenue trail is messy,
-              delayed, or invisible.
+              Our flagship package targets teams still operating on manual
+              processes, scattered tools, and improvised systems — and replaces
+              them with a clean digital layer built for how the business actually works.
             </>
           }
         >
@@ -225,16 +225,17 @@ export default function HomePage() {
             <article className="surface-card surface-card-strong p-8 lg:p-10">
               <p className="eyebrow !text-background/70">Flagship package</p>
               <h3 className="mt-5 max-w-[11ch] text-5xl leading-none">
-                Revenue recovery with operational proof.
+                Digitise the process. Optimise the work.
               </h3>
               <p className="mt-5 max-w-2xl text-base leading-8 text-background/78">
-                We redesign how payments, inventory, invoicing, and frontline follow-up
-                work together so cash stops stalling between departments.
+                We map how work actually moves through your team, identify where
+                manual steps slow things down, and rebuild those processes as
+                efficient digital systems your people use every day.
               </p>
             </article>
 
             <aside className="surface-card p-6">
-              <p className="eyebrow">What ships inside</p>
+              <p className="eyebrow">What gets done</p>
               <ul className="ledger-list mt-6">
                 {revenuePlays.map((play) => (
                   <li key={play} className="flex items-start gap-3 text-sm leading-7 text-foreground">
@@ -243,11 +244,6 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Button asChild size="lg" className="mt-8 w-full">
-                <Link href="/contact">
-                  Request the audit <ArrowUpRight size={16} />
-                </Link>
-              </Button>
             </aside>
           </div>
         </SectionBlock>
