@@ -44,31 +44,31 @@ export const metadata: Metadata = {
 const techServices = [
   {
     icon: Server,
-    title: "Managed IT Services",
+    title: "Process Digitisation",
     description:
-      "Infrastructure management without the cost and coordination burden of a full internal IT department.",
-    features: ["24/7 system monitoring", "Network administration", "Device and hardware support", "Patch management"],
+      "We replace paper-based, WhatsApp-chain, and spreadsheet workflows with structured digital systems your team can actually rely on.",
+    features: ["Manual-to-digital mapping", "Form and record digitisation", "Workflow structuring", "Document management"],
   },
   {
     icon: Shield,
-    title: "Digital Security",
+    title: "Workflow Automation",
     description:
-      "Operational security controls designed to reduce risk without making routine work harder.",
-    features: ["Threat detection", "Access control", "Security audits", "Compliance support"],
+      "Repetitive back-office tasks get automated so your team spends less time on admin and more time on work that moves the business.",
+    features: ["Task automation", "Approval workflows", "Notification systems", "Scheduled reporting"],
   },
   {
     icon: Cloud,
-    title: "Cloud Infrastructure",
+    title: "Systems Integration",
     description:
-      "Scalable cloud architecture for teams moving away from fragile local setups.",
-    features: ["Cloud migration", "Backup strategy", "Disaster recovery", "Cost optimisation"],
+      "Disconnected tools and siloed data get connected into a single operating layer your team works from rather than around.",
+    features: ["API integrations", "Data sync across tools", "Cloud migration", "Legacy system upgrades"],
   },
   {
     icon: Database,
-    title: "Data Management",
+    title: "Operational Dashboards",
     description:
-      "Data flows and reporting structures that make operational decisions easier to defend.",
-    features: ["Database design", "Analytics pipelines", "Report generation", "System integration"],
+      "Real-time visibility into what your team is doing, how the work is moving, and where it's stalling — without manual reports.",
+    features: ["Live operations view", "Custom KPI tracking", "Automated report generation", "Team performance data"],
   },
 ];
 
@@ -239,11 +239,12 @@ export default function ServicesPage() {
         <div id="tech">
           <SectionBlock
             eyebrow="Tech lane"
-            title={<>The systems that hold the business together.</>}
+            title={<>Turn manual processes into systems that scale.</>}
             description={
               <>
-                This lane covers the infrastructure, security, and data foundations
-                teams usually postpone until the cracks start affecting revenue.
+                This lane is for teams still running operations on spreadsheets,
+                WhatsApp threads, and paper trails — we digitise the process,
+                automate the repetition, and connect the tools so work flows cleanly.
               </>
             }
           >
