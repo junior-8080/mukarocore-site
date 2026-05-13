@@ -21,83 +21,83 @@ import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site
 
 const publications = [
   {
-    title: "From Paper to Platform: Digitising Operations in African SMEs",
-    category: "Tech",
-    type: "Whitepaper",
-    author: "MukaroCore Research Team",
+    title: "Agriculture Is an Asset Class: The Data Investors Are Missing",
+    category: "Agriculture",
+    type: "Research Brief",
+    author: "GrowNovis Research Team",
     date: "April 2026",
     verified: true,
-    downloads: 1847,
+    downloads: 2341,
     summary:
-      "A practical guide to replacing manual, paper-based workflows with digital systems — covering process mapping, tool selection, and team enablement.",
+      "A data-driven case for treating African agriculture as a sophisticated investment category — with AI-analysed sector performance, risk profiles, and opportunity signals.",
   },
   {
-    title: "Agricultural Funding Landscape in West Africa: 2026 Brief",
+    title: "Beyond the Village: Reframing Agriculture for the Modern Economy",
+    category: "Agriculture",
+    type: "Whitepaper",
+    author: "GrowNovis Research Team",
+    date: "March 2026",
+    verified: true,
+    downloads: 1893,
+    summary:
+      "An evidence-based challenge to the outdated narrative around African agriculture — covering supply chain sophistication, tech adoption, and the sectors attracting serious capital.",
+  },
+  {
+    title: "West Africa Agri Funding Landscape: 2026 Brief",
     category: "Agriculture",
     type: "Research Brief",
     author: "Prof. James Okoye",
-    date: "March 2026",
-    verified: true,
-    downloads: 1103,
-    summary:
-      "A verified overview of available grants, impact funds, and investor appetite for agricultural operators across West Africa.",
-  },
-  {
-    title: "Closing the Revenue Gap: Automating Invoicing and Payment Follow-Up",
-    category: "Commerce",
-    type: "Case Study",
-    author: "MukaroCore Commerce Team",
     date: "February 2026",
-    verified: true,
-    downloads: 2103,
-    summary:
-      "Real-world examples of businesses that reduced payment delays and manual reconciliation by automating their invoicing and follow-up workflows.",
-  },
-  {
-    title: "Workflow Automation for Frontline Teams: What Works and What Doesn't",
-    category: "Tech",
-    type: "Research Paper",
-    author: "MukaroCore Research Team",
-    date: "January 2026",
     verified: true,
     downloads: 1567,
     summary:
-      "Analysis of automation implementations across service businesses in Africa — with honest assessments of adoption challenges and what drives successful rollouts.",
+      "A verified overview of available grants, impact funds, and investor appetite for agricultural operators across West Africa — with GrowNovis AI-generated opportunity signals.",
+  },
+  {
+    title: "AI in Agriculture: What the Data Actually Shows",
+    category: "Agriculture",
+    type: "Research Paper",
+    author: "GrowNovis Research Team",
+    date: "January 2026",
+    verified: true,
+    downloads: 1204,
+    summary:
+      "An honest analysis of where AI is creating real value in African agriculture — from market pricing to yield forecasting — and where the hype outpaces the evidence.",
   },
 ];
 
 const news = [
   {
-    title: "Mobile Money Adoption Reaches 78% in Regional Markets",
-    category: "Commerce",
+    title: "GrowNovis AI Signals: April 2026 Agri Opportunity Digest",
+    category: "Agriculture",
     date: "April 12, 2026",
-    readTime: "5 min read",
+    readTime: "4 min read",
     excerpt:
-      "Latest statistics show unprecedented growth in mobile money usage across regional markets, creating new opportunities for digital commerce.",
+      "This month's AI-generated digest covers emerging opportunities in West African agri-processing, input markets, and export corridors — with data sourced from GrowNovis public datasets.",
   },
   {
-    title: "Agri Fundraising Round-Up: Q1 2026",
+    title: "Agri Funding Round-Up: Q1 2026",
     category: "Agriculture",
     date: "April 10, 2026",
     readTime: "4 min read",
     excerpt:
-      "A review of agricultural funding activity in Q1 2026 — which sectors attracted investment, what operators are asking for, and what funders are prioritising.",
+      "A review of agricultural funding activity in Q1 2026 — which sectors attracted capital, what operators are asking for, and what funders are prioritising.",
   },
   {
-    title: "Why Manual Processes Break Down at Scale",
-    category: "Tech",
+    title: "Why Agriculture Keeps Losing the Narrative — And How to Fix It",
+    category: "Agriculture",
     date: "April 8, 2026",
     readTime: "6 min read",
     excerpt:
-      "An analysis of the most common failure points in manual business operations — and the signals that tell you a process needs to be digitised before it costs you.",
+      "The perception problem in African agriculture is not a farming problem — it's a data and visibility problem. GrowNovis is built to address exactly that.",
   },
   {
-    title: "Automating the Invoice-to-Cash Cycle for Service Businesses",
-    category: "Commerce",
+    title: "The Agri Sectors Attracting Serious Investment in 2026",
+    category: "Agriculture",
     date: "April 5, 2026",
     readTime: "5 min read",
     excerpt:
-      "How service businesses across Africa are reducing collection delays by automating the steps between service delivery and confirmed payment.",
+      "AI-analysed data from GrowNovis shows which agricultural sub-sectors are drawing the most investor attention across Africa — and what's driving the shift.",
   },
 ];
 
@@ -182,12 +182,13 @@ export default function KnowledgeHubPage() {
     <>
       <PageHero
         eyebrow="GrowNovis"
-        title={<>Verified research, reporting, and live market signals.</>}
+        title={<>Agriculture is more than farming. Here's the data to prove it.</>}
         description={
           <div className="space-y-6">
             <p>
-              The hub is where MukaroCore turns working insight into usable public
-              material. Every entry is designed to be cited, shared, and acted on.
+              GrowNovis is a MukaroCore product that uses AI to surface agricultural
+              insight, publish verified data publicly, and reframe the sector as the
+              sophisticated, investable industry it actually is.
             </p>
 
             <div className="max-w-xl space-y-3">
@@ -397,11 +398,12 @@ export default function KnowledgeHubPage() {
             <div>
               <p className="eyebrow">Submission desk</p>
               <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
-                Contribute research, reporting, or events to the hub.
+                Contribute research or data to GrowNovis.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-                If you have material that adds real value to operators in tech,
-                commerce, or agriculture, we can review it for the verified pipeline.
+                If you have verified agricultural data, research, or sector insight
+                that should be public — submit it for review and we'll put it in
+                front of the operators, investors, and policymakers who need it.
               </p>
             </div>
 

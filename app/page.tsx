@@ -40,7 +40,7 @@ const routes = [
   {
     id: "03",
     title: "GrowNovis",
-    summary: "Research, verified briefs, events, and public authority-building.",
+    summary: "AI-powered agri intelligence — making agriculture data-driven, public, and modern.",
     href: "/knowledge-hub",
   },
 ];
@@ -70,9 +70,9 @@ const pillars = [
     icon: BookOpenText,
     title: "GrowNovis",
     image: "/agro.jpg",
-    imageAlt: "Research and knowledge publishing",
-    summary: "A publishing arm that turns internal insight into verified public material your market can reference.",
-    points: ["Research briefs", "Industry news", "Events and submissions", "Agri fund raising"],
+    imageAlt: "GrowNovis — modern agricultural intelligence",
+    summary: "A MukaroCore product redefining agriculture as a data-driven industry. GrowNovis uses AI to surface insight, make agri data public, and challenge the narrative that agriculture belongs only in the field.",
+    points: ["AI-powered insights", "Public agri data", "Research & briefings", "Investor access"],
     href: "/knowledge-hub",
     span: "lg:col-span-4",
   },

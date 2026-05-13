@@ -3,20 +3,20 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "GrowNovis",
   description:
-    "Verified publications, industry news, and events across technology, commerce, and agriculture from MukaroCore Enterprise.",
+    "GrowNovis by MukaroCore uses AI to surface agricultural insight, publish verified data publicly, and reframe agriculture as a modern, data-driven industry.",
   keywords: [
-    "MukaroCore knowledge hub",
-    "Africa business insights",
-    "tech publications Africa",
-    "agri-tech news Africa",
-    "commerce trends Africa",
-    "business intelligence Ghana",
-    "MukaroCore blog",
+    "GrowNovis",
+    "AI agricultural intelligence Africa",
+    "agri data Africa",
+    "modern agriculture Ghana",
+    "agricultural investment Africa",
+    "agri research publishing",
+    "MukaroCore GrowNovis",
   ],
   openGraph: {
     title: "GrowNovis | MukaroCore Enterprise",
     description:
-      "Insights, publications, and industry news on Technology, Commerce, and Agriculture from MukaroCore Enterprise.",
+      "AI-powered agricultural intelligence — making agri data public and reframing agriculture as the sophisticated, investable industry it is.",
     url: "https://www.mukarocore.com/knowledge-hub",
   },
 };

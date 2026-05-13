@@ -93,15 +93,15 @@ const pillars = [
   },
   {
     code: "AGRI",
-    title: "Agricultural intelligence and market links",
-    body: "We develop tools and reporting structures that help agricultural operators connect field activity to planning and market access.",
-    points: ["Precision data", "Market visibility", "Field analytics"],
+    title: "GrowNovis — modern agricultural intelligence",
+    body: "GrowNovis is a MukaroCore product built to reframe agriculture as a sophisticated, data-driven industry. It uses AI to surface insight, publish verified agri data publicly, and connect operators, investors, and policymakers around what agriculture actually looks like today.",
+    points: ["AI-powered insights", "Public agri data", "Investor access"],
   },
   {
     code: "HUB",
-    title: "Public authority through verified insight",
-    body: "GrowNovis turns internal insight into structured public material: research, briefings, news, and events.",
-    points: ["Publishing", "Research", "Event programming"],
+    title: "Breaking the narrative around agriculture",
+    body: "Agriculture is not just farming in villages. GrowNovis exists to prove that — through research, events, briefings, and AI tools that make the sector visible, credible, and attractive to a new generation of operators and investors.",
+    points: ["Research & briefings", "Event programming", "Sector repositioning"],
   },
 ];
 

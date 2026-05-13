@@ -106,31 +106,31 @@ const commerceServices = [
 const agriServices = [
   {
     icon: Sprout,
-    title: "Research & Industry Briefs",
+    title: "AI-Powered Agri Insights",
     description:
-      "Verified, structured research turned into briefs the agricultural market can reference and act on.",
-    features: ["Market research", "Sector analysis", "Verified data briefs", "Policy summaries"],
-  },
-  {
-    icon: MapPin,
-    title: "Events & Submissions",
-    description:
-      "Industry events, panels, and submission programmes that connect operators, buyers, and decision-makers.",
-    features: ["Event production", "Speaker programming", "Call for submissions", "Stakeholder coordination"],
+      "GrowNovis uses AI to analyse agricultural data and surface patterns, opportunities, and risks that operators and investors can act on.",
+    features: ["AI data analysis", "Sector trend reports", "Opportunity mapping", "Risk signals"],
   },
   {
     icon: BarChart3,
-    title: "Agri Fundraising Support",
+    title: "Public Agri Data",
     description:
-      "Structured support for agricultural operators seeking funding — from pitch preparation to investor-ready documentation.",
-    features: ["Funding opportunity mapping", "Pitch deck support", "Grant writing", "Investor readiness"],
+      "We make verified agricultural data publicly accessible — so the sector stops operating on assumptions and starts making decisions on evidence.",
+    features: ["Open data publishing", "Verified datasets", "Market pricing", "Sector benchmarks"],
+  },
+  {
+    icon: MapPin,
+    title: "Investor & Sector Events",
+    description:
+      "Events and panels designed to put agriculture in the same room as capital, policy, and technology — changing who the conversation reaches.",
+    features: ["Investor showcases", "Sector panels", "Submission programmes", "Stakeholder convening"],
   },
   {
     icon: Wifi,
-    title: "Knowledge Publishing",
+    title: "Research & Repositioning",
     description:
-      "A public-facing publishing arm that turns internal insight into authoritative material your market trusts.",
-    features: ["Industry news", "Thought leadership", "Report publishing", "Public authority-building"],
+      "Structured research, briefings, and editorial that challenge the outdated image of agriculture and build credibility for the sector.",
+    features: ["Research briefs", "Thought leadership", "Narrative publishing", "Sector authority-building"],
   },
 ];
 
@@ -284,13 +284,14 @@ export default function ServicesPage() {
       <SiteSection tone="muted">
         <div id="agri">
           <SectionBlock
-            eyebrow="Agri lane"
-            title={<>Verified insight the agricultural market can reference.</>}
+            eyebrow="GrowNovis"
+            title={<>Agriculture is data. We're making it visible.</>}
             description={
               <>
-                GrowNovis is a research and publishing arm for the agricultural
-                sector — producing briefs, running events, supporting fundraising,
-                and building the kind of public authority that opens doors.
+                GrowNovis is a MukaroCore product built to reframe agriculture as
+                a sophisticated, modern industry. Using AI and public data, it
+                challenges the narrative that agriculture belongs only in the field
+                — and puts it where capital, technology, and policy meet.
               </>
             }
           >
