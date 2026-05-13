@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Knowledge Hub",
+  title: "GrowNovis",
   description:
     "Verified publications, industry news, and events across technology, commerce, and agriculture from MukaroCore Enterprise.",
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "MukaroCore blog",
   ],
   openGraph: {
-    title: "Knowledge Hub | MukaroCore Enterprise",
+    title: "GrowNovis | MukaroCore Enterprise",
     description:
       "Insights, publications, and industry news on Technology, Commerce, and Agriculture from MukaroCore Enterprise.",
     url: "https://www.mukarocore.com/knowledge-hub",

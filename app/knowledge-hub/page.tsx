@@ -181,7 +181,7 @@ export default function KnowledgeHubPage() {
   return (
     <>
       <PageHero
-        eyebrow="Knowledge Hub"
+        eyebrow="GrowNovis"
         title={<>Verified research, reporting, and live market signals.</>}
         description={
           <div className="space-y-6">

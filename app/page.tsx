@@ -39,7 +39,7 @@ const routes = [
   },
   {
     id: "03",
-    title: "Agro Hub",
+    title: "GrowNovis",
     summary: "Research, verified briefs, events, and public authority-building.",
     href: "/knowledge-hub",
   },
@@ -68,7 +68,7 @@ const pillars = [
   },
   {
     icon: BookOpenText,
-    title: "Agro Hub",
+    title: "GrowNovis",
     image: "/agro.jpg",
     imageAlt: "Research and knowledge publishing",
     summary: "A publishing arm that turns internal insight into verified public material your market can reference.",

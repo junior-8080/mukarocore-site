@@ -4,7 +4,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 
 const navLinks = [
   { href: "/services", label: "Services" },
-  { href: "/knowledge-hub", label: "Knowledge Hub" },
+  { href: "/knowledge-hub", label: "GrowNovis" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

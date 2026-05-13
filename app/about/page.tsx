@@ -100,7 +100,7 @@ const pillars = [
   {
     code: "HUB",
     title: "Public authority through verified insight",
-    body: "The Knowledge Hub turns internal insight into structured public material: research, briefings, news, and events.",
+    body: "GrowNovis turns internal insight into structured public material: research, briefings, news, and events.",
     points: ["Publishing", "Research", "Event programming"],
   },
 ];

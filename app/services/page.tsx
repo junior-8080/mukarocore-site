@@ -288,7 +288,7 @@ export default function ServicesPage() {
             title={<>Verified insight the agricultural market can reference.</>}
             description={
               <>
-                The Agro Hub is a research and publishing arm for the agricultural
+                GrowNovis is a research and publishing arm for the agricultural
                 sector — producing briefs, running events, supporting fundraising,
                 and building the kind of public authority that opens doors.
               </>
