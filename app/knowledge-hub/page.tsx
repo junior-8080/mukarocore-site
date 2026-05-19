@@ -6,12 +6,10 @@ import {
   Calendar,
   CheckCircle2,
   Clock3,
-  Download,
   ExternalLink,
   FileText,
   MapPin,
   Search,
-  Users,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -27,7 +25,6 @@ const publications = [
     author: "GrowNovis Research Team",
     date: "April 2026",
     verified: true,
-    downloads: 2341,
     summary:
       "A data-driven case for treating African agriculture as a sophisticated investment category — with AI-analysed sector performance, risk profiles, and opportunity signals.",
   },
@@ -38,7 +35,6 @@ const publications = [
     author: "GrowNovis Research Team",
     date: "March 2026",
     verified: true,
-    downloads: 1893,
     summary:
       "An evidence-based challenge to the outdated narrative around African agriculture — covering supply chain sophistication, tech adoption, and the sectors attracting serious capital.",
   },
@@ -46,10 +42,9 @@ const publications = [
     title: "West Africa Agri Funding Landscape: 2026 Brief",
     category: "Agriculture",
     type: "Research Brief",
-    author: "Prof. James Okoye",
+    author: "GrowNovis Research Team",
     date: "February 2026",
     verified: true,
-    downloads: 1567,
     summary:
       "A verified overview of available grants, impact funds, and investor appetite for agricultural operators across West Africa — with GrowNovis AI-generated opportunity signals.",
   },
@@ -60,7 +55,6 @@ const publications = [
     author: "GrowNovis Research Team",
     date: "January 2026",
     verified: true,
-    downloads: 1204,
     summary:
       "An honest analysis of where AI is creating real value in African agriculture — from market pricing to yield forecasting — and where the hype outpaces the evidence.",
   },
@@ -103,35 +97,17 @@ const news = [
 
 const events = [
   {
-    title: "Digital Commerce Summit 2026",
-    date: "May 15-17, 2026",
-    location: "Nairobi Convention Center",
-    type: "Conference",
-    attendees: 500,
-    status: "Upcoming",
-  },
-  {
     title: "Agri Fundraising Readiness Workshop",
     date: "May 22, 2026",
     location: "Virtual Event",
     type: "Workshop",
-    attendees: 150,
     status: "Upcoming",
-  },
-  {
-    title: "Process Digitisation Clinic",
-    date: "April 28, 2026",
-    location: "MukaroCore Office",
-    type: "Meetup",
-    attendees: 50,
-    status: "Registration Open",
   },
   {
     title: "Agriculture Sector Research Submissions — Call Open",
     date: "June 5, 2026",
     location: "Virtual Event",
     type: "Submission",
-    attendees: 200,
     status: "Upcoming",
   },
 ];
@@ -187,8 +163,8 @@ export default function KnowledgeHubPage() {
           <div className="space-y-6">
             <p>
               GrowNovis is a MukaroCore product that uses AI to surface agricultural
-              insight, publish verified data publicly, and reframe the sector as the
-              sophisticated, investable industry it actually is.
+              insight — analysing sector articles, advising on crops, and delivering
+              daily agronomic guidance to operators in the field.
             </p>
 
             <div className="max-w-xl space-y-3">
@@ -216,10 +192,9 @@ export default function KnowledgeHubPage() {
           <>
             <StatRack
               items={[
-                { value: "50+", label: "Published pieces" },
+                { value: "4", label: "Published pieces" },
                 { value: "3", label: "Coverage domains" },
-                { value: "4", label: "Live events listed" },
-                { value: "100%", label: "Verified editorial pass" },
+                { value: "2", label: "Upcoming events" },
               ]}
               columns={2}
             />
@@ -292,10 +267,6 @@ export default function KnowledgeHubPage() {
                           <p className="eyebrow">Published</p>
                           <p className="mt-2 text-foreground">{publication.date}</p>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <Download size={15} className="text-primary" />
-                          <span>{publication.downloads.toLocaleString()} downloads</span>
-                        </div>
                         <button className="link-line text-left">
                           Open document <ExternalLink size={15} />
                         </button>
@@ -367,15 +338,6 @@ export default function KnowledgeHubPage() {
                           <div>
                             <dt className="eyebrow">Location</dt>
                             <dd className="mt-2 text-foreground">{event.location}</dd>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <Users size={16} className="mt-1 shrink-0 text-primary" />
-                          <div>
-                            <dt className="eyebrow">Attendance</dt>
-                            <dd className="mt-2 text-foreground">
-                              {event.attendees} expected attendees
-                            </dd>
                           </div>
                         </div>
                       </dl>

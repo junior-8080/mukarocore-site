@@ -8,7 +8,6 @@ import {
   Cloud,
   CreditCard,
   Database,
-  MapPin,
   Package,
   Server,
   Shield,
@@ -105,32 +104,25 @@ const commerceServices = [
 
 const agriServices = [
   {
-    icon: Sprout,
-    title: "AI-Powered Agri Insights",
-    description:
-      "GrowNovis uses AI to analyse agricultural data and surface patterns, opportunities, and risks that operators and investors can act on.",
-    features: ["AI data analysis", "Sector trend reports", "Opportunity mapping", "Risk signals"],
-  },
-  {
     icon: BarChart3,
-    title: "Public Agri Data",
+    title: "Agri Article Analysis",
     description:
-      "We make verified agricultural data publicly accessible — so the sector stops operating on assumptions and starts making decisions on evidence.",
-    features: ["Open data publishing", "Verified datasets", "Market pricing", "Sector benchmarks"],
+      "GrowNovis uses AI to analyse agricultural articles and surface the patterns, signals, and sector trends that matter for operators and decision-makers.",
+    features: ["AI-powered article analysis", "Sector trend signals", "Research summaries", "Data-backed insights"],
   },
   {
-    icon: MapPin,
-    title: "Investor & Sector Events",
+    icon: Sprout,
+    title: "AI Crop Advisory",
     description:
-      "Events and panels designed to put agriculture in the same room as capital, policy, and technology — changing who the conversation reaches.",
-    features: ["Investor showcases", "Sector panels", "Submission programmes", "Stakeholder convening"],
+      "Personalised AI-generated crop guidance built on agronomic data — helping operators make better decisions about what to grow, when, and how.",
+    features: ["Crop-specific guidance", "AI recommendations", "Agronomic data", "Actionable advisory"],
   },
   {
     icon: Wifi,
-    title: "Research & Repositioning",
+    title: "Daily Agronomic Tips",
     description:
-      "Structured research, briefings, and editorial that challenge the outdated image of agriculture and build credibility for the sector.",
-    features: ["Research briefs", "Thought leadership", "Narrative publishing", "Sector authority-building"],
+      "A daily feed of AI-powered agronomic tips keeping operators and growers current on best practices, seasonal patterns, and field-level guidance.",
+    features: ["Daily AI tips", "Agronomic best practices", "Seasonal guidance", "Field-ready advice"],
   },
 ];
 
@@ -288,10 +280,10 @@ export default function ServicesPage() {
             title={<>Agriculture is data. We're making it visible.</>}
             description={
               <>
-                GrowNovis is a MukaroCore product built to reframe agriculture as
-                a sophisticated, modern industry. Using AI and public data, it
-                challenges the narrative that agriculture belongs only in the field
-                — and puts it where capital, technology, and policy meet.
+                GrowNovis is a MukaroCore product that uses AI to bring intelligence
+                into everyday agricultural decisions — surfacing patterns from sector
+                articles, advising on crop decisions, and delivering daily agronomic
+                guidance to operators in the field.
               </>
             }
           >

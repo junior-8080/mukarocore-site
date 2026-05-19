@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, CheckCircle2, Clock3, Mail, MapPin, Phone, Send } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Clock3, Mail, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -27,11 +27,6 @@ const contactChannels = [
     label: "Phone",
     value: "(+233) 545543359",
     href: "tel:+233545543359",
-  },
-  {
-    icon: MapPin,
-    label: "Office",
-    value: "Innovation Hub, Accra, Ghana",
   },
 ];
 

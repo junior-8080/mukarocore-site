@@ -51,33 +51,6 @@ const values = [
   },
 ];
 
-const team = [
-  {
-    name: "Dr. Michael Mukaro",
-    role: "Founder & CEO",
-    bio: "Leads MukaroCore's multidisciplinary direction across technology systems, commerce operations, and business strategy.",
-    initials: "MM",
-  },
-  {
-    name: "Sarah Chen",
-    role: "Chief Technology Officer",
-    bio: "Leads process digitisation engagements — mapping manual workflows, designing digital replacements, and integrating systems so client operations run without the usual bottlenecks.",
-    initials: "SC",
-  },
-  {
-    name: "James Okoye",
-    role: "Head of Agri Intelligence",
-    bio: "Bridges agronomic insight, field operations, and data products for agricultural clients.",
-    initials: "JO",
-  },
-  {
-    name: "Emily Wanjiru",
-    role: "Commerce Operations Lead",
-    bio: "Designs payment, invoicing, and reconciliation systems that reduce leakage in revenue operations.",
-    initials: "EW",
-  },
-];
-
 const pillars = [
   {
     code: "TECH",
@@ -94,14 +67,8 @@ const pillars = [
   {
     code: "AGRI",
     title: "GrowNovis — modern agricultural intelligence",
-    body: "GrowNovis is a MukaroCore product built to reframe agriculture as a sophisticated, data-driven industry. It uses AI to surface insight, publish verified agri data publicly, and connect operators, investors, and policymakers around what agriculture actually looks like today.",
-    points: ["AI-powered insights", "Public agri data", "Investor access"],
-  },
-  {
-    code: "HUB",
-    title: "Breaking the narrative around agriculture",
-    body: "Agriculture is not just farming in villages. GrowNovis exists to prove that — through research, events, briefings, and AI tools that make the sector visible, credible, and attractive to a new generation of operators and investors.",
-    points: ["Research & briefings", "Event programming", "Sector repositioning"],
+    body: "GrowNovis is a MukaroCore product that uses AI to bring intelligence into everyday agricultural decisions — from analysing sector articles to advising on crops and delivering daily agronomic guidance to operators in the field.",
+    points: ["Agri article analysis", "AI crop advisory", "Daily agronomic tips"],
   },
 ];
 
@@ -248,37 +215,6 @@ export default function AboutPage() {
               </article>
             ))}
           </div>
-        </SectionBlock>
-      </SiteSection>
-
-      <SiteSection>
-        <SectionBlock
-          eyebrow="People"
-          title={<>A small team with cross-functional range.</>}
-          description={
-            <>
-              The team is designed for overlap. Technical, commercial, and field
-              contexts need to speak to each other quickly for the work to stay coherent.
-            </>
-          }
-        >
-          <ol className="grid gap-4 lg:grid-cols-2">
-            {team.map((member, index) => (
-              <li key={member.name} className="surface-card p-6">
-                <div className="flex items-start gap-5">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-border bg-background/70 text-lg font-semibold text-primary">
-                    {member.initials}
-                  </div>
-                  <div>
-                    {/*<p className="eyebrow">0{index + 1}</p>*/}
-                    <h3 className="mt-2 text-3xl">{member.name}</h3>
-                    <p className="mt-1 text-sm text-primary">{member.role}</p>
-                    <p className="mt-4 text-sm leading-7 text-muted-foreground">{member.bio}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
         </SectionBlock>
       </SiteSection>
 

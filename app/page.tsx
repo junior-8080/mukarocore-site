@@ -40,7 +40,7 @@ const routes = [
   {
     id: "03",
     title: "GrowNovis",
-    summary: "AI-powered agri intelligence — making agriculture data-driven, public, and modern.",
+    summary: "AI-powered agri intelligence — article analysis, crop advisory, and daily agronomic tips.",
     href: "/knowledge-hub",
   },
 ];
@@ -71,8 +71,8 @@ const pillars = [
     title: "GrowNovis",
     image: "/agro.jpg",
     imageAlt: "GrowNovis — modern agricultural intelligence",
-    summary: "A MukaroCore product redefining agriculture as a data-driven industry. GrowNovis uses AI to surface insight, make agri data public, and challenge the narrative that agriculture belongs only in the field.",
-    points: ["AI-powered insights", "Public agri data", "Research & briefings", "Investor access"],
+    summary: "A MukaroCore product bringing AI intelligence into agriculture — from analysing sector articles to advising on crops and delivering daily agronomic guidance to operators in the field.",
+    points: ["Agri article analysis", "AI crop advisory", "Daily agronomic tips"],
     href: "/knowledge-hub",
     span: "lg:col-span-4",
   },
@@ -149,9 +149,8 @@ export default function HomePage() {
         <StatRack
           items={[
             { value: "3", label: "Service lanes" },
-            { value: "<2 wks", label: "Onboarding window" },
             { value: "24/7", label: "Support cadence" },
-            { value: "100%", label: "Delivery commitment" },
+            { value: "Ghana", label: "Headquartered" },
           ]}
         />
       </SiteSection>
