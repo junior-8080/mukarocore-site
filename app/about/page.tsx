@@ -60,9 +60,9 @@ const pillars = [
   },
   {
     code: "COMM",
-    title: "Payment and operating flow design",
-    body: "We rebuild messy commercial handoffs so orders, payments, stock movement, and invoicing are connected instead of patched together.",
-    points: ["Payment integration", "Inventory flow", "Revenue reporting"],
+    title: "In-house commerce SaaS products",
+    body: "This lane is the umbrella for the commerce SaaS products we build in-house rather than a menu of consulting services. Bookaata — our service booking application — is the first one live, with more products shipping in this lane over time.",
+    points: ["Online booking & scheduling", "Mobile money & card payments", "Booking analytics"],
   },
   {
     code: "AGRI",
@@ -103,7 +103,6 @@ export default function AboutPage() {
         aside={
           <StatRack
             items={[
-              { value: "4", label: "Operating domains" },
               { value: "3", label: "Service lanes" },
               { value: "24/7", label: "Support window" },
               { value: "Ghana", label: "Headquartered" },
@@ -188,7 +187,7 @@ export default function AboutPage() {
           title={<>How the business is structured.</>}
           description={
             <>
-              The company is organised into four connected parts so each domain supports
+              The company is organised into three connected lanes so each domain supports
               the others instead of competing for attention.
             </>
           }

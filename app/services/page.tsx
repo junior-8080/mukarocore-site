@@ -4,16 +4,13 @@ import {
   ArrowRight,
   ArrowUpRight,
   BarChart3,
+  CalendarCheck,
   CheckCircle2,
   Cloud,
-  CreditCard,
   Database,
-  Package,
   Server,
   Shield,
-  ShoppingCart,
   Sprout,
-  TrendingUp,
   Wifi,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -55,50 +52,31 @@ const techServices = [
       "Repetitive back-office tasks get automated so your team spends less time on admin and more time on work that moves the business.",
     features: ["Task automation", "Approval workflows", "Notification systems", "Scheduled reporting"],
   },
-  {
-    icon: Cloud,
-    title: "Systems Integration",
-    description:
-      "Disconnected tools and siloed data get connected into a single operating layer your team works from rather than around.",
-    features: ["API integrations", "Data sync across tools", "Cloud migration", "Legacy system upgrades"],
-  },
-  {
-    icon: Database,
-    title: "Operational Dashboards",
-    description:
-      "Real-time visibility into what your team is doing, how the work is moving, and where it's stalling — without manual reports.",
-    features: ["Live operations view", "Custom KPI tracking", "Automated report generation", "Team performance data"],
-  },
+  // {
+  //   icon: Cloud,
+  //   title: "Systems Integration",
+  //   description:
+  //     "Disconnected tools and siloed data get connected into a single operating layer your team works from rather than around.",
+  //   features: ["API integrations", "Data sync across tools", "Cloud migration", "Legacy system upgrades"],
+  // },
+  // {
+  //   icon: Database,
+  //   title: "Operational Dashboards",
+  //   description:
+  //     "Real-time visibility into what your team is doing, how the work is moving, and where it's stalling — without manual reports.",
+  //   features: ["Live operations view", "Custom KPI tracking", "Automated report generation", "Team performance data"],
+  // },
 ];
 
-const commerceServices = [
+const commerceProducts = [
   {
-    icon: CreditCard,
-    title: "Digital Payment Integration",
+    icon: CalendarCheck,
+    title: "Bookaata",
+    tagline: "Service booking application",
+    status: "Live product",
     description:
-      "Payment rails that reduce reconciliation headaches and improve collection speed.",
-    features: ["Mobile money APIs", "Card processing", "Payment gateways", "Transaction tracking"],
-  },
-  {
-    icon: ShoppingCart,
-    title: "Inventory Management",
-    description:
-      "Stock operations tied more closely to actual sales activity and fulfilment movement.",
-    features: ["Live stock tracking", "Automated alerts", "Multi-location visibility", "Supplier management"],
-  },
-  {
-    icon: Package,
-    title: "Automated Invoicing",
-    description:
-      "Cleaner invoice creation, follow-up, and ledger updates without spreadsheet drift.",
-    features: ["Invoice generation", "Digital receipts", "Reminder flows", "Financial records"],
-  },
-  {
-    icon: TrendingUp,
-    title: "Business Insights",
-    description:
-      "Performance reporting that operators can use, not just admire in a dashboard screenshot.",
-    features: ["Sales analytics", "Customer patterns", "Performance KPIs", "Trend review"],
+      "Our first in-house commerce SaaS product,built to take service businesses off pen-and-paper booking books.",
+    features: ["Online booking & scheduling", "Mobile money & card payments", "Automated booking reminders", "Booking & revenue analytics"],
   },
 ];
 
@@ -124,6 +102,13 @@ const agriServices = [
       "A daily feed of AI-powered agronomic tips keeping operators and growers current on best practices, seasonal patterns, and field-level guidance.",
     features: ["Daily AI tips", "Agronomic best practices", "Seasonal guidance", "Field-ready advice"],
   },
+];
+
+const techClients = [
+  { name: "Dasanda Closet", industry: "Clothing & Fashion", link:"https://www.dasandacloset.com/" },
+  { name: "Suturah By Feesah", industry: "Clothing & Fashion" ,link:"https://www.suturahbyfeesah.com/"},
+  { name: "Greenex Cargo", industry: "Logistics & Shipment",  link:"https://www.greenexcargo.com/" },
+  { name: "Kokromoti", industry: "E-learning Platform" ,link:"https://www.kokuromoti.com/" },
 ];
 
 const deliveryPhases = [
@@ -247,6 +232,18 @@ export default function ServicesPage() {
                 <ServiceEntry key={service.title} service={service} tone="tech" />
               ))}
             </div>
+
+            <div className="mt-10">
+              <p className="eyebrow">Clients we've worked with</p>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {techClients.map((client) => (
+                  <div key={client.name} className="surface-card p-5">
+                    <p className="text-lg font-semibold text-foreground">{client.name}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{client.industry}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </SectionBlock>
         </div>
       </SiteSection>
@@ -255,20 +252,39 @@ export default function ServicesPage() {
         <div id="commerce">
           <SectionBlock
             eyebrow="Commerce lane"
-            title={<>Close the gap between delivery and collected revenue.</>}
+            title={<>The umbrella for the SaaS products we build in-house.</>}
             description={
               <>
-                For businesses where orders go out, work gets done, but the money
-                trail is slow, messy, or invisible — we digitise the payment,
-                invoicing, and inventory flows so cash stops stalling.
+                This lane isn't a menu of consulting services — it's where we build
+                and ship our own commerce products to solve business problems we've
+                seen firsthand. Bookaata is the first one live, with more on the
+                way as they're built.
               </>
             }
           >
-            <div className="grid gap-4 lg:grid-cols-2">
-              {commerceServices.map((service) => (
-                <ServiceEntry key={service.title} service={service} tone="commerce" />
-              ))}
-            </div>
+            <article className="surface-card p-6 lg:p-8">
+              <div className="flex items-start justify-between gap-4">
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/25">
+                  <CalendarCheck size={20} />
+                </span>
+                <span className="tag-pill">{commerceProducts[0].status}</span>
+              </div>
+              <h3 className="mt-6 text-3xl">{commerceProducts[0].title}</h3>
+              <p className="mt-1 text-sm font-semibold text-muted-foreground">{commerceProducts[0].tagline}</p>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{commerceProducts[0].description}</p>
+              <ul className="ledger-list mt-6">
+                {commerceProducts[0].features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-foreground">
+                    <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <p className="mt-6 text-sm leading-7 text-muted-foreground">
+              This lane grows as we ship more in-house commerce SaaS — each product built the
+              same way: identify a real business problem, build the product, run it, then bring it to market.
+            </p>
           </SectionBlock>
         </div>
       </SiteSection>

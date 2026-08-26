@@ -234,7 +234,7 @@ export default function ContactPage() {
                       <SelectContent>
                         <SelectItem value="process-digitisation">Process digitisation</SelectItem>
                         <SelectItem value="workflow-automation">Workflow automation</SelectItem>
-                        <SelectItem value="commerce">Commerce & payment operations</SelectItem>
+                        <SelectItem value="commerce">Commerce (Bookaata & in-house products)</SelectItem>
                         <SelectItem value="agri-research">Agri research & publishing</SelectItem>
                         <SelectItem value="agri-fundraising">Agri fundraising support</SelectItem>
                         <SelectItem value="other">Other</SelectItem>

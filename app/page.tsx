@@ -34,7 +34,7 @@ const routes = [
   {
     id: "02",
     title: "Commerce flows",
-    summary: "Payments, inventory, invoicing, and operational reporting.",
+    summary: "Bookaata and the in-house SaaS products we build to solve commerce problems.",
     href: "/services#commerce",
   },
   {
@@ -61,8 +61,8 @@ const pillars = [
     title: "Commerce",
     image: "/commerce.jpg",
     imageAlt: "Commerce and payment operations",
-    summary: "Payment and inventory operations designed to close the gap between service delivery and collected revenue.",
-    points: ["Digital payments", "Inventory control", "Automated invoicing"],
+    summary: "The umbrella for the commerce SaaS products we build in-house. Bookaata, our service booking application, is the first one live.",
+    points: ["Online booking & scheduling", "Mobile money & card payments", "Booking analytics"],
     href: "/services#commerce",
     span: "lg:col-span-3",
   },
@@ -158,7 +158,7 @@ export default function HomePage() {
       <SiteSection tone="muted">
         <SectionBlock
           eyebrow="Capabilities map"
-          title={<>Four lanes. One operating layer.</>}
+          title={<>Three lanes. One operating layer.</>}
           description={
             <>
               Each MukaroCore lane solves a different part of the same problem:
