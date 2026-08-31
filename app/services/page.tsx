@@ -88,13 +88,13 @@ const agriServices = [
       "GrowNovis uses AI to analyse agricultural articles and surface the patterns, signals, and sector trends that matter for operators and decision-makers.",
     features: ["AI-powered article analysis", "Sector trend signals", "Research summaries", "Data-backed insights"],
   },
-  {
-    icon: Sprout,
-    title: "AI Crop Advisory",
-    description:
-      "Personalised AI-generated crop guidance built on agronomic data — helping operators make better decisions about what to grow, when, and how.",
-    features: ["Crop-specific guidance", "AI recommendations", "Agronomic data", "Actionable advisory"],
-  },
+  // {
+  //   icon: Sprout,
+  //   title: "AI Crop Advisory",
+  //   description:
+  //     "Personalised AI-generated crop guidance built on agronomic data — helping operators make better decisions about what to grow, when, and how.",
+  //   features: ["Crop-specific guidance", "AI recommendations", "Agronomic data", "Actionable advisory"],
+  // },
   {
     icon: Wifi,
     title: "Daily Agronomic Tips",

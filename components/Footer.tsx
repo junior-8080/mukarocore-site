@@ -4,7 +4,7 @@ import { BrandLogo } from "@/components/BrandLogo";
 
 const navLinks = [
   { href: "/services", label: "Services" },
-  { href: "/knowledge-hub", label: "GrowNovis" },
+  // { href: "/knowledge-hub", label: "GrowNovis" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -72,7 +72,7 @@ export function Footer() {
                     <dt className="text-muted-foreground">Phone</dt>
                     <dd>
                       <a href="tel:+233545543359" className="hover:text-foreground">
-                        (+233) 545543359
+                        (+233) 545543359 | (+233) 541878730
                       </a>
                     </dd>
                   </div>

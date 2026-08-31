@@ -25,7 +25,7 @@ const contactChannels = [
   {
     icon: Phone,
     label: "Phone",
-    value: "(+233) 545543359",
+    value: "(+233) 545543359 | (+233) 541878730",
     href: "tel:+233545543359",
   },
 ];
