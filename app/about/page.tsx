@@ -105,7 +105,6 @@ export default function AboutPage() {
             items={[
               { value: "3", label: "Service lanes" },
               { value: "24/7", label: "Support window" },
-              { value: "Ghana", label: "Headquartered" },
             ]}
             columns={2}
           />

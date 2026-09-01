@@ -78,6 +78,13 @@ const pillars = [
   },
 ];
 
+const clients = [
+  { name: "Dasanda Closet", industry: "Clothing & Fashion", link: "https://www.dasandacloset.com/" },
+  { name: "Suturah By Feesah", industry: "Clothing & Fashion", link: "https://www.suturahbyfeesah.com/" },
+  { name: "Greenex Cargo", industry: "Logistics & Shipment", link: "https://www.greenexcargo.com/" },
+  { name: "Kokromoti", industry: "E-learning Platform", link: "https://www.kokuromoti.com/" },
+];
+
 const revenuePlays = [
   "Manual workflow mapped and replaced with a digital system",
   "Repetitive tasks automated so the team stops doing them by hand",
@@ -150,9 +157,21 @@ export default function HomePage() {
           items={[
             { value: "3", label: "Service lanes" },
             { value: "24/7", label: "Support cadence" },
-            { value: "Ghana", label: "Headquartered" },
           ]}
+          columns={2}
         />
+      </SiteSection>
+
+      <SiteSection className="pt-0">
+        <p className="eyebrow">Clients we've worked with</p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {clients.map((client) => (
+            <div key={client.name} className="surface-card p-5">
+              <p className="text-lg font-semibold text-foreground">{client.name}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{client.industry}</p>
+            </div>
+          ))}
+        </div>
       </SiteSection>
 
       <SiteSection tone="muted">
