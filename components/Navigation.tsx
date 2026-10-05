@@ -66,7 +66,7 @@ export function Navigation() {
     >
       <div className="site-shell flex min-h-[4.75rem] items-center gap-5">
         <Link href="/" className="shrink-0" aria-label="MukaroCore home">
-          <BrandLogo size="nav" priority />
+          <BrandLogo size="nav" tone={overlay ? "light" : "auto"} priority />
         </Link>
 
         <div className="hidden lg:flex flex-1 items-center justify-center gap-1">
