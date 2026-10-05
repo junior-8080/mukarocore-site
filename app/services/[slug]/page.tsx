@@ -141,7 +141,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <SiteSection>
         <CtaBand
-          title={<>Let&apos;s scope your {service.title.toLowerCase()} project.</>}
+          eyebrow={service.title}
+          title={<>Let&apos;s scope your project.</>}
           description={
             <>
               Share what you&apos;re working with today. We&apos;ll come back with a clear

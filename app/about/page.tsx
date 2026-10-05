@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -9,23 +10,26 @@ import {
   Target,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CtaBand } from "@/components/site/CtaBand";
 import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site/PageFrame";
+import { serviceCategories, servicesByCategory, servicePath } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn how MukaroCore Enterprise approaches technology services through a disciplined operating model.",
+    "MukaroCore Enterprise is a technology services company at Innovation Hub, Accra, building software and systems for growing businesses across Africa.",
   keywords: [
     "about MukaroCore",
     "MukaroCore team",
-    "business systems company Ghana",
-    "enterprise operating partner Africa",
+    "software company Accra",
+    "technology services company Ghana",
     "MukaroCore mission",
   ],
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About Us | MukaroCore Enterprise",
     description:
-      "MukaroCore Enterprise builds and runs technology for growing businesses through disciplined operating work.",
+      "A technology services company in Accra, Ghana, building and running the systems growing businesses depend on.",
     url: "https://www.mukarocore.com/about",
   },
 };
@@ -51,21 +55,6 @@ const values = [
   },
 ];
 
-const pillars = [
-  {
-    code: "TECH",
-    title: "Process digitisation and workflow optimisation",
-    body: "We take manual, paper-based, and improvised workflows and rebuild them as clean digital systems — automating repetitive tasks and connecting tools so teams stop losing time to processes that don't scale.",
-    points: ["Process digitisation", "Workflow automation", "Systems integration"],
-  },
-  {
-    code: "COMM",
-    title: "In-house commerce SaaS products",
-    body: "This lane is the umbrella for the commerce SaaS products we build in-house rather than a menu of consulting services. Bookaata — our service booking application — is the first one live, with more products shipping in this lane over time.",
-    points: ["Online booking & scheduling", "Mobile money & card payments", "Booking analytics"],
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -74,9 +63,9 @@ export default function AboutPage() {
         title={<>We digitise the way businesses actually work.</>}
         description={
           <>
-            MukaroCore is a technology services company that helps businesses
-            replace manual processes with clean digital systems — so operations run faster, leaner, and without
-            the usual workarounds.
+            MukaroCore is a technology services company based at Innovation Hub,
+            Accra. We help businesses replace manual processes with clean digital
+            systems that run faster and leaner.
           </>
         }
         actions={
@@ -94,13 +83,26 @@ export default function AboutPage() {
           </>
         }
         aside={
-          <StatRack
+          <>
+            {/* TODO: replace with a real MukaroCore team or office photo when available. */}
+            <div className="media-frame aspect-[4/3]">
+              <Image
+                src="/images/about-team.webp"
+                alt="Team members in a working session around a conference table"
+                fill
+                priority
+                sizes="(min-width: 1024px) 36rem, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <StatRack
             items={[
-              { value: "2", label: "Practice areas" },
+              { value: String(serviceCategories.length), label: "Practice areas" },
               { value: "24/7", label: "Support window" },
             ]}
-            columns={2}
-          />
+              columns={2}
+            />
+          </>
         }
       />
 
@@ -110,34 +112,31 @@ export default function AboutPage() {
           title={<>Why the company exists.</>}
           description={
             <>
-              We focus on the gap most firms neglect: taking how work actually happens
-              and turning it into a digital system that runs reliably without constant
-              manual effort.
+              Most firms skip the hard part: turning how work really happens into
+              a system that runs without constant manual effort. That is our focus.
             </>
           }
         >
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             <article className="surface-card p-6">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-200 bg-sky-50 text-sky-700 dark:border-sky-500/25 dark:bg-sky-500/15 dark:text-sky-300">
-                <Target size={20} />
+              <span className="icon-chip">
+                <Target size={20} aria-hidden />
               </span>
-              <h3 className="mt-6 text-4xl">Mission</h3>
-              <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                Give growing businesses the digital systems, process discipline,
-                and operational clarity they need to scale — without the overhead
-                of building everything in-house too early.
+              <h3 className="mt-5 text-3xl">Mission</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                Give growing businesses the systems, process discipline, and
+                clarity they need to scale, without building everything in-house
+                too early.
               </p>
             </article>
-
             <article className="surface-card p-6">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-500/25 dark:bg-emerald-500/15 dark:text-emerald-300">
-                <Eye size={20} />
+              <span className="icon-chip" data-tone="accent">
+                <Eye size={20} aria-hidden />
               </span>
-              <h3 className="mt-6 text-4xl">Vision</h3>
-              <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                Become the partner businesses turn to when manual processes stop being
-                enough — building digital systems that outlast the project and keep
-                working as the business grows.
+              <h3 className="mt-5 text-3xl">Vision</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                Be the partner businesses call when manual processes stop being
+                enough, and build systems that outlast the project.
               </p>
             </article>
           </div>
@@ -150,8 +149,8 @@ export default function AboutPage() {
           title={<>The rules we use to judge the work.</>}
           description={
             <>
-              MukaroCore's values are practical standards. They are less about slogans
-              and more about whether the output can be trusted in the real world.
+              Practical standards, not slogans. The test is whether the output
+              can be trusted in the real world.
             </>
           }
         >
@@ -161,7 +160,9 @@ export default function AboutPage() {
 
               return (
                 <div key={value.title} className="surface-card p-6">
-                  <Icon size={18} className="text-primary" />
+                  <span className="icon-chip">
+                    <Icon size={20} aria-hidden />
+                  </span>
                   <dt className="mt-5 text-3xl">{value.title}</dt>
                   <dd className="mt-3 text-sm leading-7 text-muted-foreground">
                     {value.description}
@@ -176,50 +177,66 @@ export default function AboutPage() {
       <SiteSection tone="muted">
         <SectionBlock
           eyebrow="Operating map"
-          title={<>How the business is structured.</>}
+          title={<>How the work is organised.</>}
           description={
             <>
-              The company is organised into connected practice areas so each one supports
-              the others instead of competing for attention.
+              Four connected practice areas, so building, running, and scaling
+              your systems happen with one team.
             </>
           }
         >
           <div className="route-list">
-            {pillars.map((pillar) => (
-              <article key={pillar.code} className="grid gap-5 lg:grid-cols-[8rem_minmax(0,1fr)_20rem] lg:items-start">
+            {serviceCategories.map((category) => (
+              <article
+                key={category.id}
+                className="grid gap-4 !p-6 lg:grid-cols-[8rem_minmax(0,1fr)] lg:items-start"
+              >
+                <p className="eyebrow text-primary">{category.label}</p>
                 <div>
-                  <p className="eyebrow text-primary">{pillar.code}</p>
+                  <h3 className="text-2xl leading-tight">{category.title}</h3>
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {servicesByCategory(category.id).map((service) => (
+                      <li key={service.slug}>
+                        <Link
+                          href={servicePath(service.slug)}
+                          className="tag-pill !text-xs !normal-case !tracking-normal hover:text-primary"
+                        >
+                          {service.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div>
-                  <h3 className="text-3xl">{pillar.title}</h3>
-                  <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
-                    {pillar.body}
-                  </p>
-                </div>
-                <ul className="grid gap-2 text-sm text-foreground">
-                  {pillar.points.map((point) => (
-                    <li key={point} className="tag-pill justify-center lg:justify-start">
-                      {point}
-                    </li>
-                  ))}
-                </ul>
               </article>
             ))}
           </div>
         </SectionBlock>
       </SiteSection>
 
-      <SiteSection className="pt-0">
-        <article className="surface-card surface-card-strong p-8 lg:p-10">
-          <p className="eyebrow !text-background/70">Philosophy</p>
-          <blockquote className="mt-5 max-w-4xl text-5xl leading-none">
+      <SiteSection>
+        <figure className="mx-auto max-w-4xl border-l-4 border-primary pl-6 sm:pl-10">
+          <p className="eyebrow">Philosophy</p>
+          <blockquote className="font-display mt-5 text-4xl leading-tight sm:text-5xl">
             Build the core, verify the truth, scale the growth.
           </blockquote>
-          <p className="mt-6 max-w-3xl text-base leading-8 text-background/78">
-            That line is useful because it is operational. Build what the business runs
-            on, keep the information honest, and make growth repeatable instead of lucky.
-          </p>
-        </article>
+          <figcaption className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground">
+            Build what the business runs on, keep the information honest, and make
+            growth repeatable instead of lucky.
+          </figcaption>
+        </figure>
+      </SiteSection>
+
+      <SiteSection className="pt-0">
+        <CtaBand
+          title={<>Have a process that needs fixing?</>}
+          description={
+            <>
+              Walk us through it. We&apos;ll show you what a better system looks like
+              and how to get there.
+            </>
+          }
+          actionLabel="Talk with the team"
+        />
       </SiteSection>
     </>
   );
