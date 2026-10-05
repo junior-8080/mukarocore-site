@@ -108,11 +108,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en-GB" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('mukaro-theme')||((window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.classList.toggle('dark',t==='dark')})()`,
+            __html: `(function(){var t='dark';try{t=localStorage.getItem('mukaro-theme-v2')||'dark'}catch(e){}document.documentElement.classList.toggle('dark',t==='dark')})()`,
           }}
         />
         <script

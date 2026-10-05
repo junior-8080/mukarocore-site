@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export function ClientGrid({ className }: { className?: string }) {
   return (
-    <ul className={cn("grid gap-4 sm:grid-cols-2 lg:grid-cols-4", className)}>
+    <ul className={cn("grid max-w-4xl grid-cols-2 gap-3 lg:grid-cols-4", className)}>
       {clients.map((client) => (
         <li key={client.name}>
           <a
@@ -15,25 +15,25 @@ export function ClientGrid({ className }: { className?: string }) {
             className="surface-card group flex h-full flex-col"
           >
             <div
-              className="relative aspect-[3/2] border-b border-border"
+              className="relative aspect-[2/1] border-b border-border"
               style={{ backgroundColor: client.logoBackground }}
             >
               <Image
                 src={client.logo}
                 alt={`${client.name} logo`}
                 fill
-                sizes="(min-width: 1024px) 18rem, (min-width: 640px) 50vw, 100vw"
-                className="object-contain p-6 transition-transform duration-300 group-hover:scale-105"
+                sizes="(min-width: 1024px) 13rem, 50vw"
+                className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
               />
             </div>
-            <div className="flex items-start justify-between gap-3 p-5">
+            <div className="flex items-start justify-between gap-2 px-4 py-3">
               <div>
-                <p className="text-lg font-semibold text-foreground">{client.name}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{client.industry}</p>
+                <p className="text-sm font-semibold text-foreground">{client.name}</p>
+                <p className="mt-0.5 text-xs text-muted-foreground">{client.industry}</p>
               </div>
               <ArrowUpRight
-                size={16}
-                className="mt-1 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
+                size={14}
+                className="mt-0.5 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
                 aria-hidden
               />
               <span className="sr-only">(opens in a new tab)</span>
