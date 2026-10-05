@@ -36,11 +36,21 @@ export function Navigation() {
     return pathname.startsWith(path);
   };
 
+  // On the homepage the bar sits transparently over the hero photo until scrolled.
+  const overlay = pathname === "/" && !scrolled && !isOpen;
+  const iconButton = overlay
+    ? "border-ink-foreground/30 bg-ink-foreground/10 text-ink-foreground backdrop-blur-md hover:bg-ink-foreground/20"
+    : "border-border bg-card text-muted-foreground hover:text-foreground";
+
   return (
     <nav
       className={cn(
-        "sticky top-0 z-50 border-b border-border transition-colors duration-200",
-        scrolled ? "glass-nav shadow-soft" : "bg-background"
+        "sticky top-0 z-50 border-b transition-colors duration-200",
+        overlay
+          ? "border-transparent bg-transparent"
+          : scrolled
+            ? "glass-nav border-border shadow-soft"
+            : "border-border bg-background"
       )}
     >
       <div className="site-shell flex min-h-[4.75rem] items-center gap-5">
@@ -55,12 +65,21 @@ export function Navigation() {
               href={link.path}
               className={cn(
                 "group inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm transition-colors",
-                isActive(link.path)
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                overlay
+                  ? isActive(link.path)
+                    ? "text-ink-foreground"
+                    : "text-ink-foreground/75 hover:text-ink-foreground"
+                  : isActive(link.path)
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
               )}
             >
-              <span className="border-b border-transparent pb-0.5 group-hover:border-foreground/30">
+              <span
+                className={cn(
+                  "border-b border-transparent pb-0.5",
+                  overlay ? "group-hover:border-ink-foreground/40" : "group-hover:border-foreground/30"
+                )}
+              >
                 {link.label}
               </span>
             </Link>
@@ -70,7 +89,10 @@ export function Navigation() {
         <div className="ml-auto flex items-center gap-2">
           <button
             onClick={toggle}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground"
+            className={cn(
+              "inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors",
+              iconButton
+            )}
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
@@ -83,9 +105,14 @@ export function Navigation() {
           </Button>
 
           <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground lg:hidden"
+            className={cn(
+              "inline-flex h-11 w-11 items-center justify-center rounded-full border transition-colors lg:hidden",
+              iconButton
+            )}
             onClick={() => setIsOpen((open) => !open)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -95,7 +122,7 @@ export function Navigation() {
       <AnimatePresence>
         {isOpen && (
           <SlideDown className="lg:hidden border-t border-border bg-background">
-            <div className="site-shell py-4">
+            <div id="mobile-menu" className="site-shell py-4">
               <div className="route-list">
                 {navLinks.map((link, index) => (
                   <Link

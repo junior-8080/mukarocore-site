@@ -102,7 +102,7 @@ export default function AboutPage() {
             <StatRack
             items={[
               { value: String(serviceCategories.length), label: "Practice areas" },
-              { value: "24/7", label: "Support window" },
+              { value: "24h", label: "First reply" },
             ]}
               columns={2}
             />

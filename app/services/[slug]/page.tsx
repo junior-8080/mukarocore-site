@@ -159,7 +159,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       {related.length > 0 ? (
         <SiteSection tone="muted">
-          <p className="eyebrow">More {category.label.toLowerCase()} services</p>
+          <h2 className="eyebrow">More {category.label.toLowerCase()} services</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((item) => (
               <ServiceCard key={item.slug} service={item} />

@@ -70,8 +70,11 @@ export function Footer() {
                   <div>
                     <dt className="text-muted-foreground">Phone</dt>
                     <dd>
-                      <a href="tel:+233545543359" className="hover:text-foreground">
-                        (+233) 545543359 | (+233) 541878730
+                      <a href="tel:+233545543359" className="block hover:text-foreground">
+                        (+233) 545543359
+                      </a>
+                      <a href="tel:+233541878730" className="block hover:text-foreground">
+                        (+233) 541878730
                       </a>
                     </dd>
                   </div>

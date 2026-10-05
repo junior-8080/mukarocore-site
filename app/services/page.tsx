@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CalendarCheck, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ClientGrid } from "@/components/site/ClientGrid";
 import { CtaBand } from "@/components/site/CtaBand";
 import { MediaSplit, PageHero, SiteSection } from "@/components/site/PageFrame";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { deliveryPhases, serviceCategories, servicesByCategory } from "@/lib/services";
-import { clients } from "@/lib/clients";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -31,14 +31,6 @@ export const metadata: Metadata = {
       "Build, operate, scale, and commerce services for businesses replacing manual operations with dependable digital systems.",
     url: "https://www.mukarocore.com/services",
   },
-};
-
-const bookaata = {
-  title: "Bookaata",
-  tagline: "Our service booking application",
-  description:
-    "Our first in-house commerce product, built to take service businesses off pen-and-paper booking books.",
-  features: ["Online booking & scheduling", "Mobile money & card payments", "Automated booking reminders", "Booking & revenue analytics"],
 };
 
 export default function ServicesPage() {
@@ -120,48 +112,14 @@ export default function ServicesPage() {
                 <ServiceCard key={service.slug} service={service} />
               ))}
 
-              {category.id === "commerce" ? (
-                <article className="surface-card p-6 sm:col-span-1 xl:col-span-2">
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="icon-chip" data-tone="accent">
-                      <CalendarCheck size={22} aria-hidden />
-                    </span>
-                    <span className="tag-pill">Live product</span>
-                  </div>
-                  <h3 className="mt-5 text-2xl">{bookaata.title}</h3>
-                  <p className="mt-1 text-sm font-semibold text-muted-foreground">{bookaata.tagline}</p>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{bookaata.description}</p>
-                  <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                    {bookaata.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2 text-sm text-foreground">
-                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-primary" aria-hidden />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ) : null}
             </div>
           </div>
         </SiteSection>
       ))}
 
       <SiteSection>
-        <p className="eyebrow">Clients we&apos;ve worked with</p>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {clients.map((client) => (
-            <a
-              key={client.name}
-              href={client.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="surface-card p-5"
-            >
-              <p className="text-lg font-semibold text-foreground">{client.name}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{client.industry}</p>
-            </a>
-          ))}
-        </div>
+        <h2 className="eyebrow">Clients we&apos;ve worked with</h2>
+        <ClientGrid className="mt-5" />
       </SiteSection>
 
       <SiteSection className="pt-0">

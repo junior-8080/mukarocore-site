@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CheckCircle2, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ClientGrid } from "@/components/site/ClientGrid";
 import { CtaBand } from "@/components/site/CtaBand";
-import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site/PageFrame";
+import { SectionBlock, SiteSection } from "@/components/site/PageFrame";
 import { ServiceCard } from "@/components/site/ServiceCard";
-import { clients } from "@/lib/clients";
-import { getService, serviceCategories, services, servicesByCategory, servicePath } from "@/lib/services";
+import { getService, serviceCategories, servicesByCategory, servicePath } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: { absolute: "MukaroCore Enterprise | Software Development & IT Services in Accra, Ghana" },
@@ -43,78 +43,56 @@ const outcomes = [
 export default function HomePage() {
   return (
     <>
-      <PageHero
-        eyebrow="MukaroCore Enterprise"
-        title={<>Build the core that keeps business moving.</>}
-        description={
-          <>
-            We design, build, and run the software and systems behind growing
-            businesses, from first prototype to reliable daily operations.
-          </>
-        }
-        actions={
-          <>
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Start a Project <ArrowUpRight size={16} />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="/services">
-                Explore Services <ArrowRight size={16} />
-              </Link>
-            </Button>
-          </>
-        }
-        aside={
-          <div className="media-frame aspect-[4/3] lg:aspect-[16/11]">
-            <Image
-              src="/images/hero-team-coding.webp"
-              alt="Two developers reviewing code together on a laptop in a shared workspace"
-              fill
-              priority
-              sizes="(min-width: 1024px) 38rem, 100vw"
-              className="object-cover"
-            />
-            <span className="tag-pill absolute bottom-4 left-4 bg-card text-foreground shadow-soft">
-              <MapPin size={14} className="text-primary" aria-hidden />
+      <section className="hero-banner">
+        <Image
+          src="/images/hero-team-coding.webp"
+          alt="Two developers reviewing code together on a laptop in a shared workspace"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
+        <div className="site-shell">
+          <header className="glass-panel max-w-3xl space-y-6 p-7 sm:p-10 lg:p-12">
+            <p className="eyebrow !text-ink-foreground/80">MukaroCore Enterprise</p>
+            <div className="space-y-5">
+              <h1 className="display-title text-ink-foreground">
+                Build the core that keeps business moving.
+              </h1>
+              <p className="max-w-2xl text-base leading-8 text-ink-foreground/85 sm:text-lg">
+                We design, build, and run the software and systems behind growing
+                businesses, from first prototype to reliable daily operations.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Start a Project <ArrowUpRight size={16} />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-ink-foreground/40 bg-transparent text-ink-foreground hover:bg-ink-foreground/15 hover:text-ink-foreground"
+              >
+                <Link href="/services">
+                  Explore Services <ArrowRight size={16} />
+                </Link>
+              </Button>
+            </div>
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-foreground/80">
+              <MapPin size={14} aria-hidden />
               Innovation Hub, Accra
             </span>
-          </div>
-        }
-      />
-
-      <SiteSection className="pt-0">
-        <StatRack
-          items={[
-            { value: String(services.length), label: "Services" },
-            { value: String(serviceCategories.length), label: "Practice areas" },
-            { value: "24/7", label: "Support cadence" },
-          ]}
-          columns={3}
-        />
-
-        <p className="eyebrow mt-14">Clients we&apos;ve worked with</p>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {clients.map((client) => (
-            <a
-              key={client.name}
-              href={client.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="surface-card p-5"
-            >
-              <p className="text-lg font-semibold text-foreground">{client.name}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{client.industry}</p>
-            </a>
-          ))}
+          </header>
         </div>
-      </SiteSection>
+      </section>
 
       <SiteSection tone="muted">
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-4xl space-y-4">
           <p className="eyebrow">What we do</p>
-          <h2 className="section-title max-w-[16ch]">Four practice areas. One technology partner.</h2>
+          <h2 className="section-title">Four practice areas. One technology partner.</h2>
           <p className="section-copy">
             Every service solves part of the same problem: helping businesses move
             from improvised processes to dependable systems.
@@ -159,9 +137,9 @@ export default function HomePage() {
 
       <SiteSection>
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <div className="max-w-2xl space-y-4">
+          <div className="max-w-4xl space-y-4">
             <p className="eyebrow">Popular services</p>
-            <h2 className="section-title max-w-[14ch]">Where most projects start.</h2>
+            <h2 className="section-title">Where most projects start.</h2>
           </div>
           <Link href="/services" className="link-line text-primary">
             All services <ArrowRight size={15} aria-hidden />
@@ -187,7 +165,7 @@ export default function HomePage() {
           }
         >
           <article className="surface-card p-6 sm:p-8">
-            <p className="eyebrow">What gets done</p>
+            <h3 className="eyebrow">What gets done</h3>
             <ul className="mt-6 grid gap-x-8 gap-y-4 md:grid-cols-2">
               {outcomes.map((outcome) => (
                 <li key={outcome} className="flex items-start gap-3 text-sm leading-7 text-foreground">
@@ -207,6 +185,14 @@ export default function HomePage() {
       </SiteSection>
 
       <SiteSection>
+        <div className="max-w-4xl space-y-4">
+          <p className="eyebrow">Clients</p>
+          <h2 className="section-title">Businesses we&apos;ve worked with.</h2>
+        </div>
+        <ClientGrid className="mt-10" />
+      </SiteSection>
+
+      <SiteSection className="pt-0">
         <CtaBand
           title={<>If the business has traction, the systems need to catch up.</>}
           description={

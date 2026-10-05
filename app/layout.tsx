@@ -108,7 +108,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en-GB" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -121,9 +121,15 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>
           <Navigation />
-          <main className="overflow-x-clip">{children}</main>
+          <main id="main" tabIndex={-1} className="overflow-x-clip focus:outline-none">{children}</main>
           <Footer />
         </ThemeProvider>
         <Analytics />

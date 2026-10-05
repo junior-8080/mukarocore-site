@@ -193,7 +193,8 @@
   .section-title {
     font-size: clamp(2.4rem, 4vw, 4.5rem);
     line-height: 0.92;
-    max-width: 12ch;
+    max-width: 22ch;
+    text-wrap: balance;
   }
 
   .section-copy {
@@ -233,6 +234,11 @@
     color: var(--ink-foreground);
   }
 
+  .surface-card-strong:hover {
+    border-color: transparent;
+    background: var(--ink);
+  }
+
   .surface-card-strong::after {
     content: "";
     position: absolute;
@@ -249,7 +255,70 @@
   .glass-nav {
     background: color-mix(in srgb, var(--background) 88%, transparent);
     backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Full-bleed photo banner; the scrim keeps text legible in either theme. */
+  .hero-banner {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* Pull up under the sticky nav (4.75rem + 1px border) so the photo sits behind it. */
+    margin-top: calc(-4.75rem - 1px);
+    min-height: min(56rem, 100svh);
+    padding-top: calc(4.75rem + clamp(3rem, 8vw, 6rem));
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+    color: var(--ink-foreground);
+  }
+
+  .hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(to bottom, color-mix(in srgb, var(--ink) 55%, transparent), transparent 9rem),
+      linear-gradient(100deg, color-mix(in srgb, var(--ink) 72%, transparent) 0%, color-mix(in srgb, var(--ink) 30%, transparent) 55%, transparent 100%),
+      linear-gradient(to top, color-mix(in srgb, var(--ink) 45%, transparent), transparent 40%);
+  }
+
+  .hero-banner .display-title {
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    max-width: 13ch;
+  }
+
+  /* Frosted "mirror" panel: blurred photo behind, glossy edge highlight on top. */
+  .glass-panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--ink-foreground) 28%, transparent);
+    border-radius: 2rem;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ink-foreground) 18%, transparent),
+      color-mix(in srgb, var(--ink-foreground) 6%, transparent)
+    );
+    backdrop-filter: blur(22px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--ink-foreground) 40%, transparent),
+      0 24px 60px rgb(0 0 0 / 0.28);
+  }
+
+  .glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      120deg,
+      color-mix(in srgb, var(--ink-foreground) 22%, transparent) 0%,
+      transparent 38%
+    );
+  }
+
+  .glass-panel > * {
+    position: relative;
   }
 
   .icon-chip {

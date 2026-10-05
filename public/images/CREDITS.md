@@ -23,3 +23,7 @@ and converted to WebP.
 - Replace stock photography with real MukaroCore team and office photos
   (Innovation Hub, Accra) when available. Keep the same bright, natural-light
   photographic style.
+
+## Client logos (`clients/`)
+
+Each logo belongs to the named client and was taken from their own website (Oct 2026), trimmed and converted to WebP. Used only to identify them as MukaroCore clients.

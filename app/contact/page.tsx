@@ -26,8 +26,14 @@ const contactChannels = [
   {
     icon: Phone,
     label: "Phone",
-    value: "(+233) 545543359 | (+233) 541878730",
+    value: "(+233) 545543359",
     href: "tel:+233545543359",
+  },
+  {
+    icon: Phone,
+    label: "Phone (alternative)",
+    value: "(+233) 541878730",
+    href: "tel:+233541878730",
   },
 ];
 
@@ -70,10 +76,10 @@ export default function ContactPage() {
         setSubmitted(true);
         setFormData({ name: "", email: "", phone: "", company: "", service: "", message: "" });
       } else {
-        setError("Something went wrong. Please try emailing us directly at info@mukarocore.com");
+        setError("failed");
       }
     } catch {
-      setError("Something went wrong. Please try emailing us directly at info@mukarocore.com");
+      setError("failed");
     } finally {
       setSending(false);
     }
@@ -131,8 +137,7 @@ export default function ContactPage() {
             <article className="surface-card p-6">
               <p className="eyebrow">Response time</p>
               <p className="mt-4 text-base leading-8 text-foreground">
-                Most initial replies go out within 24 hours. Existing clients can also
-                reach the emergency support line outside business hours.
+                Most initial replies go out within 24 hours.
               </p>
             </article>
           </>
@@ -169,7 +174,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="grid gap-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <Label htmlFor="name">Full name</Label>
+                      <Label htmlFor="name">Full name <span className="text-destructive" aria-hidden>*</span></Label>
                       <Input
                         id="name"
                         value={formData.name}
@@ -181,7 +186,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">Email <span className="text-destructive" aria-hidden>*</span></Label>
                       <Input
                         id="email"
                         type="email"
@@ -197,7 +202,7 @@ export default function ContactPage() {
 
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <Label htmlFor="phone">Phone</Label>
+                      <Label htmlFor="phone">Phone <span className="text-muted-foreground">(optional)</span></Label>
                       <Input
                         id="phone"
                         type="tel"
@@ -209,7 +214,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="company">Company</Label>
+                      <Label htmlFor="company">Company <span className="text-muted-foreground">(optional)</span></Label>
                       <Input
                         id="company"
                         value={formData.company}
@@ -222,7 +227,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <Label htmlFor="service">Service</Label>
+                    <Label htmlFor="service">Service <span className="text-muted-foreground">(optional)</span></Label>
                     <Select
                       value={formData.service}
                       onValueChange={(value) =>
@@ -244,7 +249,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Project context</Label>
+                    <Label htmlFor="message">Project context <span className="text-destructive" aria-hidden>*</span></Label>
                     <Textarea
                       id="message"
                       value={formData.message}
@@ -257,7 +262,13 @@ export default function ContactPage() {
                   </div>
 
                   {error && (
-                    <p className="text-sm text-destructive">{error}</p>
+                    <p className="text-sm text-destructive" role="alert">
+                      Something went wrong. Please email us directly at{" "}
+                      <a href="mailto:info@mukarocore.com" className="underline">
+                        info@mukarocore.com
+                      </a>
+                      .
+                    </p>
                   )}
 
                   <Button type="submit" size="lg" disabled={sending}>
@@ -267,53 +278,31 @@ export default function ContactPage() {
               )}
             </article>
 
-            <aside className="grid gap-4">
-              <article className="surface-card p-6">
-                <p className="eyebrow">What you get</p>
-                <ul className="ledger-list mt-6">
-                  {benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-3 text-sm leading-7 text-foreground">
-                      <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+            {/*<aside className="grid gap-4">*/}
+            {/*  <article className="surface-card p-6">*/}
+            {/*    <p className="eyebrow">What you get</p>*/}
+            {/*    <ul className="ledger-list mt-6">*/}
+            {/*      {benefits.map((benefit) => (*/}
+            {/*        <li key={benefit} className="flex items-start gap-3 text-sm leading-7 text-foreground">*/}
+            {/*          <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />*/}
+            {/*          <span>{benefit}</span>*/}
+            {/*        </li>*/}
+            {/*      ))}*/}
+            {/*    </ul>*/}
+            {/*  </article>*/}
 
-              <article className="surface-card p-6">
-                <p className="eyebrow flex items-center gap-2">
-                  <Clock3 size={14} className="text-primary" />
-                  Availability
-                </p>
-                <p className="mt-4 text-base leading-8 text-foreground">
-                  We&apos;re available 24/7. Reach out any time and we&apos;ll get back to you as soon as possible.
-                </p>
-              </article>
-            </aside>
+            {/*  <article className="surface-card p-6">*/}
+            {/*    <p className="eyebrow flex items-center gap-2">*/}
+            {/*      <Clock3 size={14} className="text-primary" />*/}
+            {/*      Availability*/}
+            {/*    </p>*/}
+            {/*    <p className="mt-4 text-base leading-8 text-foreground">*/}
+            {/*      Send an inquiry any time. We reply to most messages within 24 hours.*/}
+            {/*    </p>*/}
+            {/*  </article>*/}
+            {/*</aside>*/}
           </div>
         </SectionBlock>
-      </SiteSection>
-
-      <SiteSection className="pt-0">
-        <article className="surface-card p-8 lg:p-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end">
-            <div>
-              <p className="eyebrow">Daily pulse</p>
-              <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
-                Stay current on process, systems, and commerce.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-                A short dispatch covering digitisation trends, delivery notes,
-                and practical lessons from the work we&apos;re doing on the ground.
-              </p>
-            </div>
-
-            <div className="grid gap-3">
-              <Input type="email" placeholder="Enter your email" />
-              <Button size="lg">Join the list</Button>
-            </div>
-          </div>
-        </article>
       </SiteSection>
     </>
   );
