@@ -83,7 +83,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title={<>Bring the problem in plain language. We'll map the system behind it.</>}
+        title={<>Bring the problem in plain language. We&apos;ll map the system behind it.</>}
         description={
           <>
             If the team is still running on manual processes or losing revenue between
@@ -162,7 +162,7 @@ export default function ContactPage() {
                   </span>
                   <h2 className="mt-6 text-4xl">Message received.</h2>
                   <p className="mt-3 max-w-md text-sm leading-7 text-muted-foreground">
-                    We've captured the inquiry and will reply with next steps shortly.
+                    We&apos;ve captured the inquiry and will reply with next steps shortly.
                   </p>
                 </div>
               ) : (
@@ -286,7 +286,7 @@ export default function ContactPage() {
                   Availability
                 </p>
                 <p className="mt-4 text-base leading-8 text-foreground">
-                  We're available 24/7. Reach out any time and we'll get back to you as soon as possible.
+                  We&apos;re available 24/7. Reach out any time and we&apos;ll get back to you as soon as possible.
                 </p>
               </article>
             </aside>
@@ -304,7 +304,7 @@ export default function ContactPage() {
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
                 A short dispatch covering digitisation trends, delivery notes,
-                and practical lessons from the work we're doing on the ground.
+                and practical lessons from the work we&apos;re doing on the ground.
               </p>
             </div>
 
