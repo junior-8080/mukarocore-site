@@ -15,7 +15,7 @@ export function SiteSection({
     <section
       className={cn(
         "page-section",
-        tone === "muted" && "bg-secondary/60",
+        tone === "muted" && "bg-secondary",
         className
       )}
     >
@@ -113,7 +113,7 @@ export function StatRack({
           <dt
             className={cn(
               "text-[0.72rem] font-semibold uppercase tracking-[0.24em]",
-              inverted ? "text-background/70" : "text-muted-foreground"
+              inverted ? "text-ink-muted" : "text-muted-foreground"
             )}
           >
             {item.label}
@@ -121,7 +121,7 @@ export function StatRack({
           <dd
             className={cn(
               "display-number",
-              inverted ? "text-background" : "text-foreground"
+              inverted ? "text-ink-foreground" : "text-foreground"
             )}
           >
             {item.value}

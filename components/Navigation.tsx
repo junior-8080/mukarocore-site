@@ -40,7 +40,7 @@ export function Navigation() {
     <nav
       className={cn(
         "sticky top-0 z-50 border-b border-border transition-colors duration-200",
-        scrolled ? "glass-nav" : "bg-background/78 backdrop-blur-xl"
+        scrolled ? "glass-nav shadow-soft" : "bg-background"
       )}
     >
       <div className="site-shell flex min-h-[4.75rem] items-center gap-5">
@@ -70,7 +70,7 @@ export function Navigation() {
         <div className="ml-auto flex items-center gap-2">
           <button
             onClick={toggle}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
@@ -83,7 +83,7 @@ export function Navigation() {
           </Button>
 
           <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground transition-colors hover:text-foreground lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground lg:hidden"
             onClick={() => setIsOpen((open) => !open)}
             aria-label="Toggle menu"
           >
@@ -94,7 +94,7 @@ export function Navigation() {
 
       <AnimatePresence>
         {isOpen && (
-          <SlideDown className="lg:hidden border-t border-border bg-background/92 backdrop-blur-xl">
+          <SlideDown className="lg:hidden border-t border-border bg-background">
             <div className="site-shell py-4">
               <div className="route-list">
                 {navLinks.map((link, index) => (

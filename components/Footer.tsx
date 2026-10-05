@@ -10,7 +10,7 @@ const navLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-secondary/55">
+    <footer className="border-t border-border bg-secondary">
       <div className="site-shell page-section !py-16">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)]">
           <div className="space-y-6">

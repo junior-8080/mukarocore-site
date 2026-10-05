@@ -17,7 +17,7 @@ export function BrandLogo({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-[1.35rem] border border-border bg-[rgba(244,237,222,0.92)] shadow-[0_12px_30px_rgba(28,42,51,0.08)] dark:bg-[rgba(244,237,222,0.96)]",
+        "inline-flex items-center rounded-[1.35rem] border border-border bg-logo-surface shadow-soft",
         size === "nav" ? "p-2" : "p-2 rounded-[1.6rem]",
         className
       )}

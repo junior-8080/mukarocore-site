@@ -156,7 +156,7 @@ export default function ContactPage() {
                   className="flex min-h-[24rem] flex-col items-center justify-center text-center"
                   aria-live="polite"
                 >
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-500/25 dark:bg-emerald-500/15 dark:text-emerald-300">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary-soft text-success">
                     <CheckCircle2 size={30} />
                   </span>
                   <h2 className="mt-6 text-4xl">Message received.</h2>
@@ -254,7 +254,7 @@ export default function ContactPage() {
                   </div>
 
                   {error && (
-                    <p className="text-sm text-red-500">{error}</p>
+                    <p className="text-sm text-destructive">{error}</p>
                   )}
 
                   <Button type="submit" size="lg" disabled={sending}>
