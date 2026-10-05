@@ -4,7 +4,6 @@ import { BrandLogo } from "@/components/BrandLogo";
 
 const navLinks = [
   { href: "/services", label: "Services" },
-  // { href: "/knowledge-hub", label: "GrowNovis" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -28,7 +27,7 @@ export function Footer() {
 
             <p className="max-w-2xl text-lg leading-relaxed text-secondary-foreground">
               MukaroCore works on the quiet layer most teams skip: operating systems,
-              payment flows, agricultural intelligence, and the information structure
+              payment flows, automation, and the information structure
               that keeps them useful over time.
             </p>
 

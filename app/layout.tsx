@@ -10,18 +10,17 @@ const siteUrl = "https://www.mukarocore.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
+    default: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
     template: "%s | MukaroCore Enterprise",
   },
   description:
-    "MukaroCore Enterprise designs the operating layer behind technology, commerce, and agriculture for businesses building across Africa.",
+    "MukaroCore Enterprise builds, runs, and scales the technology behind growing businesses across Africa.",
   keywords: [
     "MukaroCore",
     "Mukaro Core",
     "enterprise systems Africa",
     "technology operations Ghana",
     "digital commerce infrastructure",
-    "agri-tech solutions Africa",
     "business transformation Africa",
     "knowledge hub Africa",
   ],
@@ -44,9 +43,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "MukaroCore Enterprise",
-    title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
+    title: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
     description:
-      "Technology, commerce, and agriculture systems for businesses that need clear operations, verified insight, and durable growth.",
+      "Software, infrastructure, and automation for businesses that need clear operations and durable growth.",
     images: [
       {
         url: `${siteUrl}/brand-logo.png`,
@@ -58,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
+    title: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
     description:
-      "Technology, commerce, and agriculture systems for businesses building across Africa.",
+      "Software, infrastructure, and automation for businesses building across Africa.",
     images: [`${siteUrl}/brand-logo.png`],
     creator: "@mukarocore",
   },
@@ -78,7 +77,7 @@ const jsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/brand-logo.png`,
   description:
-    "MukaroCore Enterprise designs the operating layer behind technology, commerce, and agriculture for businesses building across Africa.",
+    "MukaroCore Enterprise builds, runs, and scales the technology behind growing businesses across Africa.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Accra",
@@ -98,7 +97,6 @@ const jsonLd = {
   serviceType: [
     "Technology Systems",
     "Commerce Operations",
-    "Agriculture Intelligence",
     "Business Consulting",
   ],
 };

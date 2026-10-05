@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpenText,
   CheckCircle2,
   Coins,
   Cpu,
@@ -13,13 +12,13 @@ import { Button } from "@/components/ui/button";
 import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site/PageFrame";
 
 export const metadata: Metadata = {
-  title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
+  title: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
   description:
-    "MukaroCore Enterprise designs the operating layer behind technology, commerce, and agriculture for businesses building across Africa.",
+    "MukaroCore Enterprise builds, runs, and scales the technology behind growing businesses across Africa.",
   openGraph: {
-    title: "MukaroCore Enterprise | Tech, Commerce & Agriculture Solutions",
+    title: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
     description:
-      "Technology, commerce, and agriculture systems for businesses that need clear operations, verified insight, and durable growth.",
+      "Software, infrastructure, and automation for businesses that need clear operations and durable growth.",
     url: "https://www.mukarocore.com",
   },
 };
@@ -36,12 +35,6 @@ const routes = [
     title: "Commerce flows",
     summary: "Bookaata and the in-house SaaS products we build to solve commerce problems.",
     href: "/services#commerce",
-  },
-  {
-    id: "03",
-    title: "GrowNovis",
-    summary: "AI-powered agri intelligence — article analysis, crop advisory, and daily agronomic tips.",
-    href: "/knowledge-hub",
   },
 ];
 
@@ -65,16 +58,6 @@ const pillars = [
     points: ["Online booking & scheduling", "Mobile money & card payments", "Booking analytics"],
     href: "/services#commerce",
     span: "lg:col-span-3",
-  },
-  {
-    icon: BookOpenText,
-    title: "GrowNovis",
-    image: "/agro.jpg",
-    imageAlt: "GrowNovis — modern agricultural intelligence",
-    summary: "A MukaroCore product bringing AI intelligence into agriculture — from analysing sector articles to advising on crops and delivering daily agronomic guidance to operators in the field.",
-    points: ["Agri article analysis", "AI crop advisory", "Daily agronomic tips"],
-    href: "/knowledge-hub",
-    span: "lg:col-span-4",
   },
 ];
 
@@ -155,7 +138,7 @@ export default function HomePage() {
       <SiteSection className="pt-0">
         <StatRack
           items={[
-            { value: "3", label: "Service lanes" },
+            { value: "2", label: "Practice areas" },
             { value: "24/7", label: "Support cadence" },
           ]}
           columns={2}
@@ -177,11 +160,11 @@ export default function HomePage() {
       <SiteSection tone="muted">
         <SectionBlock
           eyebrow="Capabilities map"
-          title={<>Three lanes. One operating layer.</>}
+          title={<>Technology that keeps the business moving.</>}
           description={
             <>
-              Each MukaroCore lane solves a different part of the same problem:
-              helping businesses move from improvised processes to dependable systems.
+              Every MukaroCore service solves part of the same problem: helping
+              businesses move from improvised processes to dependable systems.
             </>
           }
         >
@@ -205,7 +188,7 @@ export default function HomePage() {
                         <Icon size={20} />
                       </span>
                       <Link href={pillar.href} className="link-line text-sm">
-                        View lane <ArrowRight size={15} />
+                        View services <ArrowRight size={15} />
                       </Link>
                     </div>
                     <h3 className="mt-6 text-4xl">{pillar.title}</h3>
@@ -286,8 +269,8 @@ export default function HomePage() {
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link href="/knowledge-hub">
-                    Read the research <ArrowRight size={16} />
+                  <Link href="/services">
+                    Explore services <ArrowRight size={16} />
                   </Link>
                 </Button>
               </div>

@@ -24,6 +24,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // GrowNovis moved to its own site.
+  async redirects() {
+    return ["/knowledge-hub", "/knowledge-hub/:path*", "/grownovis", "/grownovis/:path*"].map(
+      (source) => ({
+        source,
+        destination: "https://grownovis.com",
+        statusCode: 301 as const,
+      })
+    );
+  },
 };
 
 export default nextConfig;

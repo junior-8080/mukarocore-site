@@ -14,7 +14,7 @@ import { PageHero, SectionBlock, SiteSection, StatRack } from "@/components/site
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn how MukaroCore Enterprise approaches technology, commerce, and agriculture work through a disciplined operating model.",
+    "Learn how MukaroCore Enterprise approaches technology services through a disciplined operating model.",
   keywords: [
     "about MukaroCore",
     "MukaroCore team",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Us | MukaroCore Enterprise",
     description:
-      "MukaroCore Enterprise bridges technology, commerce, and agriculture through disciplined operating work.",
+      "MukaroCore Enterprise builds and runs technology for growing businesses through disciplined operating work.",
     url: "https://www.mukarocore.com/about",
   },
 };
@@ -64,12 +64,6 @@ const pillars = [
     body: "This lane is the umbrella for the commerce SaaS products we build in-house rather than a menu of consulting services. Bookaata — our service booking application — is the first one live, with more products shipping in this lane over time.",
     points: ["Online booking & scheduling", "Mobile money & card payments", "Booking analytics"],
   },
-  {
-    code: "AGRI",
-    title: "GrowNovis — modern agricultural intelligence",
-    body: "GrowNovis is a MukaroCore product that uses AI to bring intelligence into everyday agricultural decisions — from analysing sector articles to advising on crops and delivering daily agronomic guidance to operators in the field.",
-    points: ["Agri article analysis", "AI crop advisory", "Daily agronomic tips"],
-  },
 ];
 
 export default function AboutPage() {
@@ -80,9 +74,8 @@ export default function AboutPage() {
         title={<>We digitise the way businesses actually work.</>}
         description={
           <>
-            MukaroCore is a multidisciplinary enterprise that helps teams across
-            technology, commerce, and agriculture replace manual processes with
-            clean digital systems — so operations run faster, leaner, and without
+            MukaroCore is a technology services company that helps businesses
+            replace manual processes with clean digital systems — so operations run faster, leaner, and without
             the usual workarounds.
           </>
         }
@@ -103,7 +96,7 @@ export default function AboutPage() {
         aside={
           <StatRack
             items={[
-              { value: "3", label: "Service lanes" },
+              { value: "2", label: "Practice areas" },
               { value: "24/7", label: "Support window" },
             ]}
             columns={2}
@@ -186,7 +179,7 @@ export default function AboutPage() {
           title={<>How the business is structured.</>}
           description={
             <>
-              The company is organised into three connected lanes so each domain supports
+              The company is organised into connected practice areas so each one supports
               the others instead of competing for attention.
             </>
           }

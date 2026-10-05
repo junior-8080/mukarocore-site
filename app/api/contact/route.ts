@@ -18,8 +18,6 @@ export async function POST(request: Request) {
     "process-digitisation": "Process Digitisation",
     "workflow-automation": "Workflow Automation",
     "commerce": "Commerce & Payment Operations",
-    "agri-research": "Agri Research & Publishing",
-    "agri-fundraising": "Agri Fundraising Support",
     "other": "Other",
   };
 

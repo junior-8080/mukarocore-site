@@ -3,15 +3,12 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
   CalendarCheck,
   CheckCircle2,
   Cloud,
   Database,
   Server,
   Shield,
-  Sprout,
-  Wifi,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHero, SectionBlock, SiteSection } from "@/components/site/PageFrame";
@@ -20,19 +17,18 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "MukaroCore Enterprise digitises manual processes, optimises commerce flows, and builds agricultural insight for businesses operating across Africa.",
+    "MukaroCore Enterprise digitises manual processes, automates operations, and builds commerce systems for businesses operating across Africa.",
   keywords: [
     "process digitisation Africa",
     "workflow automation Ghana",
     "digital commerce systems Africa",
-    "agri research publishing Africa",
     "business systems consulting Ghana",
     "MukaroCore services",
   ],
   openGraph: {
     title: "Services | MukaroCore Enterprise",
     description:
-      "Three service lanes — technology, commerce, and agri — built to replace manual operations with clean digital systems that scale.",
+      "Technology and commerce services built to replace manual operations with clean digital systems that scale.",
     url: "https://www.mukarocore.com/services",
   },
 };
@@ -80,30 +76,6 @@ const commerceProducts = [
   },
 ];
 
-const agriServices = [
-  {
-    icon: BarChart3,
-    title: "Agri Article Analysis",
-    description:
-      "GrowNovis uses AI to analyse agricultural articles and surface the patterns, signals, and sector trends that matter for operators and decision-makers.",
-    features: ["AI-powered article analysis", "Sector trend signals", "Research summaries", "Data-backed insights"],
-  },
-  // {
-  //   icon: Sprout,
-  //   title: "AI Crop Advisory",
-  //   description:
-  //     "Personalised AI-generated crop guidance built on agronomic data — helping operators make better decisions about what to grow, when, and how.",
-  //   features: ["Crop-specific guidance", "AI recommendations", "Agronomic data", "Actionable advisory"],
-  // },
-  {
-    icon: Wifi,
-    title: "Daily Agronomic Tips",
-    description:
-      "A daily feed of AI-powered agronomic tips keeping operators and growers current on best practices, seasonal patterns, and field-level guidance.",
-    features: ["Daily AI tips", "Agronomic best practices", "Seasonal guidance", "Field-ready advice"],
-  },
-];
-
 const techClients = [
   { name: "Dasanda Closet", industry: "Clothing & Fashion", link:"https://www.dasandacloset.com/" },
   { name: "Suturah By Feesah", industry: "Clothing & Fashion" ,link:"https://www.suturahbyfeesah.com/"},
@@ -120,7 +92,6 @@ const deliveryPhases = [
 const laneLinks = [
   { label: "Tech", href: "#tech" },
   { label: "Commerce", href: "#commerce" },
-  { label: "Agri", href: "#agri" },
 ];
 
 function ServiceEntry({
@@ -128,7 +99,7 @@ function ServiceEntry({
   tone,
 }: {
   service: (typeof techServices)[number];
-  tone: "tech" | "commerce" | "agri";
+  tone: "tech" | "commerce";
 }) {
   const Icon = service.icon;
 
@@ -136,7 +107,6 @@ function ServiceEntry({
     tech: "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-500/15 dark:text-sky-300 dark:border-sky-500/25",
     commerce:
       "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/25",
-    agri: "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-300 dark:border-emerald-500/25",
   }[tone];
 
   return (
@@ -166,13 +136,12 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title={<>Three lanes. One operating layer.</>}
+        title={<>Technology services. One operating layer.</>}
         description={
           <>
-            Whether the problem is manual processes slowing the team down, revenue
-            leaking between delivery and payment, or agricultural insight that never
-            reaches the right audience — each lane is built to fix a specific part
-            of how the business operates.
+            Whether the problem is manual processes slowing the team down or revenue
+            leaking between delivery and payment, each service is built to fix a
+            specific part of how the business operates.
           </>
         }
         actions={
@@ -289,28 +258,6 @@ export default function ServicesPage() {
         </div>
       </SiteSection>
 
-      <SiteSection tone="muted">
-        <div id="agri">
-          <SectionBlock
-            eyebrow="GrowNovis"
-            title={<>Agriculture is data. We're making it visible.</>}
-            description={
-              <>
-                GrowNovis is a MukaroCore product that uses AI to bring intelligence
-                into everyday agricultural decisions — surfacing patterns from sector
-                articles, advising on crop decisions, and delivering daily agronomic
-                guidance to operators in the field.
-              </>
-            }
-          >
-            <div className="grid gap-4 lg:grid-cols-2">
-              {agriServices.map((service) => (
-                <ServiceEntry key={service.title} service={service} tone="agri" />
-              ))}
-            </div>
-          </SectionBlock>
-        </div>
-      </SiteSection>
 
       <SiteSection className="pt-0">
         <article className="surface-card p-8 lg:p-10">

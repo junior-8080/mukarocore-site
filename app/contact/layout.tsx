@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with MukaroCore Enterprise in Accra, Ghana for technology, commerce, and agriculture solutions tailored to your business.",
+    "Get in touch with MukaroCore Enterprise in Accra, Ghana for software, infrastructure, and automation services tailored to your business.",
   keywords: [
     "contact MukaroCore",
     "MukaroCore Accra",

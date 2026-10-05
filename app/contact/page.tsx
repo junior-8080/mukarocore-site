@@ -85,9 +85,9 @@ export default function ContactPage() {
         title={<>Bring the problem in plain language. We'll map the system behind it.</>}
         description={
           <>
-            If the team is still running on manual processes, losing revenue between
-            delivery and payment, or needs agricultural insight that reaches the right
-            audience — we can identify where to start and sequence the work from there.
+            If the team is still running on manual processes or losing revenue between
+            delivery and payment, we can identify where to start and sequence the work
+            from there.
           </>
         }
         actions={
@@ -235,8 +235,6 @@ export default function ContactPage() {
                         <SelectItem value="process-digitisation">Process digitisation</SelectItem>
                         <SelectItem value="workflow-automation">Workflow automation</SelectItem>
                         <SelectItem value="commerce">Commerce (Bookaata & in-house products)</SelectItem>
-                        <SelectItem value="agri-research">Agri research & publishing</SelectItem>
-                        <SelectItem value="agri-fundraising">Agri fundraising support</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
@@ -299,10 +297,10 @@ export default function ContactPage() {
             <div>
               <p className="eyebrow">Daily pulse</p>
               <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
-                Stay current on process, commerce, and agri insight.
+                Stay current on process, systems, and commerce.
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-                A short dispatch covering digitisation trends, agri research briefs,
+                A short dispatch covering digitisation trends, delivery notes,
                 and practical lessons from the work we're doing on the ground.
               </p>
             </div>
