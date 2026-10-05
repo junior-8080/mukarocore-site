@@ -4,25 +4,27 @@ import { Analytics } from "@vercel/analytics/next";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
-
-const siteUrl = "https://www.mukarocore.com";
+import { siteUrl } from "@/lib/brand";
+import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
+    default: "MukaroCore Enterprise | Software Development & IT Services in Accra, Ghana",
     template: "%s | MukaroCore Enterprise",
   },
   description:
-    "MukaroCore Enterprise builds, runs, and scales the technology behind growing businesses across Africa.",
+    "MukaroCore Enterprise builds, runs, and scales the technology behind growing businesses: custom software, DevOps, QA testing, cloud, and systems integration from Accra, Ghana.",
   keywords: [
+    "software development Ghana",
+    "custom software Accra",
+    "DevOps Ghana",
+    "QA testing Accra",
+    "systems integration Ghana",
+    "cloud infrastructure Ghana",
+    "mobile app development Ghana",
+    "IT services Accra",
     "MukaroCore",
-    "Mukaro Core",
-    "enterprise systems Africa",
-    "technology operations Ghana",
-    "digital commerce infrastructure",
-    "business transformation Africa",
-    "knowledge hub Africa",
   ],
   authors: [{ name: "MukaroCore Enterprise", url: siteUrl }],
   creator: "MukaroCore Enterprise",
@@ -40,31 +42,22 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GB",
     url: siteUrl,
     siteName: "MukaroCore Enterprise",
-    title: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
+    title: "MukaroCore Enterprise | Software Development & IT Services in Accra, Ghana",
     description:
-      "Software, infrastructure, and automation for businesses that need clear operations and durable growth.",
-    images: [
-      {
-        url: `${siteUrl}/brand-logo.png`,
-        width: 677,
-        height: 369,
-        alt: "MukaroCore brand logo",
-      },
-    ],
+      "Custom software, DevOps, QA testing, cloud, and systems integration for growing businesses across Africa.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MukaroCore Enterprise | Technology Services in Accra, Ghana",
+    title: "MukaroCore Enterprise | Software Development & IT Services in Accra, Ghana",
     description:
-      "Software, infrastructure, and automation for businesses building across Africa.",
-    images: [`${siteUrl}/brand-logo.png`],
+      "Custom software, DevOps, QA testing, cloud, and systems integration from Accra, Ghana.",
     creator: "@mukarocore",
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: "/",
   },
   category: "technology",
 };
@@ -72,33 +65,41 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
   name: "MukaroCore Enterprise",
   alternateName: ["MukaroCore", "Mukaro Core"],
   url: siteUrl,
   logo: `${siteUrl}/brand-logo.png`,
   description:
-    "MukaroCore Enterprise builds, runs, and scales the technology behind growing businesses across Africa.",
+    "Technology services company in Accra, Ghana providing custom software, mobile apps, DevOps, cloud, QA testing, data, security, and systems integration.",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Innovation Hub",
     addressLocality: "Accra",
     addressCountry: "GH",
   },
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@mukarocore.com",
+    telephone: "+233545543359",
     contactType: "customer service",
   },
   sameAs: [],
-  foundingLocation: {
-    "@type": "Place",
-    name: "Accra, Ghana",
+  areaServed: ["Ghana", "Africa"],
+  knowsAbout: services.map((service) => service.title),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Technology services",
+    itemListElement: services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.title,
+        description: service.summary,
+        url: `${siteUrl}/services/${service.slug}`,
+      },
+    })),
   },
-  areaServed: "Africa",
-  serviceType: [
-    "Technology Systems",
-    "Commerce Operations",
-    "Business Consulting",
-  ],
 };
 
 export default function RootLayout({

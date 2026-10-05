@@ -14,6 +14,7 @@ import {
   services,
   servicesByCategory,
 } from "@/lib/services";
+import { siteUrl } from "@/lib/brand";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -37,7 +38,12 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     openGraph: {
       title: `${service.title} | MukaroCore Enterprise`,
       description: service.summary,
-      url: `https://www.mukarocore.com/services/${service.slug}`,
+      url: `${siteUrl}/services/${service.slug}`,
+    },
+    twitter: {
+      title: `${service.title} | MukaroCore Enterprise`,
+      description: service.summary,
+      images: [`/services/${service.slug}/opengraph-image`],
     },
   };
 }
@@ -51,8 +57,31 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const related = servicesByCategory(service.category).filter((item) => item.slug !== service.slug);
   const Icon = service.icon;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.summary,
+    serviceType: service.title,
+    url: `${siteUrl}/services/${service.slug}`,
+    provider: { "@id": `${siteUrl}/#organization` },
+    areaServed: ["Ghana", "Africa"],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${service.title} deliverables`,
+      itemListElement: service.deliverables.map((item) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: item },
+      })),
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageHero
         eyebrow={`Services · ${category.label}`}
         title={<span className="block max-w-[14ch] text-[0.72em]">{service.title}</span>}

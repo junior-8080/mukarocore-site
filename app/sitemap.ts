@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/brand";
 import { services } from "@/lib/services";
 
-const siteUrl = "https://www.mukarocore.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

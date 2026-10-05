@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn how MukaroCore Enterprise approaches technology services through a disciplined operating model.",
+    "MukaroCore Enterprise is a technology services company at Innovation Hub, Accra.",
 };
 
 export default function AboutLayout({

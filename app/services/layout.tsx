@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "MukaroCore Enterprise provides structured services across technology and commerce for businesses building across Africa.",
+    "Software development, DevOps, QA testing, cloud, and systems integration services from MukaroCore Enterprise in Accra, Ghana.",
 };
 
 export default function ServicesLayout({

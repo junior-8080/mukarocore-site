@@ -7,10 +7,15 @@ export const metadata: Metadata = {
   keywords: [
     "contact MukaroCore",
     "MukaroCore Accra",
-    "enterprise consulting contact Ghana",
-    "business solutions inquiry",
+    "software development company Accra",
+    "IT services Ghana contact",
     "MukaroCore email",
   ],
+  alternates: { canonical: "/contact" },
+  twitter: {
+    title: "Contact Us | MukaroCore Enterprise",
+    description: "Reach the MukaroCore team at Innovation Hub, Accra, Ghana.",
+  },
   openGraph: {
     title: "Contact Us | MukaroCore Enterprise",
     description:

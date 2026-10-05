@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     "MukaroCore mission",
   ],
   alternates: { canonical: "/about" },
+  twitter: {
+    title: "About Us | MukaroCore Enterprise",
+    description: "A technology services company in Accra, Ghana.",
+  },
   openGraph: {
     title: "About Us | MukaroCore Enterprise",
     description:
