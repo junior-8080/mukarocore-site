@@ -3,9 +3,9 @@ import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 
 const navLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Footer() {
@@ -31,7 +31,7 @@ export function Footer() {
               that keeps them useful over time.
             </p>
 
-            <Link href="/contact" className="link-line">
+            <Link href="/#contact" className="link-line">
               Start a working session <ArrowUpRight size={16} />
             </Link>
           </div>

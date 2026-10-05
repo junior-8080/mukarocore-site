@@ -1,15 +1,11 @@
-import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { servicePath, type Service } from "@/lib/services";
+import { CheckCircle2 } from "lucide-react";
+import type { Service } from "@/lib/services";
 
 export function ServiceCard({ service }: { service: Service }) {
   const Icon = service.icon;
 
   return (
-    <Link
-      href={servicePath(service.slug)}
-      className="surface-card group flex h-full flex-col p-6 hover:-translate-y-0.5"
-    >
+    <article className="surface-card flex h-full flex-col p-6">
       <span className="icon-chip">
         <Icon size={22} aria-hidden />
       </span>
@@ -23,10 +19,6 @@ export function ServiceCard({ service }: { service: Service }) {
           </li>
         ))}
       </ul>
-      <span className="link-line mt-auto pt-6 text-primary">
-        View service
-        <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" aria-hidden />
-      </span>
-    </Link>
+    </article>
   );
 }

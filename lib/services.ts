@@ -280,12 +280,7 @@ export const services: Service[] = [
   },
 ];
 
-export const servicePath = (slug: string) => `/services/${slug}`;
-
 export const getService = (slug: string) => services.find((service) => service.slug === slug);
-
-export const getCategory = (id: ServiceCategoryId) =>
-  serviceCategories.find((category) => category.id === id)!;
 
 export const servicesByCategory = (id: ServiceCategoryId) =>
   services.filter((service) => service.category === id);

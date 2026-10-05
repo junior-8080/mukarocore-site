@@ -10,31 +10,42 @@ import { AnimatePresence, SlideDown } from "@/components/ui/motion";
 import { useTheme } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 
+// Single-page site: every link targets a homepage section.
 const navLinks = [
-  { path: "/", label: "Home" },
-  { path: "/services", label: "Services" },
-  { path: "/about", label: "About" },
-  { path: "/contact", label: "Contact" },
+  { path: "/#top", label: "Home", section: null },
+  { path: "/#services", label: "Services", section: "services" },
+  { path: "/#about", label: "About", section: "about" },
+  { path: "/#contact", label: "Contact", section: "contact" },
 ];
+
+const sectionIds = ["services", "about", "contact"];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
   const { theme, toggle } = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 18);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 18);
+      // The last section whose top has passed 40% of the viewport is the current one.
+      let current: string | null = null;
+      for (const id of sectionIds) {
+        const top = document.getElementById(id)?.getBoundingClientRect().top;
+        if (top !== undefined && top <= window.innerHeight * 0.4) current = id;
+      }
+      setActiveSection(current);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => setIsOpen(false), [pathname]);
 
-  const isActive = (path: string) => {
-    if (path === "/") return pathname === "/";
-    return pathname.startsWith(path);
-  };
+  const isActive = (section: string | null) => pathname === "/" && activeSection === section;
 
   // On the homepage the bar sits transparently over the hero photo until scrolled.
   const overlay = pathname === "/" && !scrolled && !isOpen;
@@ -66,10 +77,10 @@ export function Navigation() {
               className={cn(
                 "group inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm transition-colors",
                 overlay
-                  ? isActive(link.path)
+                  ? isActive(link.section)
                     ? "text-ink-foreground"
                     : "text-ink-foreground/75 hover:text-ink-foreground"
-                  : isActive(link.path)
+                  : isActive(link.section)
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
               )}
@@ -99,7 +110,7 @@ export function Navigation() {
           </button>
 
           <Button asChild className="hidden md:inline-flex">
-            <Link href="/contact">
+            <Link href="/#contact">
               Start a Project <ArrowUpRight size={16} />
             </Link>
           </Button>
@@ -128,17 +139,18 @@ export function Navigation() {
                   <Link
                     key={link.path}
                     href={link.path}
+                    onClick={() => setIsOpen(false)}
                     className="flex items-center justify-between gap-4 text-sm"
                   >
                     <span className="text-muted-foreground">0{index + 1}</span>
-                    <span className={cn("ml-auto", isActive(link.path) ? "text-primary" : "text-foreground")}>
+                    <span className={cn("ml-auto", isActive(link.section) ? "text-primary" : "text-foreground")}>
                       {link.label}
                     </span>
                   </Link>
                 ))}
               </div>
               <Button asChild className="mt-4 w-full">
-                <Link href="/contact">
+                <Link href="/#contact" onClick={() => setIsOpen(false)}>
                   Start a Project <ArrowUpRight size={16} />
                 </Link>
               </Button>

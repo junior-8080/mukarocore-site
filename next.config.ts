@@ -25,15 +25,28 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // GrowNovis moved to its own site.
   async redirects() {
-    return ["/knowledge-hub", "/knowledge-hub/:path*", "/grownovis", "/grownovis/:path*"].map(
-      (source) => ({
+    return [
+      // GrowNovis moved to its own site.
+      ...["/knowledge-hub", "/knowledge-hub/:path*", "/grownovis", "/grownovis/:path*"].map(
+        (source) => ({
+          source,
+          destination: "https://grownovis.com",
+          statusCode: 301 as const,
+        })
+      ),
+      // Single-page site: old routes point at their homepage sections.
+      ...[
+        ["/services", "services"],
+        ["/services/:path*", "services"],
+        ["/about", "about"],
+        ["/contact", "contact"],
+      ].map(([source, section]) => ({
         source,
-        destination: "https://grownovis.com",
+        destination: `/#${section}`,
         statusCode: 301 as const,
-      })
-    );
+      })),
+    ];
   },
 };
 

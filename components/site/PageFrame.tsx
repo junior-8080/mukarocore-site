@@ -1,19 +1,21 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type SiteSectionProps = {
   children: React.ReactNode;
   className?: string;
   tone?: "default" | "muted";
+  id?: string;
 };
 
 export function SiteSection({
   children,
   className,
   tone = "default",
+  id,
 }: SiteSectionProps) {
   return (
     <section
+      id={id}
       className={cn(
         "page-section",
         tone === "muted" && "bg-secondary",
@@ -21,42 +23,6 @@ export function SiteSection({
       )}
     >
       <div className="site-shell">{children}</div>
-    </section>
-  );
-}
-
-type PageHeroProps = {
-  eyebrow: string;
-  title: React.ReactNode;
-  description: React.ReactNode;
-  actions?: React.ReactNode;
-  aside?: React.ReactNode;
-  className?: string;
-};
-
-export function PageHero({
-  eyebrow,
-  title,
-  description,
-  actions,
-  aside,
-  className,
-}: PageHeroProps) {
-  return (
-    <section className={cn("page-section pt-10 lg:pt-16", className)}>
-      <div className="site-shell hero-grid">
-        <header className="space-y-6">
-          <p className="eyebrow">{eyebrow}</p>
-          <div className="space-y-5">
-            <h1 className="display-title">{title}</h1>
-            <div className="section-copy max-w-2xl">{description}</div>
-          </div>
-          {actions ? (
-            <div className="flex flex-col gap-3 sm:flex-row">{actions}</div>
-          ) : null}
-        </header>
-        {aside ? <aside className="note-stack">{aside}</aside> : null}
-      </div>
     </section>
   );
 }
@@ -86,83 +52,6 @@ export function SectionBlock({
         <div className="section-copy">{description}</div>
       </header>
       <div className="space-y-6">{children}</div>
-    </div>
-  );
-}
-
-type StatRackProps = {
-  items: Array<{ label: string; value: string }>;
-  columns?: 2 | 3 | 4;
-  className?: string;
-  inverted?: boolean;
-};
-
-export function StatRack({
-  items,
-  columns = 4,
-  className,
-  inverted = false,
-}: StatRackProps) {
-  return (
-    <dl
-      className={cn("metric-rack", className)}
-      data-columns={String(columns)}
-      data-inverted={inverted ? "true" : undefined}
-    >
-      {items.map((item) => (
-        <div key={item.label} className="flex min-h-32 flex-col justify-between gap-6">
-          <dt
-            className={cn(
-              "text-[0.72rem] font-semibold uppercase tracking-[0.24em]",
-              inverted ? "text-ink-muted" : "text-muted-foreground"
-            )}
-          >
-            {item.label}
-          </dt>
-          <dd
-            className={cn(
-              "display-number",
-              inverted ? "text-ink-foreground" : "text-foreground"
-            )}
-          >
-            {item.value}
-          </dd>
-        </div>
-      ))}
-    </dl>
-  );
-}
-
-type MediaSplitProps = {
-  image: string;
-  imageAlt: string;
-  children: React.ReactNode;
-  reverse?: boolean;
-  priority?: boolean;
-  className?: string;
-};
-
-export function MediaSplit({
-  image,
-  imageAlt,
-  children,
-  reverse = false,
-  priority = false,
-  className,
-}: MediaSplitProps) {
-  return (
-    <div className={cn("grid items-center gap-8 lg:grid-cols-2 lg:gap-16", className)}>
-      <div className={cn("media-frame aspect-[4/3]", reverse && "lg:order-2")}>
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          priority={priority}
-          sizes="(min-width: 1024px) 40rem, 100vw"
-          className="object-cover"
-        />
-      </div>
-      <div className="space-y-5">{children}</div>
     </div>
   );
 }

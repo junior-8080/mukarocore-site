@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { Navigation } from "@/components/Navigation";
+import { BackToTop } from "@/components/BackToTop";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { siteUrl } from "@/lib/brand";
@@ -96,7 +97,6 @@ const jsonLd = {
         "@type": "Service",
         name: service.title,
         description: service.summary,
-        url: `${siteUrl}/services/${service.slug}`,
       },
     })),
   },
@@ -131,6 +131,7 @@ export default function RootLayout({
           <Navigation />
           <main id="main" tabIndex={-1} className="overflow-x-clip focus:outline-none">{children}</main>
           <Footer />
+          <BackToTop />
         </ThemeProvider>
         <Analytics />
       </body>
