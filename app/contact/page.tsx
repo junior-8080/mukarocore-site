@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { PageHero, SectionBlock, SiteSection } from "@/components/site/PageFrame";
+import { services } from "@/lib/services";
 
 const contactChannels = [
   {
@@ -221,7 +222,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <Label htmlFor="service">Service lane</Label>
+                    <Label htmlFor="service">Service</Label>
                     <Select
                       value={formData.service}
                       onValueChange={(value) =>
@@ -229,12 +230,14 @@ export default function ContactPage() {
                       }
                     >
                       <SelectTrigger id="service">
-                        <SelectValue placeholder="Choose the closest lane" />
+                        <SelectValue placeholder="Choose the closest service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="process-digitisation">Process digitisation</SelectItem>
-                        <SelectItem value="workflow-automation">Workflow automation</SelectItem>
-                        <SelectItem value="commerce">Commerce (Bookaata & in-house products)</SelectItem>
+                        {services.map((service) => (
+                          <SelectItem key={service.slug} value={service.slug}>
+                            {service.title}
+                          </SelectItem>
+                        ))}
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>

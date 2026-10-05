@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { services } from "@/lib/services";
 
 export async function POST(request: Request) {
   const { name, email, phone, company, service, message } = await request.json();
@@ -15,10 +16,8 @@ export async function POST(request: Request) {
   });
 
   const serviceLabel: Record<string, string> = {
-    "process-digitisation": "Process Digitisation",
-    "workflow-automation": "Workflow Automation",
-    "commerce": "Commerce & Payment Operations",
-    "other": "Other",
+    ...Object.fromEntries(services.map((item) => [item.slug, item.title])),
+    other: "Other",
   };
 
   try {

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type SiteSectionProps = {
@@ -129,5 +130,39 @@ export function StatRack({
         </div>
       ))}
     </dl>
+  );
+}
+
+type MediaSplitProps = {
+  image: string;
+  imageAlt: string;
+  children: React.ReactNode;
+  reverse?: boolean;
+  priority?: boolean;
+  className?: string;
+};
+
+export function MediaSplit({
+  image,
+  imageAlt,
+  children,
+  reverse = false,
+  priority = false,
+  className,
+}: MediaSplitProps) {
+  return (
+    <div className={cn("grid items-center gap-8 lg:grid-cols-2 lg:gap-16", className)}>
+      <div className={cn("media-frame aspect-[4/3]", reverse && "lg:order-2")}>
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          priority={priority}
+          sizes="(min-width: 1024px) 40rem, 100vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="space-y-5">{children}</div>
+    </div>
   );
 }

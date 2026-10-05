@@ -1,147 +1,53 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  CalendarCheck,
-  CheckCircle2,
-  Cloud,
-  Database,
-  Server,
-  Shield,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarCheck, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PageHero, SectionBlock, SiteSection } from "@/components/site/PageFrame";
-import { cn } from "@/lib/utils";
+import { CtaBand } from "@/components/site/CtaBand";
+import { MediaSplit, PageHero, SiteSection } from "@/components/site/PageFrame";
+import { ServiceCard } from "@/components/site/ServiceCard";
+import { deliveryPhases, serviceCategories, servicesByCategory } from "@/lib/services";
+import { clients } from "@/lib/clients";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "MukaroCore Enterprise digitises manual processes, automates operations, and builds commerce systems for businesses operating across Africa.",
+    "Custom software, mobile apps, DevOps, cloud, QA testing, systems integration, data, security, and commerce systems from MukaroCore in Accra, Ghana.",
   keywords: [
-    "process digitisation Africa",
-    "workflow automation Ghana",
-    "digital commerce systems Africa",
-    "business systems consulting Ghana",
+    "software development Ghana",
+    "custom software Accra",
+    "DevOps Ghana",
+    "QA testing Accra",
+    "systems integration Ghana",
     "MukaroCore services",
   ],
+  alternates: { canonical: "/services" },
   openGraph: {
     title: "Services | MukaroCore Enterprise",
     description:
-      "Technology and commerce services built to replace manual operations with clean digital systems that scale.",
+      "Build, operate, scale, and commerce services for businesses replacing manual operations with dependable digital systems.",
     url: "https://www.mukarocore.com/services",
   },
 };
 
-const techServices = [
-  {
-    icon: Server,
-    title: "Process Digitisation",
-    description:
-      "We replace paper-based, WhatsApp-chain, and spreadsheet workflows with structured digital systems your team can actually rely on.",
-    features: ["Manual-to-digital mapping", "Form and record digitisation", "Workflow structuring", "Document management"],
-  },
-  {
-    icon: Shield,
-    title: "Workflow Automation",
-    description:
-      "Repetitive back-office tasks get automated so your team spends less time on admin and more time on work that moves the business.",
-    features: ["Task automation", "Approval workflows", "Notification systems", "Scheduled reporting"],
-  },
-  // {
-  //   icon: Cloud,
-  //   title: "Systems Integration",
-  //   description:
-  //     "Disconnected tools and siloed data get connected into a single operating layer your team works from rather than around.",
-  //   features: ["API integrations", "Data sync across tools", "Cloud migration", "Legacy system upgrades"],
-  // },
-  // {
-  //   icon: Database,
-  //   title: "Operational Dashboards",
-  //   description:
-  //     "Real-time visibility into what your team is doing, how the work is moving, and where it's stalling — without manual reports.",
-  //   features: ["Live operations view", "Custom KPI tracking", "Automated report generation", "Team performance data"],
-  // },
-];
-
-const commerceProducts = [
-  {
-    icon: CalendarCheck,
-    title: "Bookaata",
-    tagline: "Service booking application",
-    status: "Live product",
-    description:
-      "Our first in-house commerce SaaS product,built to take service businesses off pen-and-paper booking books.",
-    features: ["Online booking & scheduling", "Mobile money & card payments", "Automated booking reminders", "Booking & revenue analytics"],
-  },
-];
-
-const techClients = [
-  { name: "Dasanda Closet", industry: "Clothing & Fashion", link:"https://www.dasandacloset.com/" },
-  { name: "Suturah By Feesah", industry: "Clothing & Fashion" ,link:"https://www.suturahbyfeesah.com/"},
-  { name: "Greenex Cargo", industry: "Logistics & Shipment",  link:"https://www.greenexcargo.com/" },
-  { name: "Kokromoti", industry: "E-learning Platform" ,link:"https://www.kokuromoti.com/" },
-];
-
-const deliveryPhases = [
-  "Diagnostic and process mapping",
-  "System design and rollout",
-  "Team enablement and support",
-];
-
-const laneLinks = [
-  { label: "Tech", href: "#tech" },
-  { label: "Commerce", href: "#commerce" },
-];
-
-function ServiceEntry({
-  service,
-  tone,
-}: {
-  service: (typeof techServices)[number];
-  tone: "tech" | "commerce";
-}) {
-  const Icon = service.icon;
-
-  const theme = {
-    tech: "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-500/15 dark:text-sky-300 dark:border-sky-500/25",
-    commerce:
-      "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/25",
-  }[tone];
-
-  return (
-    <article className="surface-card p-6">
-      <div className="flex items-start justify-between gap-4">
-        <span className={cn("flex h-12 w-12 items-center justify-center rounded-2xl border", theme)}>
-          <Icon size={20} />
-        </span>
-        <span className="tag-pill">{tone}</span>
-      </div>
-      <h3 className="mt-6 text-3xl">{service.title}</h3>
-      <p className="mt-3 text-sm leading-7 text-muted-foreground">{service.description}</p>
-      <ul className="ledger-list mt-6">
-        {service.features.map((feature) => (
-          <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-foreground">
-            <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-    </article>
-  );
-}
+const bookaata = {
+  title: "Bookaata",
+  tagline: "Our service booking application",
+  description:
+    "Our first in-house commerce product, built to take service businesses off pen-and-paper booking books.",
+  features: ["Online booking & scheduling", "Mobile money & card payments", "Automated booking reminders", "Booking & revenue analytics"],
+};
 
 export default function ServicesPage() {
   return (
     <>
       <PageHero
         eyebrow="Services"
-        title={<>Technology services. One operating layer.</>}
+        title={<>Technology services, end to end.</>}
         description={
           <>
-            Whether the problem is manual processes slowing the team down or revenue
-            leaking between delivery and payment, each service is built to fix a
-            specific part of how the business operates.
+            We build the software, run the infrastructure, and connect the
+            systems your business depends on. Pick one service or bring us the
+            whole problem.
           </>
         }
         actions={
@@ -160,20 +66,27 @@ export default function ServicesPage() {
         }
         aside={
           <>
-            <div className="route-list">
-              {laneLinks.map((lane, index) => (
-                <Link key={lane.href} href={lane.href} className="flex items-center justify-between gap-4">
+            <nav aria-label="Service categories" className="route-list">
+              {serviceCategories.map((category, index) => (
+                <Link
+                  key={category.id}
+                  href={`#${category.id}`}
+                  className="group flex items-center justify-between gap-4"
+                >
                   <span className="text-sm font-semibold text-primary">0{index + 1}</span>
-                  <span className="ml-auto text-xl">{lane.label}</span>
+                  <span className="ml-auto text-xl">{category.label}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {servicesByCategory(category.id).length}
+                  </span>
                 </Link>
               ))}
-            </div>
+            </nav>
             <article className="surface-card p-6">
               <p className="eyebrow">Delivery rhythm</p>
               <ol className="ledger-list mt-5 text-sm text-muted-foreground">
                 {deliveryPhases.map((phase, index) => (
-                  <li key={phase} className="flex items-start justify-between gap-4">
-                    <span>{phase}</span>
+                  <li key={phase.title} className="flex items-start justify-between gap-4">
+                    <span>{phase.title}</span>
                     <span className="text-primary">0{index + 1}</span>
                   </li>
                 ))}
@@ -183,103 +96,82 @@ export default function ServicesPage() {
         }
       />
 
-      <SiteSection tone="muted">
-        <div id="tech">
-          <SectionBlock
-            eyebrow="Tech lane"
-            title={<>Turn manual processes into systems that scale.</>}
-            description={
-              <>
-                This lane is for teams still running operations on spreadsheets,
-                WhatsApp threads, and paper trails — we digitise the process,
-                automate the repetition, and connect the tools so work flows cleanly.
-              </>
-            }
-          >
-            <div className="grid gap-4 lg:grid-cols-2">
-              {techServices.map((service) => (
-                <ServiceEntry key={service.title} service={service} tone="tech" />
-              ))}
-            </div>
+      {serviceCategories.map((category, index) => (
+        <SiteSection
+          key={category.id}
+          tone={index % 2 === 0 ? "muted" : "default"}
+          className="scroll-mt-20"
+        >
+          <div id={category.id} className="scroll-mt-24">
+            <MediaSplit image={category.image} imageAlt={category.imageAlt} reverse={index % 2 === 1}>
+              <p className="eyebrow">
+                0{index + 1} · {category.label}
+              </p>
+              <h2 className="section-title">{category.title}</h2>
+              <p className="section-copy">{category.description}</p>
+            </MediaSplit>
 
-            <div className="mt-10">
-              <p className="eyebrow">Clients we've worked with</p>
-              <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {techClients.map((client) => (
-                  <div key={client.name} className="surface-card p-5">
-                    <p className="text-lg font-semibold text-foreground">{client.name}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{client.industry}</p>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              {servicesByCategory(category.id).map((service) => (
+                <ServiceCard key={service.slug} service={service} />
+              ))}
+
+              {category.id === "commerce" ? (
+                <article className="surface-card p-6 sm:col-span-1 xl:col-span-2">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="icon-chip" data-tone="accent">
+                      <CalendarCheck size={22} aria-hidden />
+                    </span>
+                    <span className="tag-pill">Live product</span>
                   </div>
-                ))}
-              </div>
+                  <h3 className="mt-5 text-2xl">{bookaata.title}</h3>
+                  <p className="mt-1 text-sm font-semibold text-muted-foreground">{bookaata.tagline}</p>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{bookaata.description}</p>
+                  <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                    {bookaata.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2 text-sm text-foreground">
+                        <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-primary" aria-hidden />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ) : null}
             </div>
-          </SectionBlock>
-        </div>
-      </SiteSection>
+          </div>
+        </SiteSection>
+      ))}
 
       <SiteSection>
-        <div id="commerce">
-          <SectionBlock
-            eyebrow="Commerce lane"
-            title={<>The umbrella for the SaaS products we build in-house.</>}
-            description={
-              <>
-                This lane isn't a menu of consulting services — it's where we build
-                and ship our own commerce products to solve business problems we've
-                seen firsthand. Bookaata is the first one live, with more on the
-                way as they're built.
-              </>
-            }
-          >
-            <article className="surface-card p-6 lg:p-8">
-              <div className="flex items-start justify-between gap-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/25">
-                  <CalendarCheck size={20} />
-                </span>
-                <span className="tag-pill">{commerceProducts[0].status}</span>
-              </div>
-              <h3 className="mt-6 text-3xl">{commerceProducts[0].title}</h3>
-              <p className="mt-1 text-sm font-semibold text-muted-foreground">{commerceProducts[0].tagline}</p>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">{commerceProducts[0].description}</p>
-              <ul className="ledger-list mt-6">
-                {commerceProducts[0].features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm leading-7 text-foreground">
-                    <CheckCircle2 size={16} className="mt-1 shrink-0 text-primary" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-            <p className="mt-6 text-sm leading-7 text-muted-foreground">
-              This lane grows as we ship more in-house commerce SaaS — each product built the
-              same way: identify a real business problem, build the product, run it, then bring it to market.
-            </p>
-          </SectionBlock>
+        <p className="eyebrow">Clients we&apos;ve worked with</p>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {clients.map((client) => (
+            <a
+              key={client.name}
+              href={client.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="surface-card p-5"
+            >
+              <p className="text-lg font-semibold text-foreground">{client.name}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{client.industry}</p>
+            </a>
+          ))}
         </div>
       </SiteSection>
 
-
       <SiteSection className="pt-0">
-        <article className="surface-card p-8 lg:p-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-            <div>
-              <p className="eyebrow">Fit check</p>
-              <h2 className="mt-4 max-w-[12ch] text-5xl leading-none">
-                If the business has traction, the manual processes are already a bottleneck.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
-                We map where the friction is, identify which processes to digitise first,
-                and sequence the work so each fix builds on the last.
-              </p>
-            </div>
-
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Request a service review <ArrowUpRight size={16} />
-              </Link>
-            </Button>
-          </div>
-        </article>
+        <CtaBand
+          eyebrow="Fit check"
+          title={<>Not sure which service you need?</>}
+          description={
+            <>
+              Tell us where the friction is. We&apos;ll map it, tell you what to fix
+              first, and sequence the work so each step builds on the last.
+            </>
+          }
+          actionLabel="Request a service review"
+        />
       </SiteSection>
     </>
   );
